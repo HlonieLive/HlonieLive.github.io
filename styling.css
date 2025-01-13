@@ -1,0 +1,94 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3rem;
+}
+
+/* About Me Section */
+#about {
+    padding: 20px;
+    background-color: #fff;
+    margin: 20px 0;
+}
+
+#about h2 {
+    font-size: 2rem;
+}
+
+/* Portfolio Section */
+#portfolio {
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.project {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.project img {
+    max-width: 200px;
+    margin-right: 20px;
+}
+
+.project h3 {
+    font-size: 1.5rem;
+}
+
+.project a {
+    color: #333;
+    text-decoration: none;
+}
+
+/* Skills Section */
+#skills {
+    padding: 20px;
+}
+
+#skills ul {
+    list-style: none;
+}
+
+/* Contact Section */
+#contact {
+    padding: 20px;
+    background-color: #fff;
+}
+
+#contact a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
