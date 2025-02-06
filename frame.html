@@ -9,8 +9,11 @@
 <body>
     <!-- Header Section -->
     <header>
-        <h1>Lehlohonolo Tshabalala</h1>
-        <p>Who is Lehlohonolo?</p>
+        <!-- <div class="photo-container"></div>
+            <img src="images/IMG_8535.jpeg" class="profile-photo">
+        </div> -->
+        <h2>Hi, I am Lehlohonolo Tshabalala</h2>
+        <h4>Welcome to my World!</h4>
     </header>
 
     <!-- About Me Section -->
@@ -18,11 +21,13 @@
         <h2>About Me</h2>
         <p>Welcome to my digital portfolio! I am Lehlohonolo, a passionate and driven developer with a deep commitment to crafting exceptional, user-centered experiences. Through a combination of creativity, problem-solving, and technical expertise, I create solutions that are both visually appealing and functionally robust.
 
-            In this portfolio, you will find a collection of my work across various projects, ranging from kata-projects, games, websites as well as web applications. Each project reflects my dedication to producing high-quality work that meets the needs of clients and users alike. Whether it is a fully responsive website, a user-friendly interface, or a complex backend solution, my goal is always to make technology accessible and engaging.
+            In this portfolio, you will find a collection of my work across various projects, ranging from kata-projects, games, websites as well as web applications.</p>
             
-            I specialize in Python, Java, HTML, CSS, JavaScript, and I am constantly exploring new tools and techniques to improve my skills. But beyond the code and design, I truly believe in the power of collaboration and communication to create the best possible results.
+            <p>Each project reflects my dedication to producing high-quality work that meets the needs of clients and users alike. Whether it is a fully responsive website, a user-friendly interface, or a complex backend solution, my goal is always to make technology accessible and engaging.
             
-            Feel free to explore my projects and get a sense of my approach to design and development. If you like what you see or have a project in mind, I would love to hear from you and discuss how we can bring your ideas to life. Together, we can build something truly amazing!.</p>
+            I specialize in Python, Java, HTML, CSS, JavaScript, and I am constantly exploring new tools and techniques to improve my skills. But beyond the code and design, I truly believe in the power of collaboration and communication to create the best possible results.</p>
+            
+        <p>Feel free to explore my projects and get a sense of my approach to design and development. If you like what you see or have a project in mind, I would love to hear from you and discuss how we can bring your ideas to life. Together, we can build something truly amazing!.</p>
         <ul>
             <li>Skills: Web Development, Design, etc.</li>
             <li>Location: Johannesburg, South Africa</li>
@@ -33,11 +38,26 @@
     <!-- Portfolio Section -->
     <section id="portfolio">
         <h2>My Projects</h2>
-        <div class="project">
-            <img src="project1.jpg" alt="Project 1 Screenshot">
-            <h3>Rock, Paper, Scissor Simulation</h3>
-            <p>This project is a simple implementation of the classic hand game where players choose between rock, paper, scissor, lizard or spock, and the winner is determined based on the game’s rules.</p>
-            <a href="https://github.com/HlonieLive/Rock-Paper-Scissors" target="_blank">View Project</a>
+        <div class="dropdown">
+            <button class="dropdown-button">Select a Project</button>
+            <div class="dropdown-content">
+                <a href="#project1" onclick="showProject('project1')">Rock, Paper, Scissors</a>
+                <a href="#project2" onclick="showProject('project2')">Weather App</a>
+                <!-- Add more projects here -->
+            </div>
+        </div>
+
+        <!-- Project Details -->
+        <div id="project1" class="project-details">
+            <h3>Rock, Paper, Scissors</h3>
+            <p>This project is a simulation of the classic hand game where players choose between rock, paper, or scissors, and the winner is determined based on the game’s rules.</p>
+            <p><a href="https://github.com/HlonieLive/Rock-Paper-Scissors" target="_blank">View Repository</a></p>
+        </div>
+
+        <div id="project2" class="project-details">
+            <h3>Weather App</h3>
+            <p>A web application that fetches real-time weather data using an API and displays it in a user-friendly interface.</p>
+            <p><a href="https://github.com/HlonieLive/Weather-App" target="_blank">View Repository</a></p>
         </div>
         <!-- Add more projects here -->
     </section>
@@ -101,14 +121,14 @@
         <p>Feel free to reach out to me via email or social media.</p>
         <ul>
             <li>Email: lehlohonolotshabalala00@gmail.com</li>
-            <li>GitHub: <a href="https://github.com/HlonieLive" target="_blank">GitHub Profile</a></li>
+            <li>GitHub: <a href="https://github.com/HlonieLive" target="_blank"> View GitHub Profile</a></li>
             <!-- Add social media links -->
         </ul>
     </section>
 
     <!-- Footer Section -->
     <footer>
-        <p>&copy; 2025 Lehlohonolo Tshabalala</p>
+        <p>&copy; 2025 My Portfolio. All rights reserved</p>
     </footer>
 
     <!-- Link to the External JavaScript File -->

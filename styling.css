@@ -4,175 +4,255 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 /* Body and General Styling */
 body {
     font-family: 'Orbitron', sans-serif;
-    background-color: #0d0d0d; /* Black */
-    color: #00ffcc; /* Neon Cyan */
+    background-color: #f4f4f9;
+    color: #3b3a3a;
     line-height: 1.6;
     padding: 20px;
 }
-
 /* Header */
 header {
-    background-color: #1a1a1a; /* Dark Grey */
-    padding: 40px 20px;
-    text-align: center;
-    border-bottom: 2px solid #00ffcc; /* Neon Cyan Border */
+    /* Use the profile photo as the background */
+    background-image: url('images/IMG_8535.jpeg'); /* Replace with your image path */
+    background-size: cover; /* Ensures the image covers the entire header */
+    background-position: center; /* Centers the image within the header */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    height: 400px; /* Set the height of the header */
+    position: relative; /* Required for positioning the overlay */
+    color: #141313; /* Change text color to white for better visibility */
+    display: flex; /* Enable Flexbox */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: flex-end; /* Align content to the bottom */
+    align-items: center; /* Center content horizontally */
+    padding: 20px; /* Add some spacing */
+    opacity: 0.8;
 }
 
 header h1 {
     font-size: 4rem;
     font-weight: 700;
-    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc; /* Neon Cyan Glow */
+    color: #333;
+    text-shadow: 0 0 5px #007bff;
+}
+
+/* Profile Photo Styling */
+.profile-photo {
+    max-width: 200px; /* Set maximum width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10%; /* Less circular */
+    box-shadow: 
+        0 0 10px 5px rgba(146, 144, 144, 0.8), /* Inner shadow (strong) */
+        0 0 20px 10px rgba(114, 113, 113, 0.6), /* Middle shadow (medium) */
+        0 0 30px 15px rgba(94, 93, 93, 0.4); /* Outer shadow (faint) */
+    transition: box-shadow 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Optional: Hover effect for a stronger fade */
+.profile-photo:hover {
+    box-shadow: 
+        0 0 15px 8px rgba(146, 144, 144, 0.8), /* Stronger inner shadow */
+        0 0 30px 15px rgba(114, 113, 113, 0.6), /* Stronger middle shadow */
+        0 0 50px 20px rgba(94, 93, 93, 0.4); /* Stronger outer shadow */
+}
+.photo-container {
+    text-align: center; /* Center the photo */
+    margin-bottom: 10px; /* Add space below the photo */
+}
+
+/* Header Text */
+.profile-header h1 {
+    font-size: 2.5rem; /* Adjust font size for better proportion */
+    font-weight: 700;
+    color: #333; /* Dark text */
+    text-shadow: 0 0 5px #007bff; /* Subtle blue shadow */
+}
+
+.profile-header p {
+    font-size: 1.2rem; /* Slightly smaller than the heading */
+    color: #666; /* Grayish text */
+    margin-top: 10px;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .profile-photo-fit {
+        max-width: 100%; /* Ensure it fits on smaller screens */
+        border-width: 2px; /* Thinner border for smaller screens */
+    }
+
+    .profile-header h1 {
+        font-size: 2rem; /* Reduce font size for smaller screens */
+    }
 }
 
 /* About Me Section */
 #about {
-    background-color: #1a1a1a; /* Dark Grey */
+    background-color: #ffffff;
     padding: 40px 20px;
     margin: 20px 0;
-    border-left: 2px solid #00ffcc; /* Neon Cyan Border */
+    border-left: 2px solid #007bff;
+    margin-bottom: 20px;
 }
-
 #about h2 {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    text-shadow: 0 0 10px #00ffcc; /* Neon Cyan Glow */
+    color: #333;
 }
-
 #about p {
     max-width: 800px;
     margin: 0 auto;
     text-align: justify;
     font-size: 1.1rem;
 }
-
 /* Portfolio Section */
 #portfolio {
-    background-color: #1a1a1a; /* Dark Grey */
+    background-color: #ffffff;
     padding: 40px 20px;
     margin: 20px 0;
-    border-right: 2px solid #00ffcc; /* Neon Cyan Border */
+    border-right: 2px solid #007bff;
 }
-
-.project {
-    display: flex;
-    align-items: center;
+#portfolio h2 {
+    font-size: 2.5rem;
     margin-bottom: 20px;
-    background-color: #262626; /* Grey */
-    padding: 20px;
+    color: #333;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.dropdown-button:hover {
+    background-color: #0056b3;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #e9ecef;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+.dropdown-content a {
+    color: #333;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+.dropdown-content a:hover {
+    background-color: #007bff;
+    color: white;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Project Details Page */
+.project-details {
+    display: none;
+    background-color: #ffffff;
+    padding: 40px 20px;
+    margin: 20px 0;
+    border: 2px solid #007bff;
     border-radius: 10px;
-    box-shadow: 0 0 10px #00ffcc; /* Neon Cyan Glow */
-    max-width: 800px;
-    margin: 20px auto;
-    transition: transform 0.3s ease;
 }
-
-.project:hover {
-    transform: scale(1.05);
-}
-
-.project img {
-    max-width: 200px;
-    margin-right: 20px;
-    border-radius: 10px;
-}
-
-.project h3 {
+.project-details h3 {
     font-size: 1.8rem;
-    color: #00ffcc; /* Neon Cyan */
+    color: #007bff;
+    margin-bottom: 10px;
 }
-
-.project a {
-    color: #00ffcc; /* Neon Cyan */
+.project-details p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+.project-details a {
+    color: #007bff;
     text-decoration: none;
     font-weight: bold;
 }
 
 /* Skills Section */
 #skills {
-    background-color: #1a1a1a; /* Dark Grey */
+    background-color: #ffffff;
     padding: 40px 20px;
     margin: 20px 0;
-    border-left: 2px solid #00ffcc; /* Neon Cyan Border */
+    border-left: 2px solid #007bff;
 }
-
 #skills ul {
     list-style: none;
     padding: 0;
 }
-
 #skills li {
     display: inline-block;
     margin: 0 15px;
     font-size: 1.2rem;
-    color: #00ffcc; /* Neon Cyan */
+    color: #007bff;
 }
-
 /* Certificates Section */
 #certificates {
-    background-color: #1a1a1a;
+    background-color: #ffffff;
     padding: 40px 20px;
     margin: 20px 0;
-    border-right: 2px solid #00ffcc;
+    border-right: 2px solid #007bff;
 }
-
 .certificate {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    background-color: #262626;
+    background-color: #e9ecef;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px #00ffcc;
+    box-shadow: 0 0 10px #007bff;
     max-width: 800px;
     margin: 20px auto;
     transition: transform 0.3s ease;
 }
-
 .certificate:hover {
     transform: scale(1.05);
 }
-
 .certificate img {
     max-width: 200px;
     margin-right: 20px;
     border-radius: 10px;
 }
-
 .certificate h3 {
     font-size: 1.8rem;
-    color: #00ffcc;
+    color: #007bff;
 }
-
 .certificate a {
-    color: #00ffcc;
+    color: #007bff;
     text-decoration: none;
     font-weight: bold;
 }
-
-
 /* Contact Section */
 #contact {
-    background-color: #1a1a1a; /* Dark Grey */
+    background-color: #ffffff;
     padding: 40px 20px;
     margin: 20px 0;
-    border-right: 2px solid #00ffcc; /* Neon Cyan Border */
+    border-right: 2px solid #007bff;
 }
-
 #contact a {
     text-decoration: none;
-    color: #00ffcc; /* Neon Cyan */
+    color: #007bff;
     font-weight: bold;
 }
-
 /* Footer */
 footer {
-    background-color: #1a1a1a; /* Dark Grey */
-    color: #00ffcc; /* Neon Cyan */
+    background-color: #ffffff;
+    color: #333;
     text-align: center;
     padding: 20px;
-    border-top: 2px solid #00ffcc; /* Neon Cyan Border */
+    border-top: 2px solid #007bff;
 }
