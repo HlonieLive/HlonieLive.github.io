@@ -4,7 +4,7 @@ document.querySelectorAll('nav ul li a').forEach(anchor => {
         e.preventDefault(); // Prevent default anchor click behavior
         const targetId = this.getAttribute('href').substring(1); // Get target section ID
         const targetElement = document.getElementById(targetId);
-        
+
         // Scroll smoothly to the target section
         window.scrollTo({
             top: targetElement.offsetTop - 70, // Offset by 70px to account for the nav bar height
@@ -62,7 +62,6 @@ function showError(input, message) {
 function clearErrors() {
     const errorMessages = document.querySelectorAll('.error');
     const errorInputs = document.querySelectorAll('.error-input');
-
     errorMessages.forEach(error => error.remove());
     errorInputs.forEach(input => input.classList.remove('error-input'));
 }
@@ -93,3 +92,16 @@ function handleScroll() {
 // Initialize the scroll effect
 window.addEventListener('scroll', handleScroll);
 handleScroll(); // Call initially in case sections are already in view
+
+// 4. Dropdown Project Navigation (Added from Previous Code)
+function showProject(projectId) {
+    // Hide all project details
+    const projectDetails = document.querySelectorAll('.project-details');
+    projectDetails.forEach(detail => detail.style.display = 'none'); // Hide all project details
+
+    // Show the selected project's details
+    const selectedProject = document.getElementById(projectId);
+    if (selectedProject) {
+        selectedProject.style.display = 'block'; // Display the selected project
+    }
+}

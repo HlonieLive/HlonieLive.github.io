@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lehlohonolo Tshabalala - Portfolio</title>
-    <link rel="stylesheet" href="styling.css"> <!-- Link to CSS file -->
+    <link rel="stylesheet" href="styling.css">
 </head>
 <body>
     <!-- Header Section -->
@@ -16,6 +16,10 @@
     <!-- About Me Section -->
     <section id="about">
         <h2>About Me</h2>
+        <div class="photo-container">
+            <img src="profile_photo\image.jpeg" alt="Professional Photo" class="profile-photo">
+        </div>
+
         <p>Welcome to my digital portfolio! I am Lehlohonolo, a passionate and driven developer with a deep commitment to crafting exceptional, user-centered experiences. Through a combination of creativity, problem-solving, and technical expertise, I create solutions that are both visually appealing and functionally robust.
 
             In this portfolio, you will find a collection of my work across various projects, ranging from kata-projects, games, websites as well as web applications. Each project reflects my dedication to producing high-quality work that meets the needs of clients and users alike. Whether it is a fully responsive website, a user-friendly interface, or a complex backend solution, my goal is always to make technology accessible and engaging.
@@ -30,14 +34,36 @@
         </ul>
     </section>
 
+    <div class="top-links" style="position: absolute; top: 2.5%; left: 80%;">
+        <a href="" style="margin-right: 15px; text-decoration: none; color: black;">Home</a>
+        <a href="" style="margin-right: 15px; text-decoration: none; color: black;">About</a>
+        <a href="" style="margin-right: 15px; text-decoration: none; color: black;">Contacts</a>
+        <a href="" style="margin-right: 15px; text-decoration: none; color: black;">Help</a>
+    </div>
+
     <!-- Portfolio Section -->
     <section id="portfolio">
         <h2>My Projects</h2>
-        <div class="project">
-            <img src="project1.jpg" alt="Project 1 Screenshot">
-            <h3>Rock, Paper, Scissor Simulation</h3>
-            <p>This project is a simple implementation of the classic hand game where players choose between rock, paper, scissor, lizard or spock, and the winner is determined based on the game’s rules.</p>
-            <a href="https://github.com/HlonieLive/Rock-Paper-Scissors" target="_blank">View Project</a>
+         <div class="dropdown">
+            <button class="dropdown-button">View My work</button>
+            <div class="dropdown-content">
+                <a href="#project1" onclick="showProject('project1')">Rock, Paper, Scissors</a>
+                <a href="#project2" onclick="showProject('project2')">Weather App</a>
+                <!-- Add more projects here -->
+            </div>
+        </div>
+
+        <!-- Project Details -->
+        <div id="project1" class="project-details">
+            <h3>Rock, Paper, Scissors</h3>
+            <p>This project is a simple implementation of the classic hand game where players choose between rock, paper, or scissors, and the winner is determined based on the game’s rules.</p>
+            <p><a href="https://github.com/HlonieLive/Rock-Paper-Scissors" target="_blank">View Repository</a></p>
+        </div>
+
+        <div id="project2" class="project-details">
+            <h3>Weather App</h3>
+            <p>A web application that fetches real-time weather data using an API and displays it in a user-friendly interface.</p>
+            <p><a href="https://github.com/HlonieLive/Weather-App" target="_blank">View Repository</a></p>
         </div>
         <!-- Add more projects here -->
     </section>
@@ -108,7 +134,7 @@
 
     <!-- Footer Section -->
     <footer>
-        <p>&copy; 2025 Lehlohonolo Tshabalala</p>
+        <p>&copy; 2025 Lehlohonolo Tshabalala. All rights reserved!</p>
     </footer>
 
     <!-- Link to the External JavaScript File -->
