@@ -89,6 +89,19 @@ function handleScroll() {
     });
 }
 
+// 4. Function to show the selected project's details
+function showProject(projectId) {
+    // Hide all project details
+    const projectDetails = document.querySelectorAll('.project-details');
+    projectDetails.forEach(detail => detail.style.display = 'none');
+
+    // Show the selected project's details
+    const selectedProject = document.getElementById(projectId);
+    if (selectedProject) {
+        selectedProject.style.display = 'block';
+    }
+}
+
 // Initialize the scroll effect
 window.addEventListener('scroll', handleScroll);
 handleScroll(); // Call initially in case sections are already in view
