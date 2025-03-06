@@ -82,7 +82,31 @@ nav ul li a {
     text-decoration: none;
     border-radius: 5px;
 }
+
 .hero-img img {
     width: 300px;
     border-radius: 10px;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+}
+
+@media screen and (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background: #000;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+    nav ul.active {
+        display: flex;
+    }
 }
