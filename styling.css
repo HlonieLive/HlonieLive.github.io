@@ -1,270 +1,88 @@
-* {
+* { 
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
 body {
-    font-family: 'Orbitron', sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
-    line-height: 1.6;
-    padding: 20px;
+    background-color: #000;
+    color: #fff;
 }
 
-
-header {
-    background-color: #ffffff;
-    padding: 40px 20px;
-    text-align: center;
-    border-bottom: 2px solid #007bff;
-}
-header h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    color: #333;
-    text-shadow: 0 0 5px #007bff;
-}
-header p {
-    font-size: 1.2rem;
-    margin-top: 10px;
-    color: #666;
-}
-
-
-#about {
-    background-color: #ffffff;
-    padding: 40px 20px;
-    margin: 20px 0;
-    border-left: 2px solid #007bff;
-}
-#about h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #333;
-}
-.photo-container {
-    text-align: center;
-    margin-bottom: 20px;
-}
-.profile-photo {
-    max-width: 200px;
-    height: auto;
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-#about p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    text-align: justify;
-    margin-bottom: 20px;
-}
-#about ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-#about li {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-}
-
-    #portfolio {
-        background-color: #ffffff;
-        padding: 40px 20px;
-        margin: 20px 0;
-        border-right: 2px solid #007bff;
-    }
-    #portfolio h2 {
-        font-size: 2.5rem;
-        margin-bottom: 20px;
-        color: #333;
-    }
-    .dropdown {
-        position: relative;
-        display: inline-block;
-    }
-    .dropdown-button {
-        background-color: #007bff;
-        color: white;
-        padding: 10px 20px;
-        font-size: 1.2rem;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-    .dropdown-button:hover {
-        background-color: #0056b3;
-    }
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #e9ecef;
-        min-width: 200px;
-        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-        border-radius: 5px;
-    }
-    .dropdown-content a {
-        color: #333;
-        padding: 10px 20px;
-        text-decoration: none;
-        display: block;
-        transition: background-color 0.3s ease;
-    }
-    .dropdown-content a:hover {
-        background-color: #007bff;
-        color: white;
-    }
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
-    
-
-    .project-details {
-        display: none;
-        background-color: #ffffff;
-        padding: 40px 20px;
-        margin: 20px 0;
-        border: 2px solid #007bff;
-        border-radius: 10px;
-    }
-    .project-details h3 {
-        font-size: 1.8rem;
-        color: #007bff;
-        margin-bottom: 10px;
-    }
-    .project-details p {
-        font-size: 1.1rem;
-        margin-bottom: 10px;
-    }
-    .project-details a {
-        color: #007bff;
-        text-decoration: none;
-        font-weight: bold;
-    }
-
-
-#certificates {
-    background-color: #ffffff;
-    padding: 40px 20px;
-    margin: 20px 0;
-    border-left: 2px solid #007bff;
-}
-#certificates h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #333;
-}
-.certificate {
+nav {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
-    background-color: #e9ecef;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    padding: 20px 50px;
 }
-.certificate:hover {
-    transform: scale(1.05);
-}
-.certificate img {
-    max-width: 150px;
-    height: auto;
-    margin-right: 20px;
-    border-radius: 10px;
-}
-.certificate h3 {
-    font-size: 1.8rem;
-    color: #007bff;
-    margin-bottom: 10px;
-}
-.certificate p {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-}
-.certificate a {
-    color: #007bff;
-    text-decoration: none;
+
+.logo {
+    font-size: 24px;
     font-weight: bold;
 }
 
-
-#skills {
-    background-color: #ffffff;
-    padding: 40px 20px;
-    margin: 20px 0;
-    border-right: 2px solid #007bff;
+.logo span {
+    color: cyan;
 }
-#skills h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #333;
-}
-#skills ul {
+nav ul {
     list-style: none;
-    padding: 0;
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-#skills li {
-    background-color: #e9ecef;
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-size: 1.2rem;
-    color: #007bff;
+    gap: 20px;
 }
 
-#contacts {
-    background-color: #ffffff;
-    padding: 40px 20px;
-    margin: 20px 0;
-    border-right: 2px solid #007bff;
-}
-#contacts h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #333;
-}
-#contacts p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-#contacts ul {
-    list-style: none;
-    padding: 0;
-}
-#contacts li {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
-#contacts a {
-    color: #007bff;
+nav ul li a {
     text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+}
+
+.follow-btn {
+    background-color: cyan;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #000;
     font-weight: bold;
 }
 
-footer {
-    background-color: #ffffff;
-    color: #333;
-    text-align: center;
-    padding: 20px;
-    border-top: 2px solid #007bff;
-}
-footer p {
-    font-size: 1.2rem;
+.hero {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 80vh;
+    text-align: left;
 }
 
+.hero-text h1 {
+    font-size: 50px;
+}
 
-@media (max-width: 768px) {
-    .project, .certificate {
-        flex-direction: column;
-        align-items: center;
-    }
-    .certificate img {
-        margin-bottom: 10px;
-    }
+.hero-text h1 span {
+    color: cyan;
+}
+
+.hero-text p {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.hero-text p span {
+    color: cyan;
+    font-weight: bold;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: cyan;
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.hero-img img {
+    width: 300px;
+    border-radius: 10px;
 }
