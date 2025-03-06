@@ -1,48 +1,47 @@
-/* Reset some default styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-/* Body and General Styling */
+
 body {
     font-family: 'Orbitron', sans-serif;
-    background-color: #f4f4f9; /* Light background */
-    color: #333; /* Dark text */
+    background-color: #f4f4f9;
+    color: #333;
     line-height: 1.6;
     padding: 20px;
 }
 
-/* Header Section */
+
 header {
-    background-color: #ffffff; /* White background */
+    background-color: #ffffff;
     padding: 40px 20px;
     text-align: center;
-    border-bottom: 2px solid #007bff; /* Blue border */
+    border-bottom: 2px solid #007bff;
 }
 header h1 {
     font-size: 3rem;
     font-weight: 700;
-    color: #333; /* Dark text */
-    text-shadow: 0 0 5px #007bff; /* Subtle blue shadow */
+    color: #333;
+    text-shadow: 0 0 5px #007bff;
 }
 header p {
     font-size: 1.2rem;
     margin-top: 10px;
-    color: #666; /* Grayish text */
+    color: #666;
 }
 
-/* About Me Section */
+
 #about {
-    background-color: #ffffff; /* White background */
+    background-color: #ffffff;
     padding: 40px 20px;
     margin: 20px 0;
-    border-left: 2px solid #007bff; /* Blue border */
+    border-left: 2px solid #007bff;
 }
 #about h2 {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: #333; /* Dark text */
+    color: #333;
 }
 .photo-container {
     text-align: center;
@@ -51,8 +50,8 @@ header p {
 .profile-photo {
     max-width: 200px;
     height: auto;
-    border-radius: 50%; /* Circular photo */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 #about p {
     font-size: 1.1rem;
@@ -69,7 +68,7 @@ header p {
     font-size: 1.1rem;
     margin-bottom: 10px;
 }
-/* Portfolio Section */
+
     #portfolio {
         background-color: #ffffff;
         padding: 40px 20px;
@@ -122,7 +121,7 @@ header p {
         display: block;
     }
     
-/* Project Details Page */
+
     .project-details {
         display: none;
         background-color: #ffffff;
@@ -146,26 +145,26 @@ header p {
         font-weight: bold;
     }
 
-/* Certificates Section */
+
 #certificates {
-    background-color: #ffffff; /* White background */
+    background-color: #ffffff;
     padding: 40px 20px;
     margin: 20px 0;
-    border-left: 2px solid #007bff; /* Blue border */
+    border-left: 2px solid #007bff;
 }
 #certificates h2 {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: #333; /* Dark text */
+    color: #333;
 }
 .certificate {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    background-color: #e9ecef; /* Light gray background */
+    background-color: #e9ecef;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
 .certificate:hover {
@@ -179,7 +178,7 @@ header p {
 }
 .certificate h3 {
     font-size: 1.8rem;
-    color: #007bff; /* Blue text */
+    color: #007bff;
     margin-bottom: 10px;
 }
 .certificate p {
@@ -187,22 +186,22 @@ header p {
     margin-bottom: 10px;
 }
 .certificate a {
-    color: #007bff; /* Blue link */
+    color: #007bff;
     text-decoration: none;
     font-weight: bold;
 }
 
-/* Skills Section */
+
 #skills {
-    background-color: #ffffff; /* White background */
+    background-color: #ffffff;
     padding: 40px 20px;
     margin: 20px 0;
-    border-right: 2px solid #007bff; /* Blue border */
+    border-right: 2px solid #007bff;
 }
 #skills h2 {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: #333; /* Dark text */
+    color: #333;
 }
 #skills ul {
     list-style: none;
@@ -212,24 +211,23 @@ header p {
     gap: 10px;
 }
 #skills li {
-    background-color: #e9ecef; /* Light gray background */
+    background-color: #e9ecef;
     padding: 10px 20px;
     border-radius: 20px;
     font-size: 1.2rem;
-    color: #007bff; /* Blue text */
+    color: #007bff;
 }
 
-/* Contact Section */
 #contacts {
-    background-color: #ffffff; /* White background */
+    background-color: #ffffff;
     padding: 40px 20px;
     margin: 20px 0;
-    border-right: 2px solid #007bff; /* Blue border */
+    border-right: 2px solid #007bff;
 }
 #contacts h2 {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: #333; /* Dark text */
+    color: #333;
 }
 #contacts p {
     font-size: 1.2rem;
@@ -244,24 +242,23 @@ header p {
     margin-bottom: 10px;
 }
 #contacts a {
-    color: #007bff; /* Blue link */
+    color: #007bff;
     text-decoration: none;
     font-weight: bold;
 }
 
-/* Footer Section */
 footer {
-    background-color: #ffffff; /* White background */
-    color: #333; /* Dark text */
+    background-color: #ffffff;
+    color: #333;
     text-align: center;
     padding: 20px;
-    border-top: 2px solid #007bff; /* Blue border */
+    border-top: 2px solid #007bff;
 }
 footer p {
     font-size: 1.2rem;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
     .project, .certificate {
         flex-direction: column;
