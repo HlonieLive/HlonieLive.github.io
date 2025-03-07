@@ -49,6 +49,7 @@ nav {
 
 .logo {
     font-weight: bold;
+    font-size: 18px;
     transition: color 0.3s ease;
 }
 
