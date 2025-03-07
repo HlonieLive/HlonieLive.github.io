@@ -3,11 +3,13 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
+    color: white;
 }
 
 body {
     background-color: #000;
     color: #fff;
+    line-height: 1.6;
 }
 
 nav {
@@ -15,39 +17,95 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 20px 50px;
+    position: relative;
+    z-index: 1000;
 }
 
 .logo {
-    font-size: 24px;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
-.logo span {
+.logo:hover {
     color: cyan;
 }
+
+p span {
+    color: cyan;
+
+}
+
+.port {
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.port span {
+    color: cyan;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover span {
+    transform: rotate(10deg) scale(1.1);
+}
+
 nav ul {
     list-style: none;
     display: flex;
     gap: 20px;
+    transition: opacity 0.3s ease;
 }
 
 nav ul li a {
     text-decoration: none;
     color: #fff;
     font-size: 16px;
+    padding: 8px 12px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: cyan;
+    background: rgba(0, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: cyan;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+    left: 0;
 }
 
 .follow-btn {
     background-color: cyan;
+    width: fit-content;
     padding: 8px 15px;
-    border-radius: 5px;
+    border-radius: 30px;
     text-decoration: none;
     color: #000;
     font-weight: bold;
+    transition: all 0.3s ease;
+    transform: perspective(1px) translateZ(0); /* Fix for Safari */
+}
+
+.follow-btn:hover {
+    background-color: #00ffffcc;
+    box-shadow: 0 0 10px cyan;
+    transform: scale(1.05);
 }
 
 .hero {
-    display: flex;
     justify-content: space-around;
     align-items: center;
     height: 80vh;
@@ -56,36 +114,80 @@ nav ul li a {
 
 .hero-text h1 {
     font-size: 50px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.hero-text {
+    padding: 200px 200px 100px 200px;
 }
 
 .hero-text h1 span {
     color: cyan;
+    transition: text-shadow 0.3s ease;
+}
+
+.hero-text h1:hover span {
+    text-shadow: 0 0 15px cyan;
 }
 
 .hero-text p {
     font-size: 20px;
     margin: 10px 0;
+    padding-bottom: 50px;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
 }
 
-.hero-text p span {
-    color: cyan;
-    font-weight: bold;
+.hero-text p:hover {
+    opacity: 1;
+}
+
+.social-icons a img{
+    background-color: white;
+    border: 0.3px solid white;
+    border-radius: 50%;
+    width: 50px;
 }
 
 .btn {
     display: inline-block;
-    margin-top: 20px;
+    width: max-content;
+    text-align: center;
+    margin-top: 40px;
     padding: 10px 20px;
-    background-color: cyan;
-    color: #000;
+    color: white;
     font-weight: bold;
     text-decoration: none;
-    border-radius: 5px;
+    border: 0.1px solid;
+    border-radius: 20px;
+    border-color: cyan;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: perspective(1px) translateZ(0);
+}
+
+.btn:hover {
+    background-color: #00ffffcc;
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+    transform: translateY(-2px) scale(1.05);
 }
 
 .hero-img img {
-    width: 300px;
-    border-radius: 10px;
+    margin-left: 1100px;
+    margin-top: -650px;
+    width: 500px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero-img img:hover {
+    transform: scale(1.05) rotate(-2deg);
+    box-shadow: 0 15px 30px rgba(0, 255, 255, 0.3);
 }
 
 .menu-toggle {
@@ -93,8 +195,14 @@ nav ul li a {
     font-size: 30px;
     cursor: pointer;
     color: white;
+    transition: transform 0.3s ease;
 }
 
+.menu-toggle:hover {
+    transform: rotate(180deg);
+}
+
+/* Mobile menu */
 @media screen and (max-width: 768px) {
     nav ul {
         display: none;
@@ -105,8 +213,35 @@ nav ul li a {
         left: 0;
         width: 100%;
         text-align: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s ease;
+        transform: translateY(-20px);
     }
+    
     nav ul.active {
         display: flex;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
     }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .hero {
+        flex-direction: column;
+        padding: 0 20px;
+        text-align: center;
+    }
+    
+    .hero-img img {
+        width: 250px;
+        margin-top: 30px;
+    }
+}
+
+footer {
+    text-align: center;
 }
