@@ -56,6 +56,10 @@ nav {
     color: cyan;
 }
 
+p, footer {
+    font-family: Arial;
+    font-weight: bold;
+}
 p span {
     color: cyan;
 
