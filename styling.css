@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
     color: white;
 }
 
@@ -10,10 +9,37 @@ body {
     background-color: #000;
     color: #fff;
     line-height: 1.6;
+
+    background-image: 
+        /* Cyan dots */
+        radial-gradient(circle at 15% 30%, cyan 10px, transparent 0),
+        radial-gradient(circle at 85% 70%, cyan 4px, transparent 0),
+        radial-gradient(circle at 40% 10%, cyan 7px, transparent 0),
+        radial-gradient(circle at 90% 45%, cyan 2px, transparent 0),
+        
+        /* White dots */
+        radial-gradient(circle at 25% 60%, rgba(255,255,255) 5px, transparent 0),
+        radial-gradient(circle at 60% 25%, rgba(255,255,255) 10px, transparent 0),
+        radial-gradient(circle at 10% 85%, rgba(255,255,255) 2px, transparent 0),
+        
+        /* Grey dots */
+        radial-gradient(circle at 75% 15%, #333 7px, transparent 0),
+        radial-gradient(circle at 30% 50%, #555 10px, transparent 0),
+        radial-gradient(circle at 55% 80%, #444 3px, transparent 0);
+    background-repeat: no-repeat;
+    background-size: 200% 200%; /* Create larger canvas for random effect */
+    background-position: center;
+    animation: moveDots 15s linear infinite;
 }
 
+@keyframes moveDots {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+
 nav {
-    display: flex;
+  display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 50px;
