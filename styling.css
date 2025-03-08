@@ -131,7 +131,7 @@ nav ul li a:hover::after {
 }
 
 .follow-btn:hover {
-    background-color: orange;
+    background-color: rgb(117, 107, 88);
     box-shadow: 0 0 10px orange;
     transform: scale(1.05);
 }
