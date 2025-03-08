@@ -131,7 +131,7 @@ nav ul li a:hover::after {
 }
 
 .follow-btn:hover {
-    background-color: #00ffffcc;
+    background-color: orange;
     box-shadow: 0 0 10px orange;
     transform: scale(1.05);
 }
@@ -202,7 +202,7 @@ nav ul li a:hover::after {
 }
 
 .btn:hover {
-    background-color: #00ffffcc;
+    background-color: orange;
     box-shadow: 0 5px 15px rgba(255, 174, 0, 0.411);
     transform: translateY(-2px) scale(1.05);
 }
