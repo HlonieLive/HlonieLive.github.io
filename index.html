@@ -14,7 +14,10 @@
     <!-- Header / Navigation -->
     <header>
         <nav>
-            <div class="port"><span>m</span>Y Port<span class="active-dot">folio</span></div>
+            <div class="port" style="display: flex; flex-direction: column; line-height: 1.1;">
+                <span style="font-size: 1.2rem; display: block;">m<span style="color: white;">Y</span></span>
+                <span style="font-size: 0.9rem; letter-spacing: 1px; color: white;">Portfolio</span>
+            </div>
             <div class="menu-toggle" id="mobile-menu">
                 <span></span>
                 <span></span>
@@ -22,9 +25,10 @@
             </div>
 
             <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
                 <li><a href="#about">About Me</a></li>
-                <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#certificates">Certificates</a></li>
                 <li><a href="#qualifications">Qualifications</a></li>
                 <li><a href="#contacts">Contact Me</a></li>
@@ -40,13 +44,24 @@
             <h1>Lehlohonolo <span>Tshabalala</span></h1>
             <p class="hero-intro">I am a <span id="role-typewriter" class="typewriter"></span></p>
             
-            <p class="cta-label">Connect with me on Social Media</p>
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/in/lehlohonolo-tshabalala-b81657266/"><img src="images/linkedin.png" alt="LinkedIn"></a>
-                <a href="https://github.com/HlonieLive"><img src="images/github.png" alt="GitHub"></a>
-                <a href="https://www.instagram.com/hlony_live?igsh=MTgzaXY1cDlqNnNteA%3D%3D&utm_source=qr"><img src="images/instagram.png" alt="Instagram"></a>
-                <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
-                <a href="#"><img src="images/twitter.png" alt="Twitter"></a>
+            <!-- AWS Badges -->
+            <div class="aws-badge-section" style="margin: 1.5rem 0;">
+                <p style="color: var(--primary-color); font-size: 0.9rem; margin-bottom: 0.5rem; text-transform: uppercase;">AWS Cloud Certified</p>
+                <div style="display: flex; gap: 15px;">
+                    <a href="https://aws.amazon.com/verification" target="_blank"><img src="https://via.placeholder.com/50?text=CP" alt="Cloud Practitioner" style="border-radius: 50%; border: 2px solid #555;"></a>
+                    <a href="https://aws.amazon.com/verification" target="_blank"><img src="https://via.placeholder.com/50?text=Dev" alt="Developer" style="border-radius: 50%; border: 2px solid #555;"></a>
+                    <a href="https://aws.amazon.com/verification" target="_blank"><img src="https://via.placeholder.com/50?text=SAA" alt="Solutions Architect" style="border-radius: 50%; border: 2px solid #555;"></a>
+                </div>
+            </div>
+
+            <!-- Achievements -->
+            <div class="achievements-section" style="margin-bottom: 2rem;">
+                 <p style="color: var(--primary-color); font-size: 0.9rem; margin-bottom: 0.5rem; text-transform: uppercase;">Highlights & Wins</p>
+                 <ul style="list-style: none; padding: 0; color: #ccc; font-size: 0.95rem; line-height: 1.6;">
+                     <li>🏆 Got Second Place on MTN MoMo Annual Hackathon '25</li>
+                     <li>⭐ Got Top Ten on FNB App Of Year '24</li>
+                     <li>🏅 Got Top five BASE Vibe Coding Hackathon '25</li>
+                 </ul>
             </div>
 
             <p class="cta-label">Would like to hire me? Grab a copy of my Resume</p>
@@ -90,32 +105,24 @@
             <h2 class="section-title">Projects</h2>
 
             <div class="projects-grid" id="projects-grid">
+                <!-- Project 1 -->
                 <div class="project-card">
                     <button class="remove-btn" onclick="removeElement(this)">x</button>
                     <button class="edit-btn" onclick="editElement(this)">✎</button>
-                    <h3>Rock, Paper, Scissors</h3>
-                    <img src="https://via.placeholder.com/600x300?text=Rock+Paper+Scissors+Game" alt="Rock Paper Scissors Game">
-                    <p>
-                        A simple implementation of the classic hand game where players choose between rock, paper, scissors, lizard or spock, and the winner is determined based on the game’s rules.
-                        • Single-player mode against a computer.
-                        • Randomized computer moves to ensure fairness.
-                        • User-friendly interface.
-                    </p>
-                    <p><a href="https://github.com/HlonieLive/Rock-Paper-Scissors" target="_blank">View Repository</a></p>
+                    <img src="images/project1.png" alt="Basic Calculator Project">
+                    <h3>Basic Calculator</h3>
+                    <p>A simple calculator application built with HTML, CSS, and JavaScript. Perform basic operations with ease.</p>
+                    <a href="https://github.com/HlonieLive/Calculator" target="_blank">View on GitHub</a>
                 </div>
 
+                <!-- Project 2 -->
                 <div class="project-card">
                     <button class="remove-btn" onclick="removeElement(this)">x</button>
                     <button class="edit-btn" onclick="editElement(this)">✎</button>
-                    <h3>Weather App</h3>
-                    <img src="https://via.placeholder.com/600x300?text=Weather+App" alt="Weather App">
-                    <p>
-                        A GUI-based weather application built using Python's Pygame library. It fetches real-time weather data from the OpenWeatherMap API and displays it in a user-friendly interface.
-                        • Displays current weather (temperature, wind speed, humidity).
-                        • Interactive buttons to toggle between parameters.
-                        • Simple and intuitive GUI.
-                    </p>
-                    <p><a href="https://github.com/HlonieLive/Weather-App" target="_blank">View Repository</a></p>
+                    <img src="images/project2.png" alt="Rock Paper Scissors">
+                    <h3>Rock Paper Scissors</h3>
+                    <p>Interactive Rock Paper Scissors game. Challenge the computer and test your luck!</p>
+                    <a href="https://github.com/HlonieLive/Rock-Paper-Scissors" target="_blank">View on GitHub</a>
                 </div>
             </div>
             <button id="add-project-btn" class="action-btn">Add Project</button>
@@ -236,6 +243,13 @@
 
     <!-- Footer -->
     <footer>
+        <div class="footer-socials" style="display: flex; justify-content: center; gap: 20px; margin-bottom: 2rem;">
+            <a href="https://www.linkedin.com/in/lehlohonolo-tshabalala-b81657266/" target="_blank"><img src="images/linkedin.png" alt="LinkedIn" style="width: 30px; transition: transform 0.3s;"></a>
+            <a href="https://github.com/HlonieLive" target="_blank"><img src="images/github.png" alt="GitHub" style="width: 30px; transition: transform 0.3s;"></a>
+            <a href="https://www.instagram.com/hlony_live?igsh=MTgzaXY1cDlqNnNteA%3D%3D&utm_source=qr" target="_blank"><img src="images/instagram.png" alt="Instagram" style="width: 30px; transition: transform 0.3s;"></a>
+            <a href="#" target="_blank"><img src="images/facebook.png" alt="Facebook" style="width: 30px; transition: transform 0.3s;"></a>
+            <a href="#" target="_blank"><img src="images/twitter.png" alt="Twitter" style="width: 30px; transition: transform 0.3s;"></a>
+        </div>
         <p>&copy; 2025 <span style="font-weight: bold;">Lehlohonolo Tshabalala.</span> All rights reserved!</p>
     </footer>
 
