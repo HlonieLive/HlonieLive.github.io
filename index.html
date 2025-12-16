@@ -30,6 +30,7 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#aws-badges">Badges</a></li>
                 <li><a href="#qualifications">Qualifications</a></li>
                 <li><a href="#contacts">Contact Me</a></li>
             </ul>
@@ -44,23 +45,15 @@
             <h1>Lehlohonolo <span>Tshabalala</span></h1>
             <p class="hero-intro">I am a <span id="role-typewriter" class="typewriter"></span></p>
             
-            <!-- AWS Badges -->
-            <div class="aws-badge-section" style="margin: 1.5rem 0;">
-                <p style="color: var(--primary-color); font-size: 0.9rem; margin-bottom: 0.5rem; text-transform: uppercase;">AWS Cloud Certified</p>
-                <div style="display: flex; gap: 15px;">
-                    <a href="https://aws.amazon.com/verification" target="_blank"><img src="https://via.placeholder.com/50?text=CP" alt="Cloud Practitioner" style="border-radius: 50%; border: 2px solid #555;"></a>
-                    <a href="https://aws.amazon.com/verification" target="_blank"><img src="https://via.placeholder.com/50?text=Dev" alt="Developer" style="border-radius: 50%; border: 2px solid #555;"></a>
-                    <a href="https://aws.amazon.com/verification" target="_blank"><img src="https://via.placeholder.com/50?text=SAA" alt="Solutions Architect" style="border-radius: 50%; border: 2px solid #555;"></a>
-                </div>
-            </div>
+
 
             <!-- Achievements -->
             <div class="achievements-section" style="margin-bottom: 2rem;">
                  <p style="color: var(--primary-color); font-size: 0.9rem; margin-bottom: 0.5rem; text-transform: uppercase;">Highlights & Wins</p>
                  <ul style="list-style: none; padding: 0; color: #ccc; font-size: 0.95rem; line-height: 1.6;">
                      <li>🏆 Got Second Place on MTN MoMo Annual Hackathon '25</li>
-                     <li>⭐ Got Top Ten on FNB App Of Year '24</li>
                      <li>🏅 Got Top five BASE Vibe Coding Hackathon '25</li>
+                     <li>⭐ Got Top Ten on FNB App Of Year '24</li>
                  </ul>
             </div>
 
@@ -68,7 +61,13 @@
             <a href="assets/Lehlohonolo_Tshabalala_Resume.pdf" class="hero-btn" download>Download CV</a>
         </div>
         <div class="hero-img fade-in">
-            <img src="images/profile.png" alt="Profile Picture" />
+            <div class="profile-container">
+                <img id="profile-pic" src="images/profile.png" alt="Profile Picture" />
+                <input type="file" id="profile-upload" accept="image/*" style="display: none;">
+                <div class="profile-upload-icon" onclick="document.getElementById('profile-upload').click()" title="Change Profile Photo">
+                    📷
+                </div>
+            </div>
         </div>
     </section>
 
@@ -86,7 +85,7 @@
                 Each project reflects my dedication to producing high-quality work that meets the needs of clients and users alike. Whether it is a fully responsive website, a user-friendly interface, or a complex backend solution, my goal is always to make technology accessible and engaging.
             </p>
             <p>
-                I specialize in Python, Java, HTML, CSS, JavaScript, and I am constantly exploring new tools and techniques to improve my skills. But beyond the code and design, I truly believe in the power of collaboration and communication to create the best possible results.
+                I specialize in Python, Java, .NET, and SQL Databases, as well as front-end technologies like HTML, CSS, JavaScript, and React. I also have strong expertise in Scripting, Automation (CI/CD pipelines), Docker, and AWS Cloud Development (including S3, EC2, IAM, Cognito, Cloud Formation, and Builder Labs). Grounded in Agile Development principles, I am constantly exploring new tools and techniques to improve my skills. But beyond the code and design, I truly believe in the power of collaboration and communication to create the best possible results.
             </p>
             <p>
                 Feel free to explore my projects and get a sense of my approach to design and development. If you like what you see or have a project in mind, I would love to hear from you and discuss how we can bring your ideas to life. Together, we can build something truly amazing!
@@ -140,6 +139,7 @@
             <div class="projects-grid" id="projects-grid">
                 <!-- Project 1 -->
                 <div class="project-card">
+
                     <button class="remove-btn" onclick="removeElement(this)">x</button>
                     <button class="edit-btn" onclick="editElement(this)">✎</button>
                     <img src="images/project1.png" alt="Basic Calculator Project">
@@ -150,6 +150,7 @@
 
                 <!-- Project 2 -->
                 <div class="project-card">
+
                     <button class="remove-btn" onclick="removeElement(this)">x</button>
                     <button class="edit-btn" onclick="editElement(this)">✎</button>
                     <img src="images/project2.png" alt="Rock Paper Scissors">
@@ -158,6 +159,7 @@
                     <a href="https://github.com/HlonieLive/Rock-Paper-Scissors" target="_blank">View on GitHub</a>
                 </div>
             </div>
+
             <button id="add-project-btn" class="action-btn">Add Project</button>
         </div>
     </section>
@@ -169,6 +171,7 @@
 
             <div class="certificates-grid" id="certificates-grid">
                 <div class="certificate-card">
+
                     <button class="remove-btn" onclick="removeElement(this)">x</button>
                     <button class="edit-btn" onclick="editElement(this)">✎</button>
                     <img src="https://via.placeholder.com/600x300?text=Java+Developer+Certificate" alt="Java Developer Certificate">
@@ -178,6 +181,7 @@
                 </div>
 
                 <div class="certificate-card">
+
                     <button class="remove-btn" onclick="removeElement(this)">x</button>
                     <button class="edit-btn" onclick="editElement(this)">✎</button>
                     <img src="https://via.placeholder.com/600x300?text=SQL+Developer+Certificate" alt="SQL Developer Certificate">
@@ -187,6 +191,7 @@
                 </div>
 
                 <div class="certificate-card">
+
                     <button class="remove-btn" onclick="removeElement(this)">x</button>
                     <button class="edit-btn" onclick="editElement(this)">✎</button>
                     <img src="https://via.placeholder.com/600x300?text=Data+Analysis+with+Python" alt="Data Analysis with Python">
@@ -196,6 +201,7 @@
                 </div>
 
                 <div class="certificate-card">
+
                     <button class="remove-btn" onclick="removeElement(this)">x</button>
                     <button class="edit-btn" onclick="editElement(this)">✎</button>
                     <img src="https://via.placeholder.com/600x300?text=Motheo+Financial+Education" alt="Motheo Financial Education">
@@ -204,7 +210,123 @@
                     <a href="certificates.pdf" target="_blank">View Certificate</a>
                 </div>
             </div>
+
+
+
             <button id="add-cert-btn" class="action-btn">Add Certificate</button>
+        </div>
+    </section>
+
+    </section>
+
+    <!-- AWS Badges Independent Section -->
+    <section id="aws-badges" class="fade-in">
+        <div class="section-container">
+            <h2 class="section-title">AWS Badges</h2>
+            <div class="aws-badges-grid">
+                <!-- Badge 1: Cloud 101 -->
+                <div class="aws-badge-item" 
+                        data-title="Introduction to Cloud 101" 
+                        data-desc="This module provides a comprehensive introduction to Cloud Computing concepts. It covers the definition of the cloud, global infrastructure, and the core benefits including high availability, scalability, and elasticity. I learned about the different cloud deployment models (Public, Private, Hybrid) and service models (IaaS, PaaS, SaaS), laying a solid foundation for all future cloud architectural decisions.">
+                    <button class="remove-btn" onclick="removeElement(this)">x</button>
+                    <button class="edit-btn" onclick="editElement(this)">✎</button>
+                    <img src="images/aws_logo.png" alt="Introduction to Cloud 101" onclick="openBadgeModal(this.parentElement)">
+                    <h4><a href="https://www.credly.com/earner/earned/badge/74af578f-445a-4376-82b9-2764ecc7386a" target="_blank">Introduction to Cloud 101</a></h4>
+                    <p>Basics of Cloud Computing</p>
+                </div>
+                <!-- Badge 2: Storage -->
+                <div class="aws-badge-item"
+                        data-title="Getting Started with Storage"
+                        data-desc="A deep dive into the AWS storage ecosystem. I gained hands-on experience with Amazon Simple Storage Service (S3) for scalable object storage, Amazon Elastic Block Store (EBS) for persistent block storage used with EC2, and Amazon Elastic File System (EFS) for shared file storage. The course emphasized selecting the right storage class for performance and cost optimization.">
+                    <button class="remove-btn" onclick="removeElement(this)">x</button>
+                    <button class="edit-btn" onclick="editElement(this)">✎</button>
+                    <img src="images/aws_logo.png" alt="Getting Started with Storage" onclick="openBadgeModal(this.parentElement)">
+                    <h4><a href="https://www.credly.com/earner/earned/badge/11943ce8-da60-4bff-b916-eb865e1ee3fe" target="_blank">Getting Started with Storage</a></h4>
+                    <p>S3, EBS & Data Management</p>
+                </div>
+                <!-- Badge 3: Compute -->
+                <div class="aws-badge-item"
+                        data-title="Getting Started with Compute"
+                        data-desc="Focusing on the backbone of the cloud, this badge certifies my understanding of AWS Compute services. It covers the lifecycle of Amazon EC2 instances, from launching and configuring to managing security groups and key pairs. I also explored container services and the revolutionary shift towards serverless computing with AWS Lambda.">
+                    <button class="remove-btn" onclick="removeElement(this)">x</button>
+                    <button class="edit-btn" onclick="editElement(this)">✎</button>
+                    <img src="images/aws_logo.png" alt="Getting Started with Compute" onclick="openBadgeModal(this.parentElement)">
+                    <h4><a href="https://www.credly.com/earner/earned/badge/c3ba5348-749e-40e9-a23a-cd5352f665e2" target="_blank">Getting Started with Compute</a></h4>
+                    <p>EC2, Lambda & Computing Power</p>
+                </div>
+                <!-- Badge 4: Networking -->
+                <div class="aws-badge-item"
+                        data-title="Getting Started with Networking"
+                        data-desc="This certification validates my networking skills within the AWS Cloud. I demonstrated proficiency in creating isolated cloud networks using Amazon Virtual Private Cloud (VPC), managing IP addressing with subnets, creating route tables, and securing network traffic using Security Groups and Network Access Control Lists (NACLs).">
+                    <button class="remove-btn" onclick="removeElement(this)">x</button>
+                    <button class="edit-btn" onclick="editElement(this)">✎</button>
+                    <img src="images/aws_logo.png" alt="Getting Started with Networking" onclick="openBadgeModal(this.parentElement)">
+                    <h4><a href="https://www.credly.com/earner/earned/badge/2a24a012-5114-42c4-bbfd-bb52b849fc8c" target="_blank">Getting Started with Networking</a></h4>
+                    <p>VPC, Route 53 & Connectivity</p>
+                </div>
+                <!-- Badge 5: Databases -->
+                <div class="aws-badge-item"
+                        data-title="Getting Started with Databases"
+                        data-desc="I explored the landscape of managed database services on AWS. This includes Amazon RDS for traditional relational database management and Amazon DynamoDB for modern, high-scale NoSQL applications. The training covered database design, automated backups, read replicas, and strategies for migrating on-premise databases to the cloud.">
+                    <button class="remove-btn" onclick="removeElement(this)">x</button>
+                    <button class="edit-btn" onclick="editElement(this)">✎</button>
+                    <img src="images/aws_logo.png" alt="Getting Started with Databases" onclick="openBadgeModal(this.parentElement)">
+                    <h4><a href="https://www.credly.com/earner/earned/badge/321282cf-e33b-4327-9734-b381593e33ab" target="_blank">Getting Started with Databases</a></h4>
+                    <p>RDS, DynamoDB & Modern Data</p>
+                </div>
+                <!-- Badge 6: Cloud Operations -->
+                <div class="aws-badge-item"
+                        data-title="Getting Started with Cloud Operations"
+                        data-desc="This badge represents mastery of operational excellence in the cloud. It covers monitoring resources and applications using Amazon CloudWatch, auditing API calls with AWS CloudTrail, and managing configuration compliance. I learned how to automate routine maintenance tasks to ensure a stable and secure production environment.">
+                    <button class="remove-btn" onclick="removeElement(this)">x</button>
+                    <button class="edit-btn" onclick="editElement(this)">✎</button>
+                    <img src="images/aws_logo.png" alt="Getting Started with Cloud Operations" onclick="openBadgeModal(this.parentElement)">
+                    <h4><a href="https://www.credly.com/earner/earned/badge/a57dbeb4-3a5e-446e-b395-73ce315eb427" target="_blank">Getting Started with Cloud Operations</a></h4>
+                    <p>Monitoring, Auditing & Ops</p>
+                </div>
+                <!-- Badge 7: Security -->
+                <div class="aws-badge-item"
+                        data-title="Getting Started with Security"
+                        data-desc="Security is job zero. This achievement highlights my knowledge of the AWS Shared Responsibility Model and Identity and Access Management (IAM). I learned to create users, groups, and roles with least-privilege permissions, and implemented data protection strategies using encryption at rest and in transit with AWS KMS.">
+                    <button class="remove-btn" onclick="removeElement(this)">x</button>
+                    <button class="edit-btn" onclick="editElement(this)">✎</button>
+                    <img src="images/aws_logo.png" alt="Getting Started with Security" onclick="openBadgeModal(this.parentElement)">
+                    <h4><a href="https://www.credly.com/earner/earned/badge/254199f0-7fcb-42ff-800d-4c3b4ed60a3b" target="_blank">Getting Started with Security</a></h4>
+                    <p>IAM, Encryption & Compliance</p>
+                </div>
+                <!-- Badge 8: Serverless -->
+                <div class="aws-badge-item"
+                        data-title="Getting Started with Serverless"
+                        data-desc="Embracing modern application development, this badge focuses on Serverless architectures. I learned to build and deploy applications using AWS Lambda and Amazon API Gateway without managing the underlying infrastructure. This approach maximizes meaningful coding time and ensures applications scale automatically with demand.">
+                    <button class="remove-btn" onclick="removeElement(this)">x</button>
+                    <button class="edit-btn" onclick="editElement(this)">✎</button>
+                    <img src="images/aws_logo.png" alt="Getting Started with Serverless" onclick="openBadgeModal(this.parentElement)">
+                    <h4><a href="https://www.credly.com/earner/earned/badge/5d55f601-7b23-4b4d-86ed-ff0df0359242" target="_blank">Getting Started with Serverless</a></h4>
+                    <p>Event-driven Architectures</p>
+                </div>
+                <!-- Badge 9: ML -->
+                <div class="aws-badge-item"
+                        data-title="Machine Learning Foundation"
+                        data-desc="An entry into the world of Artificial Intelligence. This course covered the basic concepts of Machine Learning and the AWS ML stack, including Amazon SageMaker for building and training models. I also experimented with pre-trained AI services like Amazon Rekognition for image analysis and Amazon Polly for text-to-speech.">
+                    <button class="remove-btn" onclick="removeElement(this)">x</button>
+                    <button class="edit-btn" onclick="editElement(this)">✎</button>
+                    <img src="images/aws_logo.png" alt="Machine Learning Foundation" onclick="openBadgeModal(this.parentElement)">
+                    <h4><a href="https://www.credly.com/earner/earned/badge/52c2efeb-2f12-440c-a51a-020f5bf57a25" target="_blank">Machine Learning Foundation</a></h4>
+                    <p>Core ML Concepts & Tools</p>
+                </div>
+                <!-- Badge 10: Generative AI -->
+                <div class="aws-badge-item"
+                        data-title="Introduction to Generative AI"
+                        data-desc="Staying at the cutting edge of technology, I completed training on Generative AI. This covered Large Language Models (LLMs), Foundation Models, and how to leverage tools like Amazon Bedrock to build generative AI applications that can create text, images, and code, transforming how we solve complex problems.">
+                    <button class="remove-btn" onclick="removeElement(this)">x</button>
+                    <button class="edit-btn" onclick="editElement(this)">✎</button>
+                    <img src="images/aws_logo.png" alt="Introduction to Generative AI" onclick="openBadgeModal(this.parentElement)">
+                    <h4><a href="https://www.credly.com/earner/earned/badge/d3a9f638-0ab6-4165-ad76-c7d9513e0c55" target="_blank">Introduction to Generative AI</a></h4>
+                    <p>LLMs & Generative Models</p>
+                </div>
+            </div>
+
+            <button id="add-badge-btn" class="action-btn">Add Badge</button>
         </div>
     </section>
 
@@ -223,6 +345,7 @@
                     <p class="desc">Intensive software engineering curriculum focusing on practical problem solving and peer-to-peer learning.</p>
                 </div>
             </div>
+
             <button id="add-qual-btn" class="action-btn">Add Qualification</button>
         </div>
     </section>
@@ -294,6 +417,33 @@
             <div class="modal-buttons">
                 <button class="cancel-btn" onclick="closeModal('qual-modal')">Cancel</button>
                 <button class="save-btn" onclick="addQualification()">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="badge-modal">
+        <div class="modal">
+            <h3 id="badge-modal-title">Badge Title</h3>
+            <p id="badge-modal-desc" style="color: #ccc; line-height: 1.6; font-size: 1rem;"></p>
+            <div class="modal-buttons">
+                <button class="cancel-btn" onclick="closeModal('badge-modal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Badge Modal -->
+    <div class="modal-overlay" id="add-badge-modal">
+        <div class="modal">
+            <h3>Add New Badge</h3>
+            <input type="text" id="badge-name-input" placeholder="Badge Name (e.g. Cloud 101)">
+            <input type="text" id="badge-subtitle-input" placeholder="Subtitle (e.g. Basics of Cloud Computing)">
+            <!-- File Input for Image -->
+            <input type="file" id="badge-img-input" accept="image/*">
+            <input type="text" id="badge-link-input" placeholder="Credly Link">
+            <textarea id="badge-desc-input" rows="4" placeholder="Detailed Description (for pop-up)"></textarea>
+            <div class="modal-buttons">
+                <button class="cancel-btn" onclick="closeModal('add-badge-modal')">Cancel</button>
+                <button class="save-btn" onclick="addBadge()">Save</button>
             </div>
         </div>
     </div>

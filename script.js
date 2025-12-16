@@ -155,6 +155,10 @@ document.addEventListener("DOMContentLoaded", function () {
     if (addQualBtn) {
         addQualBtn.addEventListener('click', () => openModal('qual-modal'));
     }
+    const addBadgeBtn = document.getElementById('add-badge-btn');
+    if (addBadgeBtn) {
+        addBadgeBtn.addEventListener('click', () => openModal('add-badge-modal'));
+    }
 });
 
 // ============== Global Functions for Dynamic Functionality ==============
@@ -168,7 +172,7 @@ window.removeElement = function(element) {
 
 window.editElement = function(element) {
     const card = element.parentElement;
-    const title = card.querySelector('h3');
+    const title = card.querySelector('h3') || card.querySelector('h4'); // Support h4 for badges
     const desc = card.querySelector('p:not(.institution):not(.year)'); // Try to target main description
     
     // Simple prompt-based edit
@@ -344,4 +348,81 @@ function createQualificationCard(degree, inst, year, desc) {
     `;
 
     qualGrid.appendChild(newCard);
+}
+
+function openBadgeModal(element) {
+    const title = element.getAttribute('data-title');
+    const desc = element.getAttribute('data-desc');
+    
+    document.getElementById('badge-modal-title').innerText = title;
+    document.getElementById('badge-modal-desc').innerText = desc;
+    
+
+    openModal('badge-modal');
+}
+
+window.addBadge = function() {
+    const title = document.getElementById('badge-name-input').value;
+    const subtitle = document.getElementById('badge-subtitle-input').value;
+    const link = document.getElementById('badge-link-input').value || '#';
+    const desc = document.getElementById('badge-desc-input').value;
+    const fileInput = document.getElementById('badge-img-input');
+    
+    // Validate required fields
+    if (title && link) {
+        if (fileInput.files && fileInput.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                createBadgeItem(title, subtitle, link, desc, e.target.result);
+            }
+            reader.readAsDataURL(fileInput.files[0]);
+        } else {
+            // Default fallback image if none selected
+            createBadgeItem(title, subtitle, link, desc, 'images/aws_logo.png');
+        }
+        
+        closeModal('add-badge-modal');
+        
+        // Clear inputs
+        document.getElementById('badge-name-input').value = '';
+        document.getElementById('badge-subtitle-input').value = '';
+        fileInput.value = '';
+        document.getElementById('badge-link-input').value = '';
+        document.getElementById('badge-desc-input').value = '';
+    } else {
+        alert('Please fill in at least the Title and Link.');
+    }
+}
+
+function createBadgeItem(title, subtitle, link, desc, imgSrc) {
+    const container = document.querySelector('.aws-badges-grid');
+    const newItem = document.createElement('div');
+    newItem.className = 'aws-badge-item';
+    newItem.setAttribute('data-title', title);
+    newItem.setAttribute('data-desc', desc || 'No description provided.');
+    
+    newItem.innerHTML = `
+        <button class="remove-btn" onclick="removeElement(this)">x</button>
+        <button class="edit-btn" onclick="editElement(this)">✎</button>
+        <img src="${imgSrc}" alt="${title}" onclick="openBadgeModal(this.parentElement)">
+        <h4><a href="${link}" target="_blank">${title}</a></h4>
+        <p>${subtitle || ''}</p>
+    `;
+    container.appendChild(newItem);
+}
+
+// ============== Profile Image Upload ============== 
+const profileUpload = document.getElementById('profile-upload');
+const profilePic = document.getElementById('profile-pic');
+
+if (profileUpload && profilePic) {
+    profileUpload.addEventListener('change', function(e) {
+        if (e.target.files && e.target.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                profilePic.src = e.target.result;
+            }
+            reader.readAsDataURL(e.target.files[0]);
+        }
+    });
 }
