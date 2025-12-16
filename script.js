@@ -429,7 +429,7 @@ if (profileUpload && profilePic) {
 
 // ============== Copy Email Function ============== 
 window.copyEmail = function(element) {
-    const email = 'lehlohoholotshabalala00@gmail.com';
+    const email = 'lehlohonolotshabalala00@gmail.com';
     navigator.clipboard.writeText(email).then(() => {
         const tooltip = element.querySelector('.tooltip-text');
         // Save original text if not already saved (though simple logic is enough)
