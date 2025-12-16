@@ -15,8 +15,8 @@
     <header>
         <nav>
             <div class="port" style="display: flex; flex-direction: column; line-height: 1.1;">
-                <span style="font-size: 1.2rem; display: block;">m<span style="color: white;">Y</span></span>
-                <span style="font-size: 0.9rem; letter-spacing: 1px; color: white;">Portfolio</span>
+                <span style="font-size: 1.2rem; display: block; color: white;">M<span style="color: var(--primary-color);">Y</span></span>
+                <span style="font-size: 0.9rem; letter-spacing: 1px; color: white;"><span style="color: var(--primary-color);">PORT</span>FOLIO</span>
             </div>
             <div class="menu-toggle" id="mobile-menu">
                 <span></span>
@@ -99,36 +99,6 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="fade-in">
-        <div class="section-container">
-            <h2 class="section-title">Projects</h2>
-
-            <div class="projects-grid" id="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <button class="remove-btn" onclick="removeElement(this)">x</button>
-                    <button class="edit-btn" onclick="editElement(this)">✎</button>
-                    <img src="images/project1.png" alt="Basic Calculator Project">
-                    <h3>Basic Calculator</h3>
-                    <p>A simple calculator application built with HTML, CSS, and JavaScript. Perform basic operations with ease.</p>
-                    <a href="https://github.com/HlonieLive/Calculator" target="_blank">View on GitHub</a>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <button class="remove-btn" onclick="removeElement(this)">x</button>
-                    <button class="edit-btn" onclick="editElement(this)">✎</button>
-                    <img src="images/project2.png" alt="Rock Paper Scissors">
-                    <h3>Rock Paper Scissors</h3>
-                    <p>Interactive Rock Paper Scissors game. Challenge the computer and test your luck!</p>
-                    <a href="https://github.com/HlonieLive/Rock-Paper-Scissors" target="_blank">View on GitHub</a>
-                </div>
-            </div>
-            <button id="add-project-btn" class="action-btn">Add Project</button>
-        </div>
-    </section>
-
     <!-- Skills Section -->
     <section id="skills" class="fade-in">
         <div class="section-container">
@@ -159,6 +129,36 @@
                     <p>Familiar with AWS fundamentals, CI/CD pipelines, and containerization using Docker.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="fade-in">
+        <div class="section-container">
+            <h2 class="section-title">Projects</h2>
+
+            <div class="projects-grid" id="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <button class="remove-btn" onclick="removeElement(this)">x</button>
+                    <button class="edit-btn" onclick="editElement(this)">✎</button>
+                    <img src="images/project1.png" alt="Basic Calculator Project">
+                    <h3>Basic Calculator</h3>
+                    <p>A simple calculator application built with HTML, CSS, and JavaScript. Perform basic operations with ease.</p>
+                    <a href="https://github.com/HlonieLive/Calculator" target="_blank">View on GitHub</a>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <button class="remove-btn" onclick="removeElement(this)">x</button>
+                    <button class="edit-btn" onclick="editElement(this)">✎</button>
+                    <img src="images/project2.png" alt="Rock Paper Scissors">
+                    <h3>Rock Paper Scissors</h3>
+                    <p>Interactive Rock Paper Scissors game. Challenge the computer and test your luck!</p>
+                    <a href="https://github.com/HlonieLive/Rock-Paper-Scissors" target="_blank">View on GitHub</a>
+                </div>
+            </div>
+            <button id="add-project-btn" class="action-btn">Add Project</button>
         </div>
     </section>
 

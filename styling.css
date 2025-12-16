@@ -168,7 +168,7 @@ nav ul li a:hover::after, nav ul li a.active::after {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
     align-items: center;
-    padding: 0 4rem;
+    padding: 8rem 4rem 2rem; /* Added top padding */
     position: relative;
     overflow: visible;
 }
@@ -185,6 +185,14 @@ nav ul li a:hover::after, nav ul li a.active::after {
     text-transform: uppercase;
     letter-spacing: 3px;
     font-weight: 700;
+    text-align: left;
+    margin-left: 0;
+    display: block;
+}
+
+.hero-text h2::after {
+    margin-left: 0;
+    margin-right: auto;
 }
 
 .hero-text h1 {
@@ -291,21 +299,18 @@ nav ul li a:hover::after, nav ul li a.active::after {
 }
 
 .hero-img img {
-    width: 100%;
-    max-width: 550px;
-    height: auto; /* Allow full height */
-    /* Remove Blob */
-    border-radius: 0;
-    border: none;
-    box-shadow: none;
-    /* Drawn Outer Border Effect */
-    filter: drop-shadow(0 0 0 4px #8B4513) drop-shadow(0 0 20px rgba(255, 170, 0, 0.4)); /* Brown border + Glow */
-    transition: transform 0.5s ease;
-    animation: none;
-    object-fit: contain; /* Ensure full body fits */
-    object-position: bottom; /* Anchor to bottom */
-    background: transparent; /* Remove background */
-    transform: translate(-30px, -20px); /* Move Left and Up */
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    border: 6px solid #1e1e24; /* Inner dark border */
+    outline: 3px solid var(--primary-color); /* Outer theme border */
+    box-shadow: 0 0 30px rgba(255, 170, 0, 0.2), 0 20px 40px rgba(0,0,0,0.6);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    background: radial-gradient(circle, #2a2a2a 0%, #000 100%);
+    filter: none; /* Reset filters */
+    transform: none; /* Reset transform */
 }
 
 @keyframes morph {
@@ -313,7 +318,8 @@ nav ul li a:hover::after, nav ul li a.active::after {
 }
 
 .hero-img:hover img {
-    transform: scale(1.02);
+    transform: scale(1.05);
+    box-shadow: 0 0 50px rgba(255, 170, 0, 0.5), 0 25px 50px rgba(0,0,0,0.7);
 }
 
 /* ... existing code ... */
@@ -846,6 +852,28 @@ footer {
 footer span {
     color: var(--primary-color);
 }
+
+.footer-socials img {
+    filter: brightness(0) invert(1);
+    opacity: 0.8;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.footer-socials a:hover img {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+
+/* GitHub and Twitter: Original Colors (No Filter) */
+.footer-socials img[alt="GitHub"],
+.footer-socials img[alt="Twitter"] {
+    filter: none; /* Remove any filters (global white or local black) */
+    background: transparent; /* Remove background */
+    padding: 0; /* Remove padding */
+    border-radius: 0; /* Remove border radius */
+}
+
 
 /* Mobile Responsive */
 @media (max-width: 900px) {
