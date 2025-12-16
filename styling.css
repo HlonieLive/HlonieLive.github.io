@@ -890,9 +890,10 @@ footer span {
 }
 
 
-/* GitHub and Twitter: Original Colors (No Filter) */
+/* GitHub, Twitter, and Gmail: Original Colors (No Filter) */
 .footer-socials img[alt="GitHub"],
-.footer-socials img[alt="Twitter"] {
+.footer-socials img[alt="Twitter"],
+.footer-socials img[alt="Gmail"] {
     filter: none; /* Remove any filters (global white or local black) */
     background: transparent; /* Remove background */
     padding: 0; /* Remove padding */
@@ -1467,5 +1468,50 @@ nav .hero-btn {
     opacity: 1;
     background: var(--primary-color);
     color: black;
+}
+
+
+/* Tooltip for Email Copy */
+.tooltip-container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    width: auto;
+    background-color: var(--primary-color);
+    color: #000;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.8rem;
+    font-weight: bold;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.tooltip-text::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--primary-color) transparent transparent transparent;
+}
+
+.tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
 }
 

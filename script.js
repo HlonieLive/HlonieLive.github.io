@@ -426,3 +426,18 @@ if (profileUpload && profilePic) {
         }
     });
 }
+
+// ============== Copy Email Function ============== 
+window.copyEmail = function(element) {
+    const email = 'lehlohoholotshabalala00@gmail.com';
+    navigator.clipboard.writeText(email).then(() => {
+        const tooltip = element.querySelector('.tooltip-text');
+        // Save original text if not already saved (though simple logic is enough)
+        tooltip.innerText = 'Copied Email!';
+        setTimeout(() => {
+            tooltip.innerText = email;
+        }, 2000);
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+    });
+}

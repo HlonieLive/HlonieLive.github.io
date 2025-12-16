@@ -44,6 +44,7 @@
             <h2>Hi, My Name Is</h2>
             <h1>Lehlohonolo <span>Tshabalala</span></h1>
             <p class="hero-intro">I am a <span id="role-typewriter" class="typewriter"></span></p>
+            <p class="hero-location" style="color: #ccc; margin-top: 0.5rem; font-size: 1rem;">📍 Johannesburg, South Africa</p>
             
 
 
@@ -92,7 +93,7 @@
             </p>
             <ul>
                 <li>Skills: Web Development, Design, etc.</li>
-                <li>Location: Johannesburg, South Africa</li>
+
                 <li>Email: lehlohonolotshabalala00@gmail.com</li>
             </ul>
         </div>
@@ -354,12 +355,12 @@
     <section id="contacts" class="fade-in">
         <h2>Contact Me</h2>
         <p>Feel free to reach out to me via email or social media.</p>
-        <form class="contact-form">
-            <input type="text" placeholder="Full Name" required>
-            <input type="email" placeholder="Email" required>
-            <input type="tel" placeholder="Phone Number">
-            <input type="text" placeholder="Subject">
-            <textarea rows="5" placeholder="Your Message" required></textarea>
+        <form class="contact-form" action="https://formsubmit.co/lehlohoholotshabalala00@gmail.com" method="POST">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="tel" name="phone" placeholder="Phone Number">
+            <input type="text" name="subject" placeholder="Subject">
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
             <button type="submit" class="hero-btn">Send Message</button>
         </form>
     </section>
@@ -370,6 +371,10 @@
             <a href="https://www.linkedin.com/in/lehlohonolo-tshabalala-b81657266/" target="_blank"><img src="images/linkedin.png" alt="LinkedIn" style="width: 30px; transition: transform 0.3s;"></a>
             <a href="https://github.com/HlonieLive" target="_blank"><img src="images/github.png" alt="GitHub" style="width: 30px; transition: transform 0.3s;"></a>
             <a href="https://www.instagram.com/hlony_live?igsh=MTgzaXY1cDlqNnNteA%3D%3D&utm_source=qr" target="_blank"><img src="images/instagram.png" alt="Instagram" style="width: 30px; transition: transform 0.3s;"></a>
+            <a href="javascript:void(0)" onclick="copyEmail(this)" class="tooltip-container">
+                <img src="images/gmail.png" alt="Gmail" style="width: 30px; transition: transform 0.3s;">
+                <span class="tooltip-text">lehlohoholotshabalala00@gmail.com</span>
+            </a>
             <a href="#" target="_blank"><img src="images/facebook.png" alt="Facebook" style="width: 30px; transition: transform 0.3s;"></a>
             <a href="#" target="_blank"><img src="images/twitter.png" alt="Twitter" style="width: 30px; transition: transform 0.3s;"></a>
         </div>
@@ -463,6 +468,10 @@
                 <a href="https://www.instagram.com/hlony_live?igsh=MTgzaXY1cDlqNnNteA%3D%3D&utm_source=qr" target="_blank" class="social-link-card">
                     <img src="images/instagram.png" alt="Instagram">
                     <span>Instagram</span>
+                </a>
+                <a href="mailto:lehlohoholotshabalala00@gmail.com" class="social-link-card">
+                    <img src="images/gmail.png" alt="Gmail">
+                    <span>Gmail</span>
                 </a>
                 <a href="#" class="social-link-card">
                     <img src="images/facebook.png" alt="Facebook">
