@@ -15,8 +15,8 @@
     <header>
         <nav>
             <div class="port" style="display: flex; flex-direction: column; line-height: 1.1;">
-                <span style="font-size: 1.2rem; display: block; color: white;">M<span style="color: var(--primary-color);">Y</span></span>
-                <span style="font-size: 0.9rem; letter-spacing: 1px; color: white;"><span style="color: var(--primary-color);">PORT</span>FOLIO</span>
+                <span style="font-size: 1.2rem; display: block; color: var(--heading-color);">M<span style="color: var(--primary-color);">Y</span></span>
+                <span style="font-size: 0.9rem; letter-spacing: 1px; color: var(--heading-color);"><span style="color: var(--primary-color);">PORT</span>FOLIO</span>
             </div>
             <div class="menu-toggle" id="mobile-menu">
                 <span></span>
@@ -34,6 +34,21 @@
                 <li><a href="#qualifications">Qualifications</a></li>
                 <li><a href="#contacts">Contact Me</a></li>
             </ul>
+            <!-- Theme Toggle -->
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <!-- Sun Icon Default -->
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </button>
             <a href="javascript:void(0)" onclick="openModal('connect-modal')" class="hero-btn">Let's Connect</a>
         </nav>
     </header>
@@ -44,14 +59,14 @@
             <h2>Hi, My Name Is</h2>
             <h1>Lehlohonolo <span>Tshabalala</span></h1>
             <p class="hero-intro">I am a <span id="role-typewriter" class="typewriter"></span></p>
-            <p class="hero-location" style="color: #ccc; margin-top: 0.5rem; font-size: 1rem;">📍 Johannesburg, South Africa</p>
+            <p class="hero-location" style="color: var(--text-muted); margin-top: 0.5rem; font-size: 1rem;">📍 Johannesburg, South Africa</p>
             
 
 
             <!-- Achievements -->
             <div class="achievements-section" style="margin-bottom: 2rem;">
                  <p style="color: var(--primary-color); font-size: 0.9rem; margin-bottom: 0.5rem; text-transform: uppercase;">Highlights & Wins</p>
-                 <ul style="list-style: none; padding: 0; color: #ccc; font-size: 0.95rem; line-height: 1.6;">
+                 <ul style="list-style: none; padding: 0; color: var(--text-color); font-size: 0.95rem; line-height: 1.6;">
                      <li>🏆 Got Second Place on MTN MoMo Annual Hackathon '25</li>
                      <li>🏅 Got Top five BASE Vibe Coding Hackathon '25</li>
                      <li>⭐ Got Top Ten on FNB App Of Year '24</li>
@@ -363,7 +378,12 @@
     <section id="contacts" class="fade-in">
         <h2>Contact Me</h2>
         <p>Feel free to reach out to me via email or social media.</p>
-        <form class="contact-form" action="https://formsubmit.co/lehlohonolotshabalala00@gmail.com" method="POST">
+        <form id="contact-form" class="contact-form" action="https://formsubmit.co/ajax/lehlohonolotshabalala00@gmail.com" method="POST">
+            <!-- FormSubmit Configurations -->
+            <input type="hidden" name="_captcha" value="false">
+            <input type="text" name="_honey" style="display:none">
+            <input type="hidden" name="_template" value="table">
+            
             <input type="text" name="name" placeholder="Full Name" required>
             <input type="email" name="email" placeholder="Email" required>
             <input type="tel" name="phone" placeholder="Phone Number">
@@ -371,6 +391,9 @@
             <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
             <button type="submit" class="hero-btn">Send Message</button>
         </form>
+        <div id="contact-success" style="display: none; padding: 2rem; text-align: center; color: var(--text-color); font-size: 1.2rem; background: var(--card-bg-transparent); border-radius: 20px; border: 1px solid var(--card-border);">
+            Message Sent to Lehlohonolo. Thank You for reaching out.
+        </div>
     </section>
 
     <!-- Footer -->
@@ -437,7 +460,7 @@
     <div class="modal-overlay" id="badge-modal">
         <div class="modal">
             <h3 id="badge-modal-title">Badge Title</h3>
-            <p id="badge-modal-desc" style="color: #ccc; line-height: 1.6; font-size: 1rem;"></p>
+            <p id="badge-modal-desc" style="color: var(--text-color); line-height: 1.6; font-size: 1rem;"></p>
             <div class="modal-buttons">
                 <button class="cancel-btn" onclick="closeModal('badge-modal')">Close</button>
             </div>

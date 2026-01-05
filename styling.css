@@ -11,6 +11,62 @@
     --glass-blur: 20px;
     --font-main: 'Outfit', sans-serif;
     --transition-speed: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    
+    /* New Variables for Theme Switching */
+    --nav-bg: rgba(5, 5, 5, 0.8);
+    --card-bg-transparent: rgba(255, 255, 255, 0.03);
+    --section-bg-1: #08080a; /* About, Certificates */
+    --section-bg-2: #050505; /* Projects, Qualifications */
+    --skill-card-text: #fff;
+    --card-border: rgba(255,255,255,0.05);
+    --social-bg: rgba(255, 255, 255, 0.03);
+    --card-inner-bg: #050505;
+    --hero-text-gradient: linear-gradient(to right, #ffffff, #888888);
+    --btn-bg-gradient: linear-gradient(135deg, var(--primary-color) 0%, #ff8800 100%);
+    --btn-text-color: #000;
+    --btn-shadow-color: rgba(255, 170, 0, 0.4);
+    --input-bg: #0a0a0c;
+    --card-hover-bg: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+    --btn-hover-shadow: rgba(255, 170, 0, 0.6);
+    --btn-hover-bg: #ffcc00;
+}
+
+body.light-mode {
+    --primary-color: #0066ff; /* Blue Main Color */
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --text-muted: #111111;
+    --secondary-color: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(0, 102, 255, 0.1);
+    --nav-bg: rgba(255, 255, 255, 0.95);
+    --card-bg-transparent: rgba(0, 102, 255, 0.05); /* Blue tint cards */
+    --section-bg-1: #e6f0ff; /* Light Blue for contact/footer etc */
+    --section-bg-2: #f0f7ff; /* Azure tint */
+    --skill-card-text: #000;
+    --card-border: rgba(0, 102, 255, 0.1);
+    --primary-glow: rgba(0, 102, 255, 0.25);
+    --social-bg: rgba(0, 102, 255, 0.05);
+    
+    /* Specific overrides for "Blue" sections in Light Mode */
+    --footer-bg: #e6f0ff;
+    --skills-bg: #e6f0ff;
+    --badges-bg: #e6f0ff;
+    --contact-bg: #e6f0ff;
+    
+    --card-inner-bg: #ffffff; /* For cards with inner black backgrounds */
+    --heading-color: #000000;
+    --hero-text-gradient: linear-gradient(to right, #000000, #555555);
+    
+    /* Light Mode Button Overrides - Blue to Grey */
+    --btn-bg-gradient: linear-gradient(135deg, #0066ff 0%, #666666 100%);
+    --btn-shadow-color: rgba(0, 0, 0, 0.2);
+    --nav-bg: rgba(230, 240, 255, 0.95); /* Bluish Nav */
+    --input-bg: #f5f5f5;
+    --card-hover-bg: #ffffff;
+    --btn-hover-shadow: rgba(0, 0, 0, 0.2);
+    --btn-hover-bg: #999999;
+    --footer-icon-filter: brightness(0); /* Black icons */
 }
 
 * {
@@ -74,9 +130,9 @@ header {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(5, 5, 5, 0.8);
+    background: var(--nav-bg);
     backdrop-filter: blur(var(--glass-blur));
-    border-bottom: 1px solid var(--card-border);
+    border-bottom: 1px solid var(--glass-border);
 }
 
 nav {
@@ -162,6 +218,36 @@ nav ul li a:hover::after, nav ul li a.active::after {
     transition: all 0.3s ease;
 }
 
+/* Theme Toggle Button */
+.theme-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
+    color: var(--text-color);
+    transition: color 0.3s ease, transform 0.3s ease;
+    z-index: 1001; /* Ensure above others if needed */
+}
+
+.theme-toggle:hover {
+    color: var(--primary-color);
+    transform: rotate(15deg);
+}
+
+.theme-toggle svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
 /* Hero Section - Creative Modern */
 .hero {
     min-height: 100vh;
@@ -199,7 +285,7 @@ nav ul li a:hover::after, nav ul li a.active::after {
     font-size: 5.5rem;
     line-height: 1;
     margin-bottom: 1.5rem;
-    background: linear-gradient(to right, #fff, #888);
+    background: var(--hero-text-gradient);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -215,7 +301,7 @@ nav ul li a:hover::after, nav ul li a.active::after {
 /* Specific styling for the 'I am a...' paragraph */
 .hero-intro {
     font-size: 1.4rem;
-    color: var(--text-muted);
+    color: var(--text-color);
     margin-bottom: 2.5rem;
     padding-left: 1.5rem;
     border-left: 3px solid var(--primary-color);
@@ -247,7 +333,7 @@ nav ul li a:hover::after, nav ul li a.active::after {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--social-bg);
     border: 1px solid var(--glass-border);
     border-radius: 12px;
     transition: all var(--transition-speed);
@@ -339,8 +425,8 @@ nav ul li a:hover::after, nav ul li a.active::after {
 }
 
 .skill-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.05);
+    background: var(--card-bg-transparent);
+    border: 1px solid var(--card-border);
     padding: 2rem;
     border-radius: 20px;
     text-align: center;
@@ -362,7 +448,7 @@ nav ul li a:hover::after, nav ul li a.active::after {
 }
 
 .skill-card p {
-    color: #fff; /* White Description */
+    color: var(--skill-card-text); /* Adaptive Description */
     font-size: 0.95rem;
     line-height: 1.6;
 }
@@ -456,7 +542,7 @@ section h2::after {
 
 /* About Section - Dark Card Style */
 #about {
-    background: #08080a;
+    background: var(--section-bg-1);
     position: relative;
 }
 
@@ -475,12 +561,12 @@ section h2::after {
 
 #about p {
     font-size: 1.15rem;
-    color: #cfcfcf;
+    color: var(--text-color);
     margin-bottom: 1.5rem;
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
-    text-align: center;
+    text-align: justify;
     line-height: 1.9;
 }
 
@@ -506,7 +592,7 @@ section h2::after {
 /* Projects Section - Bento Grid feel */
 /* Projects Section - Tech-inspired Hex Pattern */
 #projects {
-    background: #050505;
+    background: var(--section-bg-2);
     background-image: radial-gradient(circle at center, rgba(255,170,0,0.03) 0%, transparent 70%);
     position: relative;
 }
@@ -539,8 +625,8 @@ section h2::after {
 }
 
 .project-card {
-    background: #111;
-    border: 1px solid #222;
+    background: var(--card-bg-transparent);
+    border: 1px solid var(--card-border);
     border-radius: 24px;
     padding: 0;
     display: flex;
@@ -612,8 +698,8 @@ section h2::after {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    background: rgba(255, 255, 255, 0.03);  /* Same as skill-card */
-    border: 1px solid rgba(255, 255, 255, 0.05); /* Same as skill-card */
+    background: var(--card-bg-transparent); /* Use variable for background */
+    border: 1px solid var(--card-border); /* Same as skill-card */
     padding: 2rem; /* Match skill-card padding */
     border-radius: 20px; /* Match skill-card radius */
     transition: transform 0.3s ease;
@@ -649,20 +735,20 @@ section h2::after {
 
 /* Skills Grid - Glass Tiles */
 #skills {
-    background: linear-gradient(180deg, #030304 0%, #0c0c0e 100%);
+    background: var(--skills-bg, linear-gradient(180deg, #030304 0%, #0c0c0e 100%));
 }
 
 /* Skills Grid styles consolidated */
 
 /* Certificates */
 #certificates {
-    background: #08080a;
+    background: var(--section-bg-1);
 }
 
 
 /* Qualifications - Matching Projects Tech Hex Pattern */
 #qualifications {
-    background: #050505;
+    background: var(--section-bg-2);
     background-image: radial-gradient(circle at center, rgba(255,170,0,0.03) 0%, transparent 70%);
     position: relative;
 }
@@ -690,8 +776,8 @@ section h2::after {
 
 /* Qualification Card - Milestone / Credential Style */
 .qualification-card {
-    background: linear-gradient(145deg, #121212, #080808);
-    border: 1px solid #333;
+    background: var(--card-bg-transparent);
+    border: 1px solid var(--card-border);
     border-radius: 12px;
     padding: 2rem;
     position: relative;
@@ -716,8 +802,8 @@ section h2::after {
 .qualification-card:hover {
     transform: translateY(-8px) scale(1.02);
     box-shadow: 0 15px 30px rgba(0,0,0,0.5);
-    border-color: #555;
-    background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+    border-color: var(--primary-color);
+    background: var(--card-hover-bg);
 }
 
 .qual-icon {
@@ -734,13 +820,13 @@ section h2::after {
 .qualification-card h3 {
     font-size: 1.4rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--heading-color);
     margin-bottom: 0.5rem;
     letter-spacing: 0.5px;
 }
 
 .qualification-card .institution {
-    color: #FFD700; /* Gold text */
+    color: var(--primary-color); /* Adaptive: Blue(L)/Orange(D) */
     font-weight: 600;
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
@@ -749,7 +835,7 @@ section h2::after {
 }
 
 .qualification-card .year {
-    color: #888;
+    color: var(--text-muted);
     font-size: 0.9rem;
     font-style: italic;
     margin-bottom: 1.5rem;
@@ -757,17 +843,17 @@ section h2::after {
 }
 
 .qualification-card .desc {
-    color: #ccc;
+    color: var(--text-muted);
     font-size: 0.95rem;
     line-height: 1.6;
-    border-top: 1px solid #222;
+    border-top: 1px solid var(--card-border);
     padding-top: 1rem;
 }
 
 /* Reverted Certificate Card (Simple Style) */
 .certificate-card {
-    background: #111;
-    border: 1px solid #222;
+    background: var(--card-bg-transparent);
+    border: 1px solid var(--card-border);
     border-radius: 20px;
     padding: 1.5rem;
     text-align: center;
@@ -792,7 +878,7 @@ section h2::after {
 
 .certificate-card h3 {
     font-size: 1.3rem;
-    color: #fff;
+    color: var(--heading-color);
     margin-bottom: 0.5rem;
 }
 
@@ -811,7 +897,7 @@ section h2::after {
 
 /* Contact Form */
 #contacts {
-    background: linear-gradient(135deg, #050505 0%, #1a1a1a 100%);
+    background: var(--contact-bg, linear-gradient(135deg, #050505 0%, #1a1a1a 100%));
     text-align: center; /* Center everything in section */
 }
 
@@ -860,9 +946,9 @@ section h2::after {
 }
 
 .contact-form button:hover {
-    background: #ffcc00;
+    background: var(--btn-hover-bg);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px var(--primary-glow);
+    box-shadow: 0 5px 15px var(--btn-hover-shadow);
 }
 
 /* Footer */
@@ -872,6 +958,7 @@ footer {
     margin-top: 5rem;
     border-top: 1px solid var(--card-border);
     color: var(--text-muted);
+    background: var(--footer-bg, transparent); /* Ensure blue bg in light mode */
 }
 
 footer span {
@@ -879,7 +966,7 @@ footer span {
 }
 
 .footer-socials img {
-    filter: brightness(0) invert(1);
+    filter: var(--footer-icon-filter, brightness(0) invert(1));
     opacity: 0.8;
     transition: opacity 0.3s, transform 0.3s;
 }
@@ -1031,9 +1118,10 @@ footer span {
     justify-content: center;
     gap: 10px;
     margin: 50px auto 0;
+    margin: 50px auto 0;
     padding: 12px 30px;
-    background: linear-gradient(135deg, var(--primary-color) 0%, #ff8800 100%);
-    color: #000;
+    background: var(--btn-bg-gradient);
+    color: var(--btn-text-color);
     border: none;
     border-radius: 50px;
     font-size: 1rem;
@@ -1081,8 +1169,8 @@ footer span {
     justify-content: center;
     gap: 10px;
     padding: 12px 35px;
-    background: linear-gradient(135deg, var(--primary-color) 0%, #ff8800 100%);
-    color: #000;
+    background: var(--btn-bg-gradient);
+    color: var(--btn-text-color);
     border: none;
     border-radius: 50px;
     font-size: 1rem;
@@ -1091,7 +1179,7 @@ footer span {
     letter-spacing: 1px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 170, 0, 0.4);
+    box-shadow: 0 4px 15px var(--btn-shadow-color);
     position: relative;
     overflow: hidden;
     /* margin-top removed for generic use */
@@ -1118,7 +1206,7 @@ nav .hero-btn {
 
 .hero-btn:hover {
     transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 10px 30px rgba(255, 170, 0, 0.6);
+    box-shadow: 0 10px 30px var(--btn-hover-shadow);
 }
 
 /* Social Modal Styles */
@@ -1205,12 +1293,12 @@ nav .hero-btn {
 }
 
 .modal {
-    background: #111;
+    background: var(--card-inner-bg);
     padding: 2.5rem;
     border-radius: 24px;
     width: 90%;
     max-width: 550px;
-    border: 1px solid var(--glass-border);
+    border: 1px solid var(--card-border);
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
@@ -1225,9 +1313,10 @@ nav .hero-btn {
     width: 100%;
     padding: 16px;
     margin-bottom: 20px;
-    background: #0a0a0c;
-    border: 1px solid #333;
-    color: white;
+    margin-bottom: 20px;
+    background: var(--input-bg);
+    border: 1px solid var(--card-border);
+    color: var(--text-color);
     border-radius: 12px;
     font-family: inherit;
     font-size: 0.95rem;
@@ -1237,7 +1326,7 @@ nav .hero-btn {
 /* File Input Styling */
 .modal input[type="file"] {
     padding: 10px;
-    background: #1a1a1d;
+    background: var(--input-bg);
     cursor: pointer;
 }
 .modal input[type="file"]::file-selector-button {
@@ -1258,7 +1347,7 @@ nav .hero-btn {
 .modal input:focus, .modal textarea:focus {
     border-color: var(--primary-color);
     outline: none;
-    background: #111;
+    background: var(--card-inner-bg);
 }
 
 .modal-buttons {
@@ -1316,7 +1405,7 @@ nav .hero-btn {
 
 /* AWS Badges Section - Independent */
 #aws-badges {
-    background: #050505;
+    background: var(--badges-bg, #050505);
     background-image: radial-gradient(circle at center, rgba(255,170,0,0.03) 0%, transparent 70%);
     position: relative;
 }
@@ -1370,7 +1459,7 @@ nav .hero-btn {
     content: '';
     position: absolute;
     inset: 1px;
-    background: #050505;
+    background: var(--card-bg-transparent); /* Transparent background */
     border-radius: 19px;
     z-index: -1;
 }
@@ -1404,7 +1493,7 @@ nav .hero-btn {
 }
 
 .aws-badge-item h4 a {
-    color: #fff;
+    color: var(--heading-color);
     text-decoration: none;
     transition: color 0.3s;
     font-weight: 700;
