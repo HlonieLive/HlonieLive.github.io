@@ -230,7 +230,8 @@ nav ul li a:hover::after, nav ul li a.active::after {
     margin-left: 1rem;
     color: var(--text-color);
     transition: color 0.3s ease, transform 0.3s ease;
-    z-index: 1001; /* Ensure above others if needed */
+    z-index: 1002; /* Increased z-index */
+    position: relative; /* Ensure z-index works */
 }
 
 .theme-toggle:hover {
@@ -246,6 +247,7 @@ nav ul li a:hover::after, nav ul li a.active::after {
     stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
+    pointer-events: none;
 }
 
 /* Hero Section - Creative Modern */
