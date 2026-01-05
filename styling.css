@@ -38,26 +38,26 @@
 
 body.light-mode {
     --primary-color: #0066ff; /* Blue Main Color */
-    --bg-color: #ffffff;
+    --bg-color: #f0f8ff; /* Alice Blue - Global tint */
     --text-color: #000000;
     --text-muted: #111111;
     --secondary-color: #ffffff;
     --glass-bg: rgba(255, 255, 255, 0.85);
-    --glass-border: rgba(0, 102, 255, 0.1);
-    --nav-bg: rgba(255, 255, 255, 0.95);
-    --card-bg-transparent: rgba(0, 102, 255, 0.05); /* Blue tint cards */
-    --section-bg-1: #e6f0ff; /* Light Blue for contact/footer etc */
-    --section-bg-2: #f0f7ff; /* Azure tint */
+    --glass-border: rgba(0, 102, 255, 0.2); /* Stronger border */
+    --nav-bg: rgba(200, 225, 255, 0.95); /* Richer Blue */
+    --card-bg-transparent: rgba(0, 102, 255, 0.1); /* Stronger blue tint cards */
+    --section-bg-1: #d6eaff; /* Stronger Light Blue */
+    --section-bg-2: #e6f4ff; /* Stronger Azure tint */
     --skill-card-text: #000;
-    --card-border: rgba(0, 102, 255, 0.1);
-    --primary-glow: rgba(0, 102, 255, 0.25);
-    --social-bg: rgba(0, 102, 255, 0.05);
+    --card-border: rgba(0, 102, 255, 0.15);
+    --primary-glow: rgba(0, 102, 255, 0.3);
+    --social-bg: rgba(0, 102, 255, 0.1);
     
     /* Specific overrides for "Blue" sections in Light Mode */
-    --footer-bg: #e6f0ff;
-    --skills-bg: #e6f0ff;
-    --badges-bg: #e6f0ff;
-    --contact-bg: #e6f0ff;
+    --footer-bg: #d6eaff;
+    --skills-bg: #d6eaff;
+    --badges-bg: #d6eaff;
+    --contact-bg: #d6eaff;
     
     --card-inner-bg: #ffffff; /* For cards with inner black backgrounds */
     --heading-color: #000000;
