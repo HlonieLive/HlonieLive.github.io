@@ -29,6 +29,11 @@
     --card-hover-bg: linear-gradient(145deg, #1a1a1a, #0d0d0d);
     --btn-hover-shadow: rgba(255, 170, 0, 0.6);
     --btn-hover-bg: #ffcc00;
+    --qual-accent-gradient: linear-gradient(90deg, #FFD700, #FDB931, #FFD700);
+    --qual-accent-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    --qual-icon-bg: rgba(255, 215, 0, 0.1);
+    --qual-icon-color: #FFD700;
+    --qual-icon-border: rgba(255, 215, 0, 0.2);
 }
 
 body.light-mode {
@@ -67,6 +72,11 @@ body.light-mode {
     --btn-hover-shadow: rgba(0, 0, 0, 0.2);
     --btn-hover-bg: #999999;
     --footer-icon-filter: brightness(0); /* Black icons */
+    --qual-accent-gradient: linear-gradient(90deg, #0066ff, #66b3ff, #0066ff);
+    --qual-accent-shadow: 0 0 10px rgba(0, 102, 255, 0.5);
+    --qual-icon-bg: rgba(0, 102, 255, 0.1);
+    --qual-icon-color: #0066ff;
+    --qual-icon-border: rgba(0, 102, 255, 0.2);
 }
 
 * {
@@ -797,8 +807,8 @@ section h2::after {
     left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(90deg, #FFD700, #FDB931, #FFD700);
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    background: var(--qual-accent-gradient);
+    box-shadow: var(--qual-accent-shadow);
 }
 
 .qualification-card:hover {
@@ -813,10 +823,10 @@ section h2::after {
     margin-bottom: 1rem;
     display: inline-block;
     padding: 15px;
-    background: rgba(255, 215, 0, 0.1); /* Gold tint */
+    background: var(--qual-icon-bg); /* Gold/Blue tint */
     border-radius: 50%;
-    color: #FFD700; /* Gold icon */
-    border: 1px solid rgba(255, 215, 0, 0.2);
+    color: var(--qual-icon-color); /* Gold/Blue icon */
+    border: 1px solid var(--qual-icon-border);
 }
 
 .qualification-card h3 {
