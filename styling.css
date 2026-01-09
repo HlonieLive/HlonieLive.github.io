@@ -2438,3 +2438,63 @@ body.light-mode .status-progress {
     color: #ca8a04;
     border-color: rgba(202, 138, 4, 0.2);
 }
+
+/* Experience Section - Light Mode Fixes */
+body.light-mode .wide-card {
+    background: #ffffff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-color: rgba(0,0,0,0.1);
+}
+
+body.light-mode .wide-card:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+}
+
+body.light-mode .wide-card-logo {
+    background: #f8f9fa;
+    border-right: 1px solid rgba(0,0,0,0.05);
+}
+
+body.light-mode .wide-card-desc {
+    color: #444444;
+}
+
+body.light-mode .wide-card-desc li::before {
+    color: var(--primary-color);
+}
+
+body.light-mode .wide-card-date {
+    color: #666;
+}
+
+body.light-mode .hackathon-highlight {
+    background: linear-gradient(135deg, #e6f4ff, #ffffff);
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+body.light-mode .hackathon-info .role {
+    color: #555;
+}
+
+body.light-mode .project-card {
+    background: #ffffff;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+}
+
+body.light-mode .project-card:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body.light-mode .project-card p {
+    color: #444;
+}
+
+body.light-mode .tech-tag {
+    background: rgba(0, 102, 255, 0.1);
+    color: #0066ff;
+    border: 1px solid rgba(0, 102, 255, 0.2);
+}
+
