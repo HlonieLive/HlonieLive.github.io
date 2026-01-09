@@ -2377,3 +2377,28 @@ body.light-mode .contact-card img {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px var(--primary-glow);
 }
+
+/* Tech Stack Tags */
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    justify-content: center;
+}
+
+.tech-tag {
+    background: var(--primary-color);
+    color: #fff;
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+body.light-mode .tech-tag {
+    color: #fff; /* Keep white text for contrast on blue/pink */
+}
