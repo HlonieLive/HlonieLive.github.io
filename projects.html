@@ -1,13 +1,217 @@
-<div id="project1" class="project-details">
-            <h3>Rock, Paper, Scissors</h3>
-            <p>This project is a simple implementation of the classic hand game where players choose between rock, paper, or scissors, and the winner is determined based on the game’s rules.</p>
-            <p><a href="https://github.com/HlonieLive/Rock-Paper-Scissors" target="_blank">View Repository</a></p>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects | Lehlohonolo Tshabalala</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styling.css" />
+</head>
+<body>
 
-        <div id="project2" class="project-details">
-            <h3>Weather App</h3>
-            <p>A web application that fetches real-time weather data using an API and displays it in a user-friendly interface.</p>
-            <p><a href="https://github.com/HlonieLive/Weather-App" target="_blank">View Repository</a></p>
-        </div>
+    <header>
+        <nav>
+            <div class="port" style="display: flex; flex-direction: column; line-height: 1.1;">
+                <span style="font-size: 1.2rem; display: block; color: var(--heading-color);">M<span style="color: var(--primary-color);">Y</span></span>
+                <span style="font-size: 0.9rem; letter-spacing: 1px; color: var(--heading-color);"><span style="color: var(--primary-color);">PORT</span>FOLIO</span>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
 
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="certificates.html">Certificates</a></li>
+                <li><a href="#contact" class="btn-connect">Let's Connect</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <section id="projects" class="fade-in">
+        <div class="section-container">
+            
+            <div class="intro-split">
+                <div class="intro-text">
+                    <h2>My <span>Projects</span></h2>
+                    <p class="intro-label">"Talk is cheap. Show me the code." — Linus Torvalds</p>
+                </div>
+                <div class="intro-img">
+                    <img src="images/projects_intro_new.png" alt="Projects Team">
+                </div>
+            </div>
+
+            <!-- PROJECTS GRID (Reverted from Wide Cards to Grid as per request) -->
+            <div class="projects-grid" id="projects-grid">
+                
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <img src="images/library_system.png?v=2" alt="Library Management System">
+                    <h3>Library System</h3>
+                    <p>Full-stack Java Spring Boot & React app with Glassmorphism UI. Features robust CRUD member administration.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/HlonieLive/Library-Management-System" target="_blank" class="project-icon" aria-label="GitHub Repo">
+                            <img src="images/github.png" alt="GitHub">
+                        </a>
+                        <a href="#" class="project-icon" aria-label="Live Demo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <img src="images/fitness_powerhouse.png" alt="FitnessPowerHouse">
+                    <h3>FitnessPowerHouse</h3>
+                    <p>AI-integrated fitness platform with personalized plans and chatbot assistant for users.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/HlonieLive/FitnessPowerHouse" target="_blank" class="project-icon" aria-label="GitHub Repo">
+                            <img src="images/github.png" alt="GitHub">
+                        </a>
+                        <a href="#" class="project-icon" aria-label="Live Demo">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div style="width:100%; height:180px; background:#222; display:flex; align-items:center; justify-content:center; border-radius:10px 10px 0 0;">
+                        <span style="font-size:3rem;">🤖</span>
+                    </div>
+                    <h3>Chat Bot Sim</h3>
+                    <p>Dual-mode communication platform (Human-Bot / Human-Human) built with Java Sockets.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/HlonieLive/chatbot-simulation" target="_blank" class="project-icon" aria-label="GitHub Repo">
+                            <img src="images/github.png" alt="GitHub">
+                        </a>
+                        <a href="#" class="project-icon" aria-label="Live Demo">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 4 (System Health) -->
+                <div class="project-card hidden-project" style="display: none;">
+                    <div style="width:100%; height:180px; background:#222; display:flex; align-items:center; justify-content:center; border-radius:10px 10px 0 0;">
+                        <span style="font-size:3rem;">🖥️</span>
+                    </div>
+                    <h3>System Dashboard</h3>
+                    <p>Real-time system metrics monitoring (CPU, RAM, Disk) with visual alerts and analytics.</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank" class="project-icon" aria-label="GitHub Repo">
+                            <img src="images/github.png" alt="GitHub">
+                        </a>
+                        <a href="#" class="project-icon" aria-label="Live Demo">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        </a>
+                    </div>
+                </div>
+
+
+
+            </div>
+            
+            <!-- View More Button -->
+            <div style="text-align: center; margin-top: 3rem;">
+                <button id="view-more-btn" class="hero-btn" onclick="toggleProjects()">View More</button>
+            </div>
+
+       <script>
+            function toggleProjects() {
+                const hiddenProjects = document.querySelectorAll('.hidden-project');
+                const btn = document.getElementById('view-more-btn');
+                
+                hiddenProjects.forEach(project => {
+                    if (project.style.display === 'none') {
+                        project.style.display = 'flex'; // Restore flex display
+                        btn.innerText = 'Show Less';
+                    } else {
+                        project.style.display = 'none';
+                        btn.innerText = 'View More';
+                    }
+                });
+            }
+        </script>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="fade-in">
+        <div class="section-container">
+            <h2 class="section-title">Contact <span>Me</span></h2>
+            
+            <div class="contact-wrapper">
+                <!-- Left: Contact Form -->
+                <div class="contact-form-card">
+                    <p class="form-title">Feel free to reach out to me via email or social media.</p>
+                    <form id="contact-form" class="contact-form" action="https://formsubmit.co/lehlohonolotshabalala00@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="Portfolio: New Project Inquiry">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="text" name="name" placeholder="Full Name" required>
+                        <input type="email" name="email" placeholder="Email" required>
+                        <input type="tel" name="phone" placeholder="Phone Number">
+                        <input type="text" name="subject" placeholder="Subject" required>
+                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                        <button type="submit">SEND MESSAGE</button>
+                    </form>
+                    <p id="contact-success" style="display:none; color: var(--primary-color); margin-top: 1rem; text-align: center;">Message Sent Successfully!</p>
+                </div>
+
+                <!-- Right: Socials -->
+                <h4 class="socials-title">Connect via Socials</h4>
+                <div class="contact-socials">
+                    <a href="https://www.linkedin.com/in/lehlohonolo-tshabalala-b81657266/" target="_blank" class="contact-card">
+                        <img src="images/linkedin.png" alt="LinkedIn">
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/HlonieLive" target="_blank" class="contact-card">
+                        <img src="images/github.png" alt="GitHub">
+                        <span>GitHub</span>
+                    </a>
+                    <a href="mailto:lehlohonolotshabalala00@gmail.com" class="contact-card">
+                        <img src="images/gmail.png" alt="Gmail">
+                        <span>Gmail</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-socials" style="display: flex; justify-content: center; gap: 20px; margin-bottom: 2rem;">
+            <a href="https://www.linkedin.com/in/lehlohonolo-tshabalala-b81657266/" target="_blank"><img src="images/linkedin.png" alt="LinkedIn" style="width: 30px; transition: transform 0.3s;"></a>
+            <a href="https://github.com/HlonieLive" target="_blank"><img src="images/github.png" alt="GitHub" style="width: 30px; transition: transform 0.3s;"></a>
+            <a href="https://www.instagram.com/hlony_live?igsh=MTgzaXY1cDlqNnNteA%3D%3D&utm_source=qr" target="_blank"><img src="images/instagram.png" alt="Instagram" style="width: 30px; transition: transform 0.3s;"></a>
+            <a href="javascript:void(0)" onclick="copyEmail(this)" class="tooltip-container">
+                <img src="images/gmail.png" alt="Gmail" style="width: 30px; transition: transform 0.3s;">
+                <span class="tooltip-text">lehlohonolotshabalala00@gmail.com</span>
+            </a>
+        </div>
+        <p>&copy; 2025 <span style="font-weight: bold;">Lehlohonolo Tshabalala.</span> All rights reserved!</p>
+    </footer>
+
+
+
+    <script src="script.js"></script>
+</body>
 </html>

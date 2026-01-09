@@ -5,10 +5,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const themeIcon = document.getElementById('theme-icon');
     const body = document.body;
     
-    // Check local storage
+    // Check local storage. If 'light', enable light mode. Otherwise (null or 'dark'), stay dark.
     if (localStorage.getItem('theme') === 'light') {
         body.classList.add('light-mode');
         updateIcon(true);
+    } else {
+        // Ensure we are in dark mode (default in CSS, but good for clarity)
+        body.classList.remove('light-mode');
+        updateIcon(false);
     }
     
     if (themeToggle) {
@@ -64,26 +68,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // ============== Smooth Scrolling ==============
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-
-            if (targetElement) {
-                const headerOffset = 80;
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: "smooth"
-                });
-            }
-        });
-    });
-
     // ============== Intersection Observer for Fade-in Animations ==============
     const observerOptions = {
         root: null,
@@ -101,28 +85,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const fadeElements = document.querySelectorAll('.fade-in');
     fadeElements.forEach(el => observer.observe(el));
-
-    // ============== Active Nav Link on Scroll (Scroll Spy) ==============
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('nav ul li a');
-
-    window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (pageYOffset >= (sectionTop - 150)) { // Offset for header
-                current = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').includes(current)) {
-                link.classList.add('active');
-            }
-        });
-    });
 
 
     // ============== Role Typing Animation ==============
@@ -472,53 +434,74 @@ window.copyEmail = function(element) {
     });
 }
 
-// ============== Contact Form Handling ==============
-const contactForm = document.getElementById('contact-form');
-const contactSuccess = document.getElementById('contact-success');
+    // ============== Inject Success Popup HTML ==============
+    if (!document.getElementById('success-popup')) {
+        const popupHTML = `
+        <div id="success-popup" class="popup-overlay">
+            <div class="popup-content">
+                <div class="popup-icon-container">
+                    <div class="popup-icon">✓</div>
+                </div>
+                <h3 class="popup-title">Sent!</h3>
+                <p class="popup-message">Message sent to Lehlohonolo. Thank you for reaching out!</p>
+                <button class="popup-btn" onclick="closeSuccessPopup()">Close</button>
+            </div>
+        </div>`;
+        document.body.insertAdjacentHTML('beforeend', popupHTML);
+    }
 
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const actionUrl = this.action;
-        const formData = new FormData(this);
-        
-        // Disable button
-        const submitBtn = this.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerText;
-        submitBtn.innerText = 'Sending...';
-        submitBtn.disabled = true;
+    // ============== Contact Form Handling ==============
+    const contactForm = document.getElementById('contact-form');
 
-        fetch(actionUrl, {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
-            }
-        })
-        .then(response => {
-            if (response.ok) {
-                // Show success message and reset form
-                contactSuccess.style.display = 'block';
-                contactForm.reset();
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const actionUrl = this.action;
+            const formData = new FormData(this);
+            
+            // Disable button
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerText;
+            submitBtn.innerText = 'Sending...';
+            submitBtn.disabled = true;
+
+            // Use FormSubmit.co AJAX capabilities
+            fetch(actionUrl, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json' 
+                }
+            })
+            .then(response => {
                 submitBtn.innerText = originalText;
                 submitBtn.disabled = false;
-                
-                // Optional: Hide success message after 5 seconds
-                setTimeout(() => {
-                    contactSuccess.style.display = 'none';
-                }, 5000);
-            } else {
-                alert('Oops! There was a problem submitting your form');
+
+                if (response.ok) {
+                    contactForm.reset();
+                    openSuccessPopup(); // Show Custom Popup
+                } else {
+                    alert('Oops! There was a problem submitting your form. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
                 submitBtn.innerText = originalText;
                 submitBtn.disabled = false;
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Oops! There was a problem submitting your form');
-            submitBtn.innerText = originalText;
-            submitBtn.disabled = false;
+                alert('Oops! There was a network error. Please check your connection and try again.');
+            });
         });
-    });
+    }
+});
+
+// Global functions for popup
+window.openSuccessPopup = function() {
+    const popup = document.getElementById('success-popup');
+    if (popup) popup.classList.add('active');
+}
+
+window.closeSuccessPopup = function() {
+    const popup = document.getElementById('success-popup');
+    if (popup) popup.classList.remove('active');
 }

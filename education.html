@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lehlohonolo Tshabalala | Portfolio</title>
+    <title>Education | Lehlohonolo Tshabalala</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -11,7 +11,6 @@
 </head>
 <body>
 
-    <!-- Header / Navigation -->
     <header>
         <nav>
             <div class="port" style="display: flex; flex-direction: column; line-height: 1.1;">
@@ -25,17 +24,15 @@
             </div>
 
             <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="experience.html">Experience</a></li>
                 <li><a href="projects.html">Projects</a></li>
-                <li><a href="education.html">Education</a></li>
+                <li><a href="education.html" class="active">Education</a></li>
                 <li><a href="certificates.html">Certificates</a></li>
                 <li><a href="#contact" class="btn-connect">Let's Connect</a></li>
             </ul>
-            <!-- Theme Toggle -->
             <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
                 <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <!-- Sun Icon Default -->
                     <circle cx="12" cy="12" r="5"></circle>
                     <line x1="12" y1="1" x2="12" y2="3"></line>
                     <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -50,91 +47,61 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero">
-        <div class="hero-text fade-in">
-            <h2>Hi, My Name Is</h2>
-            <h1>Lehlohonolo <span>Tshabalala</span></h1>
-            <p class="hero-intro">I am a <span id="role-typewriter" class="typewriter"></span></p>
-            <p class="hero-location" style="color: var(--text-muted); margin-top: 0.5rem; font-size: 1rem;">📍 Johannesburg, South Africa</p>
+    <section id="education" class="fade-in">
+        <div class="section-container">
             
-
-            <!-- Achievements -->
-            <div class="achievements-section" style="margin-bottom: 2rem;">
-                 <p style="color: var(--primary-color); font-size: 0.9rem; margin-bottom: 0.5rem; text-transform: uppercase;">Highlights & Wins</p>
-                 <ul style="list-style: none; padding: 0; color: var(--text-color); font-size: 0.95rem; line-height: 1.6;">
-                     <li>🏆 Got Second Place on MTN MoMo Annual Hackathon '25</li>
-                     <li>🏅 Got Top five BASE Vibe Coding Hackathon '25</li>
-                     <li>⭐ Got Top Ten on FNB App Of Year '24</li>
-                 </ul>
-            </div>
-
-            <p class="cta-label">Would like to hire me? Grab a copy of my Resume</p>
-            <a href="assets/Lehlohonolo_Tshabalala_Resume.pdf" class="hero-btn" download>Download CV</a>
-        </div>
-        <div class="hero-img fade-in">
-            <div class="profile-container">
-                <img id="profile-pic" src="images/profile.png" alt="Profile Picture" />
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="fade-in">
-        <div class="section-container">
-            <h2 class="section-title">About Me</h2>
-            <p>
-                Welcome to my digital portfolio! I am Lehlohonolo, a passionate and driven developer with a deep commitment to crafting exceptional, user-centered experiences. Through a combination of creativity, problem-solving, and technical expertise, I create solutions that are both visually appealing and functionally robust.
-            </p>
-            <p>
-                In this portfolio, you will find a collection of my work across various projects, ranging from kata-projects, games, websites as well as web applications.
-            </p>
-            <p>
-                Each project reflects my dedication to producing high-quality work that meets the needs of clients and users alike. Whether it is a fully responsive website, a user-friendly interface, or a complex backend solution, my goal is always to make technology accessible and engaging.
-            </p>
-            <p>
-                I specialize in Python, Java, .NET, and SQL Databases, as well as front-end technologies like HTML, CSS, JavaScript, and React. I also have strong expertise in Scripting, Automation (CI/CD pipelines), Docker, and AWS Cloud Development (including S3, EC2, IAM, Cognito, Cloud Formation, and Builder Labs). Grounded in Agile Development principles, I am constantly exploring new tools and techniques to improve my skills. But beyond the code and design, I truly believe in the power of collaboration and communication to create the best possible results.
-            </p>
-            <p>
-                Feel free to explore my projects and get a sense of my approach to design and development. If you like what you see or have a project in mind, I would love to hear from you and discuss how we can bring your ideas to life. Together, we can build something truly amazing!
-            </p>
-            <ul>
-                <li>Skills: Web Development, Design, etc.</li>
-                <li>Email: lehlohonolotshabalala00@gmail.com</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="fade-in">
-        <div class="section-container">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3>Python</h3>
-                    <p>Strong foundation in data structures, algorithms, and scripting. Experienced in building web apps, automation, and data analysis pipelines.</p>
+            <div class="intro-split">
+                <div class="intro-img">
+                    <img src="images/education_intro_new.png" alt="Education Tree">
                 </div>
-                <div class="skill-card">
-                    <h3>Java</h3>
-                    <p>Proficient in OOP, multithreading, and building scalable applications. Experience with Spring Boot and REST APIs.</p>
-                </div>
-                <div class="skill-card">
-                    <h3>Web Development</h3>
-                    <p>HTML, CSS, JavaScript, React. Build responsive, accessible, and modern UIs with clean code practices.</p>
-                </div>
-                <div class="skill-card">
-                    <h3>Frontend Developer</h3>
-                    <p>Expertise in building interactive UIs with React, Vue, and modern CSS frameworks like Tailwind and Bootstrap.</p>
-                </div>
-                <div class="skill-card">
-                    <h3>Data Science & Analysis</h3>
-                    <p>Skilled in Pandas, NumPy, Matplotlib, and SQL for data cleaning, visualization, and insight generation.</p>
-                </div>
-                <div class="skill-card">
-                    <h3>Cloud & DevOps</h3>
-                    <p>Familiar with AWS fundamentals, CI/CD pipelines, and containerization using Docker.</p>
+                <div class="intro-text">
+                    <h2>Formal <span>Education</span></h2>
+                    <p class="intro-label">"Education is the passport to the future, for tomorrow belongs to those who prepare for it today." — Malcolm X</p>
                 </div>
             </div>
+
+            <div class="education-timeline">
+                <!-- Node 1 -->
+                <div class="timeline-item">
+                    <span class="timeline-year">2025 - Present</span>
+                    <div class="timeline-content">
+                        <h3>Professional Certificate In Data Science</h3>
+                        <p style="color: var(--primary-color); margin-bottom: 0.5rem;">African Leadership Experience</p>
+                        <p>Comprehensive training in data analysis, machine learning, and statistical modeling.</p>
+                    </div>
+                </div>
+
+                <!-- Node 2 -->
+                <div class="timeline-item">
+                    <span class="timeline-year">2024 - 2025</span>
+                    <div class="timeline-content">
+                        <h3>Diploma in Software Engineering</h3>
+                        <p style="color: var(--primary-color); margin-bottom: 0.5rem;">WeThinkCode_ Technical College</p>
+                        <p>Software engineering/Data engineering as an elective. Peer-to-peer learning environment.</p>
+                    </div>
+                </div>
+
+                <!-- Node 3 -->
+                <div class="timeline-item">
+                    <span class="timeline-year">2013</span>
+                    <div class="timeline-content">
+                        <h3>Certificate in Civic Leadership</h3>
+                        <p style="color: var(--primary-color); margin-bottom: 0.5rem;">ACTIVATE! Leadership</p>
+                        <p>Community development, project management, and leadership skills.</p>
+                    </div>
+                </div>
+
+                <!-- Node 4 -->
+                <div class="timeline-item">
+                    <span class="timeline-year">2009</span>
+                    <div class="timeline-content">
+                        <h3>Outward Bound SA</h3>
+                        <p style="color: var(--primary-color); margin-bottom: 0.5rem;">Personal Development</p>
+                        <p>Personal awareness and self development program.</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -148,7 +115,7 @@
                 <div class="contact-form-card">
                     <p class="form-title">Feel free to reach out to me via email or social media.</p>
                     <form id="contact-form" class="contact-form" action="https://formsubmit.co/lehlohonolotshabalala00@gmail.com" method="POST">
-                        <input type="hidden" name="_subject" value="New Portfolio Contact!">
+                        <input type="hidden" name="_subject" value="Portfolio: New Education/Contact Inquiry">
                         <input type="hidden" name="_captcha" value="false">
                         <input type="text" name="name" placeholder="Full Name" required>
                         <input type="email" name="email" placeholder="Email" required>
@@ -180,13 +147,12 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-socials" style="display: flex; justify-content: center; gap: 20px; margin-bottom: 2rem;">
             <a href="https://www.linkedin.com/in/lehlohonolo-tshabalala-b81657266/" target="_blank"><img src="images/linkedin.png" alt="LinkedIn" style="width: 30px; transition: transform 0.3s;"></a>
             <a href="https://github.com/HlonieLive" target="_blank"><img src="images/github.png" alt="GitHub" style="width: 30px; transition: transform 0.3s;"></a>
             <a href="https://www.instagram.com/hlony_live?igsh=MTgzaXY1cDlqNnNteA%3D%3D&utm_source=qr" target="_blank"><img src="images/instagram.png" alt="Instagram" style="width: 30px; transition: transform 0.3s;"></a>
-            <a href="javascript:void(0)" onclick="copyEmail(this)" class="tooltip-container">
+             <a href="javascript:void(0)" onclick="copyEmail(this)" class="tooltip-container">
                 <img src="images/gmail.png" alt="Gmail" style="width: 30px; transition: transform 0.3s;">
                 <span class="tooltip-text">lehlohonolotshabalala00@gmail.com</span>
             </a>
@@ -194,7 +160,7 @@
         <p>&copy; 2025 <span style="font-weight: bold;">Lehlohonolo Tshabalala.</span> All rights reserved!</p>
     </footer>
 
-    <!-- Modals -->
+
 
     <script src="script.js"></script>
 </body>

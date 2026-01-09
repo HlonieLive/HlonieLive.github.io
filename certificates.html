@@ -1,54 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
-    <body>
-        <section id="certificates">
-            <h2>Certificates</h2>
-            <div class="certificate">
-                <img src="certificate1.jpg" alt="Certificate 1">
-                <div>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Certificates & Badges | Lehlohonolo Tshabalala</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styling.css" />
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="port" style="display: flex; flex-direction: column; line-height: 1.1;">
+                <span style="font-size: 1.2rem; display: block; color: var(--heading-color);">M<span style="color: var(--primary-color);">Y</span></span>
+                <span style="font-size: 0.9rem; letter-spacing: 1px; color: var(--heading-color);"><span style="color: var(--primary-color);">PORT</span>FOLIO</span>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="certificates.html" class="active">Certificates</a></li>
+                <li><a href="#contact" class="btn-connect">Let's Connect</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="fade-in">
+        <div class="section-container">
+            <div class="intro-split">
+                <div class="intro-text">
+                    <h2>Certificates & <span>Badges</span></h2>
+                    <p class="intro-label">"Recognition is the greatest motivator." — Gerard C. Eakedale</p>
+                </div>
+                <div class="intro-img">
+                    <img src="images/certificates_intro_new.png" alt="Certificates Illustration">
+                </div>
+            </div>
+
+            <h2 class="section-title">Certifications</h2>
+
+            <div class="certificates-grid" id="certificates-grid">
+                <div class="certificate-card">
+                    <img src="https://via.placeholder.com/600x300?text=Java+Developer+Certificate" alt="Java Developer Certificate">
                     <h3>Java Developer</h3>
                     <p>Issued by Solo Learn</p>
                     <a href="certificate1.pdf" target="_blank">View Certificate</a>
                 </div>
-            </div>
 
-            <div class="certificate">
-                <img src="certificate2.jpg" alt="Certificate 2">
-                <div>
+                <div class="certificate-card">
+                    <img src="https://via.placeholder.com/600x300?text=SQL+Developer+Certificate" alt="SQL Developer Certificate">
                     <h3>SQL Developer</h3>
                     <p>Issued by Solo Learn</p>
                     <a href="certificate2.pdf" target="_blank">View Certificate</a>
                 </div>
-            </div>
 
-            <div class="certificate">
-                <img src="certificate3.jpg" alt="Certificate 3">
-                <div>
-                    <h3>Java Developer</h3>
-                    <p>Issued by Solo Learn</p>
-                    <a href="certificate3.pdf" target="_blank">View Certificate</a>
-                </div>
-            </div>
-
-            <div class="certificate">
-                <img src="certificate4.jpg" alt="Certificate 4">
-                <div>
+                <div class="certificate-card">
+                    <img src="https://via.placeholder.com/600x300?text=Data+Analysis+with+Python" alt="Data Analysis with Python">
                     <h3>Data Analysis with Python</h3>
                     <p>Issued by IBM</p>
-                    <a href="certificate4.pdf" target="_blank">View Certificate</a>
+                    <a href="certificate3.pdf" target="_blank">View Certificate</a>
                 </div>
 
-            </div>
-
-            <div class="certificate">
-                <img src="certificate4.jpg" alt="Certificate 4">
-                <div>
+                <div class="certificate-card">
+                    <img src="https://via.placeholder.com/600x300?text=Motheo+Financial+Education" alt="Motheo Financial Education">
                     <h3>Motheo Financial Education</h3>
                     <p>Issued by Momentum</p>
                     <a href="certificates.pdf" target="_blank">View Certificate</a>
-                <div>
-
                 </div>
-            </section>
-    </body>
+            </div>
+        </div>
+    </section>
+
+    <!-- AWS Badges Independent Section -->
+    <section id="aws-badges" class="fade-in">
+        <div class="section-container">
+            <h2 class="section-title">AWS <span>Badges</span></h2>
+            <div class="aws-badges-grid">
+                <!-- Badge 1: Cloud 101 -->
+                <div class="aws-badge-item" 
+                        data-title="Introduction to Cloud 101" 
+                        data-desc="This module provides a comprehensive introduction to Cloud Computing concepts. It covers the definition of the cloud, global infrastructure, and the core benefits including high availability, scalability, and elasticity. I learned about the different cloud deployment models (Public, Private, Hybrid) and service models (IaaS, PaaS, SaaS), laying a solid foundation for all future cloud architectural decisions.">
+                    <img src="images/aws_logo.png" alt="Introduction to Cloud 101" onclick="openBadgeModal(this.parentElement)">
+                    <h4><a href="https://www.credly.com/earner/earned/badge/74af578f-445a-4376-82b9-2764ecc7386a" target="_blank">Introduction to Cloud 101</a></h4>
+                    <p>Basics of Cloud Computing</p>
+                </div>
+                <!-- Badge 2: Storage -->
+                <div class="aws-badge-item"
+                        data-title="Getting Started with Storage"
+                        data-desc="A deep dive into the AWS storage ecosystem. I gained hands-on experience with Amazon Simple Storage Service (S3) for scalable object storage, Amazon Elastic Block Store (EBS) for persistent block storage used with EC2, and Amazon Elastic File System (EFS) for shared file storage. The course emphasized selecting the right storage class for performance and cost optimization.">
+                    <img src="images/aws_logo.png" alt="Getting Started with Storage" onclick="openBadgeModal(this.parentElement)">
+                    <h4><a href="https://www.credly.com/earner/earned/badge/11943ce8-da60-4bff-b916-eb865e1ee3fe" target="_blank">Getting Started with Storage</a></h4>
+                    <p>S3, EBS & Data Management</p>
+                </div>
+                <!-- Badge 3: Compute -->
+                <div class="aws-badge-item"
+                        data-title="Getting Started with Compute"
+                        data-desc="Focusing on the backbone of the cloud, this badge certifies my understanding of AWS Compute services. It covers the lifecycle of Amazon EC2 instances, from launching and configuring to managing security groups and key pairs. I also explored container services and the revolutionary shift towards serverless computing with AWS Lambda.">
+                    <img src="images/aws_logo.png" alt="Getting Started with Compute" onclick="openBadgeModal(this.parentElement)">
+                    <h4><a href="https://www.credly.com/earner/earned/badge/c3ba5348-749e-40e9-a23a-cd5352f665e2" target="_blank">Getting Started with Compute</a></h4>
+                    <p>EC2, Lambda & Computing Power</p>
+                </div>
+                <!-- Badge 4: Networking -->
+                <div class="aws-badge-item"
+                        data-title="Getting Started with Networking"
+                        data-desc="This certification validates my networking skills within the AWS Cloud. I demonstrated proficiency in creating isolated cloud networks using Amazon Virtual Private Cloud (VPC), managing IP addressing with subnets, creating route tables, and securing network traffic using Security Groups and Network Access Control Lists (NACLs).">
+                    <img src="images/aws_logo.png" alt="Getting Started with Networking" onclick="openBadgeModal(this.parentElement)">
+                    <h4><a href="https://www.credly.com/earner/earned/badge/2a24a012-5114-42c4-bbfd-bb52b849fc8c" target="_blank">Getting Started with Networking</a></h4>
+                    <p>VPC, Route 53 & Connectivity</p>
+                </div>
+                <!-- Badge 5: Databases -->
+                <div class="aws-badge-item"
+                        data-title="Getting Started with Databases"
+                        data-desc="I explored the landscape of managed database services on AWS. This includes Amazon RDS for traditional relational database management and Amazon DynamoDB for modern, high-scale NoSQL applications. The training covered database design, automated backups, read replicas, and strategies for migrating on-premise databases to the cloud.">
+                    <img src="images/aws_logo.png" alt="Getting Started with Databases" onclick="openBadgeModal(this.parentElement)">
+                    <h4><a href="https://www.credly.com/earner/earned/badge/321282cf-e33b-4327-9734-b381593e33ab" target="_blank">Getting Started with Databases</a></h4>
+                    <p>RDS, DynamoDB & Modern Data</p>
+                </div>
+                <!-- Badge 6: Cloud Operations -->
+                <div class="aws-badge-item"
+                        data-title="Getting Started with Cloud Operations"
+                        data-desc="This badge represents mastery of operational excellence in the cloud. It covers monitoring resources and applications using Amazon CloudWatch, auditing API calls with AWS CloudTrail, and managing configuration compliance. I learned how to automate routine maintenance tasks to ensure a stable and secure production environment.">
+                    <img src="images/aws_logo.png" alt="Getting Started with Cloud Operations" onclick="openBadgeModal(this.parentElement)">
+                    <h4><a href="https://www.credly.com/earner/earned/badge/a57dbeb4-3a5e-446e-b395-73ce315eb427" target="_blank">Getting Started with Cloud Operations</a></h4>
+                    <p>Monitoring, Auditing & Ops</p>
+                </div>
+                <!-- Badge 7: Security -->
+                <div class="aws-badge-item"
+                        data-title="Getting Started with Security"
+                        data-desc="Security is job zero. This achievement highlights my knowledge of the AWS Shared Responsibility Model and Identity and Access Management (IAM). I learned to create users, groups, and roles with least-privilege permissions, and implemented data protection strategies using encryption at rest and in transit with AWS KMS.">
+                    <img src="images/aws_logo.png" alt="Getting Started with Security" onclick="openBadgeModal(this.parentElement)">
+                    <h4><a href="https://www.credly.com/earner/earned/badge/254199f0-7fcb-42ff-800d-4c3b4ed60a3b" target="_blank">Getting Started with Security</a></h4>
+                    <p>IAM, Encryption & Compliance</p>
+                </div>
+                <!-- Badge 8: Serverless -->
+                <div class="aws-badge-item"
+                        data-title="Getting Started with Serverless"
+                        data-desc="Embracing modern application development, this badge focuses on Serverless architectures. I learned to build and deploy applications using AWS Lambda and Amazon API Gateway without managing the underlying infrastructure. This approach maximizes meaningful coding time and ensures applications scale automatically with demand.">
+                    <img src="images/aws_logo.png" alt="Getting Started with Serverless" onclick="openBadgeModal(this.parentElement)">
+                    <h4><a href="https://www.credly.com/earner/earned/badge/5d55f601-7b23-4b4d-86ed-ff0df0359242" target="_blank">Getting Started with Serverless</a></h4>
+                    <p>Event-driven Architectures</p>
+                </div>
+                <!-- Badge 9: ML -->
+                <div class="aws-badge-item"
+                        data-title="Machine Learning Foundation"
+                        data-desc="An entry into the world of Artificial Intelligence. This course covered the basic concepts of Machine Learning and the AWS ML stack, including Amazon SageMaker for building and training models. I also experimented with pre-trained AI services like Amazon Rekognition for image analysis and Amazon Polly for text-to-speech.">
+                    <img src="images/aws_logo.png" alt="Machine Learning Foundation" onclick="openBadgeModal(this.parentElement)">
+                    <h4><a href="https://www.credly.com/earner/earned/badge/52c2efeb-2f12-440c-a51a-020f5bf57a25" target="_blank">Machine Learning Foundation</a></h4>
+                    <p>Core ML Concepts & Tools</p>
+                </div>
+                <!-- Badge 10: Generative AI -->
+                <div class="aws-badge-item"
+                        data-title="Introduction to Generative AI"
+                        data-desc="Staying at the cutting edge of technology, I completed training on Generative AI. This covered Large Language Models (LLMs), Foundation Models, and how to leverage tools like Amazon Bedrock to build generative AI applications that can create text, images, and code, transforming how we solve complex problems.">
+                    <img src="images/aws_logo.png" alt="Introduction to Generative AI" onclick="openBadgeModal(this.parentElement)">
+                    <h4><a href="https://www.credly.com/earner/earned/badge/d3a9f638-0ab6-4165-ad76-c7d9513e0c55" target="_blank">Introduction to Generative AI</a></h4>
+                    <p>LLMs & Generative Models</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="fade-in">
+        <div class="section-container">
+            <h2 class="section-title">Contact <span>Me</span></h2>
+            
+            <div class="contact-wrapper">
+                <!-- Left: Contact Form -->
+                <div class="contact-form-card">
+                    <p class="form-title">Feel free to reach out to me via email or social media.</p>
+                    <form id="contact-form" class="contact-form" action="https://formsubmit.co/lehlohonolotshabalala00@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="Portfolio: New Certificate/Contact Inquiry">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="text" name="name" placeholder="Full Name" required>
+                        <input type="email" name="email" placeholder="Email" required>
+                        <input type="tel" name="phone" placeholder="Phone Number">
+                        <input type="text" name="subject" placeholder="Subject" required>
+                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                        <button type="submit">SEND MESSAGE</button>
+                    </form>
+                    <p id="contact-success" style="display:none; color: var(--primary-color); margin-top: 1rem; text-align: center;">Message Sent Successfully!</p>
+                </div>
+
+                <!-- Right: Socials -->
+                <h4 class="socials-title">Connect via Socials</h4>
+                <div class="contact-socials">
+                    <a href="https://www.linkedin.com/in/lehlohonolo-tshabalala-b81657266/" target="_blank" class="contact-card">
+                        <img src="images/linkedin.png" alt="LinkedIn">
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/HlonieLive" target="_blank" class="contact-card">
+                        <img src="images/github.png" alt="GitHub">
+                        <span>GitHub</span>
+                    </a>
+                    <a href="mailto:lehlohonolotshabalala00@gmail.com" class="contact-card">
+                        <img src="images/gmail.png" alt="Gmail">
+                        <span>Gmail</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-socials" style="display: flex; justify-content: center; gap: 20px; margin-bottom: 2rem;">
+            <a href="https://www.linkedin.com/in/lehlohonolo-tshabalala-b81657266/" target="_blank"><img src="images/linkedin.png" alt="LinkedIn" style="width: 30px; transition: transform 0.3s;"></a>
+            <a href="https://github.com/HlonieLive" target="_blank"><img src="images/github.png" alt="GitHub" style="width: 30px; transition: transform 0.3s;"></a>
+            <a href="https://www.instagram.com/hlony_live?igsh=MTgzaXY1cDlqNnNteA%3D%3D&utm_source=qr" target="_blank"><img src="images/instagram.png" alt="Instagram" style="width: 30px; transition: transform 0.3s;"></a>
+            <a href="javascript:void(0)" onclick="copyEmail(this)" class="tooltip-container">
+                <img src="images/gmail.png" alt="Gmail" style="width: 30px; transition: transform 0.3s;">
+                <span class="tooltip-text">lehlohonolotshabalala00@gmail.com</span>
+            </a>
+        </div>
+        <p>&copy; 2025 <span style="font-weight: bold;">Lehlohonolo Tshabalala.</span> All rights reserved!</p>
+    </footer>
+
+    <!-- Badge Text Modal -->
+    <div class="modal-overlay" id="badge-modal">
+        <div class="modal">
+            <h3 id="badge-modal-title">Badge Title</h3>
+            <p id="badge-modal-desc" style="color: var(--text-color); line-height: 1.6; font-size: 1rem;"></p>
+            <div class="modal-buttons">
+                <button class="cancel-btn" onclick="closeModal('badge-modal')">Close</button>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <script src="script.js"></script>
+</body>
 </html>

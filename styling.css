@@ -133,6 +133,14 @@ span, .active-dot {
     color: var(--primary-color);
 }
 
+/* Ensure section titles with spans (two words) use primary color */
+.section-title span, 
+h1 span, 
+h2 span,
+.hero-text h1 span {
+    color: var(--primary-color);
+}
+
 /* Navigation */
 header {
     position: fixed;
@@ -627,6 +635,15 @@ section h2::after {
     z-index: 2;
 }
 
+.socials-title {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem; /* Space between title and icons */
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+}
+
 @media (max-width: 1024px) {
     .projects-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -747,14 +764,81 @@ section h2::after {
     font-size: 0.95rem;
 }
 
-.project-card a {
-    display: inline-block;
-    color: var(--primary-color);
-    font-weight: 600;
+
+/* Project Links (Icons) */
+.project-links {
+    display: flex;
+    gap: 1rem;
     margin: 0 1.5rem 1.5rem;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
+    align-items: center;
+}
+
+.project-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    color: var(--text-color);
+}
+
+.project-icon:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-3px);
+    color: #000; /* Icon color on hover */
+    box-shadow: 0 5px 15px var(--primary-glow);
+}
+
+.project-icon img, .project-icon svg {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    transition: filter 0.3s;
+}
+
+/* Invert GitHub icon for dark mode default */
+.project-icon img {
+    filter: invert(1);
+}
+
+/* On hover, or in light mode if needed, handle color */
+.project-icon:hover img {
+    filter: brightness(0); /* Make black on yellow/blue hover */
+}
+
+.project-icon:hover svg {
+    stroke: #000; /* For SVG icons */
+}
+
+/* Light mode adjustments if necessary */
+body.light-mode .project-icon {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.1);
+    color: #000;
+}
+body.light-mode .project-icon img {
+    filter: none; /* Black by default in light mode */
+}
+body.light-mode .project-icon:hover img {
+    filter: invert(1); /* White on blue hover? or just keep black? Let's check btn-text-color equivalent */
+}
+/* If primary color is dark blue in light mode, text should be white. 
+   If primary is cyan/yellow, text black. 
+   Current light primary is Blue (#0066ff). Text on blue is white usually.
+*/
+body.light-mode .project-icon:hover {
+    color: #fff;
+}
+body.light-mode .project-icon:hover img {
+    filter: invert(1) brightness(2); /* White */
+}
+body.light-mode .project-icon:hover svg {
+    stroke: #fff;
 }
 
 /* Skills Grid - Glass Tiles */
@@ -1628,3 +1712,607 @@ nav .hero-btn {
     opacity: 1;
 }
 
+
+/* ... existing styles ... */
+
+/* --- NEW PREMIUM COMPONENTS --- */
+
+/* 1. Intro Split Section (Text + Illustration) */
+.intro-split {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    margin-bottom: 5rem;
+    padding: 0 1rem;
+}
+
+.intro-text {
+    flex: 1;
+}
+
+.intro-text h2 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+.intro-text h2 span {
+    color: var(--primary-color);
+}
+
+.intro-label {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    font-style: italic;
+    border-left: 3px solid var(--primary-color);
+    padding-left: 1rem;
+}
+
+.intro-img {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.intro-img img {
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+    transition: transform var(--transition-speed);
+}
+
+.intro-img img:hover {
+    transform: translateY(-5px) scale(1.02);
+}
+
+@media (max-width: 900px) {
+    .intro-split {
+        flex-direction: column-reverse; /* Image top on mobile */
+        text-align: center;
+        gap: 2rem;
+    }
+    .intro-label {
+        border-left: none;
+        border-top: 3px solid var(--primary-color);
+        padding-top: 1rem;
+        padding-left: 0;
+        display: inline-block;
+    }
+}
+
+
+/* 2. Wide Experience Cards (Logo Left, Content Right) */
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.wide-card {
+    display: flex;
+    background: #0a0a0c; /* Deep Dark */
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all var(--transition-speed);
+    position: relative;
+}
+
+.wide-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+.wide-card-logo {
+    width: 250px;
+    background: #ffffff; /* White bg for logos as per visual */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    flex-shrink: 0;
+}
+
+.wide-card-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.wide-card-content {
+    padding: 2.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.wide-card-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.wide-card-subtitle {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.wide-card-date {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    font-family: monospace;
+}
+
+.wide-card-desc {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.wide-card-desc ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.wide-card-desc li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.wide-card-desc li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .wide-card {
+        flex-direction: column;
+    }
+    .wide-card-logo {
+        width: 100%;
+        height: 150px;
+    }
+}
+
+
+/* 3. Timeline for Education */
+.education-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 4rem auto;
+    padding-left: 2rem;
+    border-left: 2px solid var(--primary-color);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 4rem;
+    padding-left: 2rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.6rem; /* Align with border */
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background: var(--bg-color);
+    border: 3px solid var(--primary-color);
+    border-radius: 50%;
+    z-index: 2;
+    transition: background 0.3s;
+}
+
+.timeline-item:hover::before {
+    background: var(--primary-color);
+}
+
+.timeline-content {
+    background: var(--card-bg-transparent);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    position: relative;
+}
+
+.timeline-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-year {
+    position: absolute;
+    top: -1.5rem;
+    right: 0;
+    background: var(--primary-color);
+    color: #000;
+    padding: 0.2rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* Hackathon Special Card */
+.hackathon-highlight {
+    background: linear-gradient(145deg, #150505, #1a0a00);
+    border: 1px solid rgba(255, 100, 0, 0.2);
+    display: flex;
+    border-radius: 24px;
+    padding: 3rem;
+    align-items: center;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.hackathon-logo {
+    width: 200px;
+    height: 200px;
+    background: #fff;
+    border-radius: 20px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(255,255,255,0.1);
+}
+
+.hackathon-logo img {
+    max-width: 100%;
+}
+
+.hackathon-info h3 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.hackathon-info .role {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+@media (max-width: 900px) {
+    .hackathon-highlight {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+    }
+}
+
+/* Contact Section & Nav Button */
+/* Contact Section & Nav Button */
+/* Match hero-btn style */
+.btn-connect {
+    background: var(--btn-bg-gradient);
+    color: var(--btn-text-color);
+    padding: 0.6rem 1.4rem;
+    border-radius: 50px;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: none;
+    display: inline-block;
+    box-shadow: 0 4px 15px var(--btn-shadow-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-connect::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(45deg) translateY(-100%);
+    transition: transform 0.6s;
+}
+
+.btn-connect:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px var(--btn-hover-shadow);
+    color: var(--btn-text-color);
+}
+
+.btn-connect:hover::after {
+    transform: rotate(45deg) translateY(100%);
+}
+
+/* New Contact Me Section */
+#contact {
+    padding: 6rem 2rem;
+    background: var(--bg-color);
+    text-align: center;
+    position: relative;
+    z-index: 5;
+}
+
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-container h2 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+}
+
+.contact-container h2 span {
+    color: var(--primary-color);
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.contact-card {
+     background: var(--card-bg-transparent);
+    border: 1px solid var(--card-border);
+    padding: 2rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    min-width: 160px;
+    transition: all var(--transition-speed);
+}
+
+.contact-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 30px rgba(255, 170, 0, 0.2);
+    background: rgba(255, 170, 0, 0.1);
+}
+
+.contact-card img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s;
+    filter: invert(1);
+}
+
+.contact-card:hover img {
+    transform: scale(1.1);
+}
+
+body.light-mode .contact-card img {
+    filter: invert(0);
+}
+
+.contact-card span {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* --- CONTACT FORM SECTION --- */
+.contact-wrapper {
+    display: flex;
+    flex-direction: column; /* Stack vertically (Form Top, Socials Bottom) */
+    align-items: center; /* Center horizontally */
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.contact-form-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    background: var(--card-bg-transparent);
+    border: 1px solid var(--card-border);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.form-title {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1.2rem;
+    background: var(--input-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-color);
+    border-radius: 8px;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 1rem;
+    background: var(--btn-bg-gradient);
+    color: var(--btn-text-color);
+    font-weight: 800;
+    border: none;
+    border-radius: 50px; /* Matched to hero-btn */
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px var(--btn-shadow-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-form button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(45deg) translateY(-100%);
+    transition: transform 0.6s;
+}
+
+.contact-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px var(--btn-hover-shadow);
+}
+
+.contact-form button:hover::after {
+    transform: rotate(45deg) translateY(100%);
+}
+
+/* Align social links horizontally under the form */
+.contact-socials {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: row; /* Horizontal alignment */
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+/* Update contact-card for horizontal layout if needed */
+.contact-socials .contact-card {
+    flex-direction: column; /* Stack icon and text vertically inside the card */
+    justify-content: center;
+    width: 150px; /* Fixed width for uniform cards */
+    padding: 1.5rem;
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    /* No special column override needed since it's already column, just ensure widths */
+    .contact-form-card {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+/* Custom Success Popup */
+.popup-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 10000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.popup-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.popup-content {
+    background: var(--card-bg-transparent);
+    border: 1px solid var(--primary-color);
+    padding: 2.5rem;
+    border-radius: 24px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    transform: scale(0.8);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    position: relative;
+}
+
+.popup-overlay.active .popup-content {
+    transform: scale(1);
+}
+
+.popup-icon-container {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.05); /* Subtle bg */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    border: 2px solid var(--primary-color);
+}
+
+.popup-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    /* Simple Animation */
+    animation: popTick 0.5s ease backwards 0.2s;
+}
+
+@keyframes popTick {
+    0% { transform: scale(0); }
+    80% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.popup-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.popup-message {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+.popup-btn {
+    background: var(--primary-color);
+    color: #000; /* Contrast against yellow/blue/cyan */
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 800;
+    cursor: pointer;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 5px 15px var(--primary-glow);
+}
+
+.popup-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px var(--primary-glow);
+}
