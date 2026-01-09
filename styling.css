@@ -441,6 +441,7 @@ body.light-mode .theme-toggle::after {
 .hero-img {
     position: relative;
     display: flex;
+    flex-direction: column; /* Stack image and quote vertically */
     justify-content: center;
     align-items: center;
     z-index: 1;
@@ -466,8 +467,8 @@ body.light-mode .theme-toggle::after {
 }
 
 .hero-img img {
-    width: 450px;
-    height: 450px;
+    width: 350px; /* Reduced to make room for quote */
+    height: 350px;
     border-radius: 50%;
     object-fit: cover;
     object-position: center top;
@@ -2496,5 +2497,33 @@ body.light-mode .tech-tag {
     background: rgba(0, 102, 255, 0.1);
     color: #0066ff;
     border: 1px solid rgba(0, 102, 255, 0.2);
+}
+
+
+/* Blend Intro Images better */
+.intro-img img {
+    mix-blend-mode: screen;
+    border-radius: 20px; /* Soften edges if any */
+}
+
+/* Highlight Quote */
+.highlight-quote {
+    font-size: 1.8rem;
+    text-align: center;
+    margin: 3rem auto;
+    max-width: 800px;
+    color: var(--text-color);
+    font-style: italic;
+    position: relative;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+    border-radius: 20px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.highlight-quote span {
+    color: var(--primary-color);
+    font-weight: bold;
 }
 
