@@ -224,22 +224,67 @@
                 <button id="view-more-btn" class="hero-btn" onclick="toggleProjects()">View More</button>
             </div>
 
-       <script>
-            function toggleProjects() {
-                const hiddenProjects = document.querySelectorAll('.hidden-project');
-                const btn = document.getElementById('view-more-btn');
-                
-                hiddenProjects.forEach(project => {
-                    if (project.style.display === 'none') {
-                        project.style.display = 'flex'; // Restore flex display
-                        btn.innerText = 'Show Less';
-                    } else {
-                        project.style.display = 'none';
-                        btn.innerText = 'View More';
-                    }
-                });
-            }
-        </script>
+            <script>
+                function toggleProjects() {
+                    const hiddenProjects = document.querySelectorAll('.hidden-project');
+                    const btn = document.getElementById('view-more-btn');
+                    
+                    hiddenProjects.forEach(project => {
+                        if (project.style.display === 'none') {
+                            project.style.display = 'flex'; // Restore flex display
+                            btn.innerText = 'Show Less';
+                        } else {
+                            project.style.display = 'none';
+                            btn.innerText = 'View More';
+                        }
+                    });
+                }
+            </script>
+
+            <!-- Team Work & Collaborations Section -->
+            <h2 class="section-title" style="margin-top: 5rem;">Team Work & <span>Collaborations</span></h2>
+            <div class="projects-grid">
+                <!-- Project: MoreMove -->
+                <div class="project-card">
+                    <img src="images/project_moremove.png" alt="MoreMove" onerror="this.src='https://via.placeholder.com/300?text=MoreMove'">
+                    <h3>MoreMove</h3>
+                    <p>MTN MoMo Hackathon Award-Winning Solution. A financial inclusion app simplifying cross-border payments.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">MoMo API</span>
+                        <span class="tech-tag">FinTech</span>
+                        <span class="tech-tag">Hackathon Winner</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/SimangaThinkDev/MoreMove---WarmHands" target="_blank" class="project-icon" aria-label="GitHub Repo">
+                            <img src="images/github.png" alt="GitHub">
+                        </a>
+                        <a href="#" class="project-icon" aria-label="Live Demo">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project: Banking System -->
+                <div class="project-card">
+                    <img src="images/project_banking.png" alt="Banking System" onerror="this.src='https://via.placeholder.com/300?text=Banking+System'">
+                    <h3>Banking System</h3>
+                    <p>A collaborative project demonstrating a comprehensive banking application with secure transaction features.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">Collaboration</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/G-Mutshidza/banking_system" target="_blank" class="project-icon" aria-label="GitHub Repo">
+                            <img src="images/github.png" alt="GitHub">
+                        </a>
+                        <a href="#" class="project-icon" aria-label="Live Demo">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
