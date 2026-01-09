@@ -493,7 +493,7 @@ window.copyEmail = function(element) {
             });
         });
     }
-});
+
 
 // Global functions for popup
 window.openSuccessPopup = function() {

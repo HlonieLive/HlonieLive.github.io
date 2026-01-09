@@ -236,18 +236,79 @@ nav ul li a:hover::after, nav ul li a.active::after {
     transition: all 0.3s ease;
 }
 
-/* Theme Toggle Button */
+/* Theme Toggle Switch */
 .theme-toggle {
-    background: transparent;
-    border: none;
+    background: rgba(255, 255, 255, 0.1); /* Track default */
+    border: 1px solid var(--glass-border);
     cursor: pointer;
-    padding: 0.5rem;
+    width: 60px;
+    height: 30px;
+    border-radius: 30px;
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
+    padding: 0;
     margin-left: 1rem;
+    transition: background 0.3s ease;
+    overflow: hidden;
+}
+
+/* The Knob */
+.theme-toggle::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 24px;
+    height: 24px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    z-index: 2;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Light Mode State (Knob moves right) */
+body.light-mode .theme-toggle::after {
+    transform: translateX(30px);
+    background: #FFD700; /* Sun Yellow knob in light mode for contrast, or stick to primary */
+}
+
+/* Theme Icon inside the switch */
+.theme-toggle svg {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    z-index: 1;
+    transition: opacity 0.3s;
     color: var(--text-color);
-    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Position icons on left/right for effect is tricky with a single SVG inside. 
+   Usually a switch has two icons or the icon moves. 
+   Let's keep the icon simple: The existing SVG stays but we can style it to fade/move or just sit in background.
+   Better yet, let's make the track have "Moon" and "Sun" indicators if possible, or just let the knob do the work.
+   For now, strictly following "Switch style" request.
+*/
+
+/* Move the SVG depending on state or hide it to be purely a colored switch? 
+   The request says "Icon to be like a switch". Let's hide the SVG inside or make it part of the knob?
+   Let's put the SVG *on* the knob or let the knob cover tracks.
+   Let's make it a simple track switch first.
+*/
+.theme-toggle svg {
+    display: none; /* Hide the old extensive SVG logic if we just want a visual switch */
+}
+
+/* Optional: Add background icons for Sun/Moon in the track */
+.theme-toggle {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23cccccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>'), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23cccccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>');
+    background-position: 5px center, 35px center;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 16px 16px, 16px 16px;
+}
     z-index: 1002; /* Increased z-index */
     position: relative; /* Ensure z-index works */
 }
