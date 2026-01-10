@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
         body.classList.add('light-mode');
         updateIcon(true);
     } else {
-        // Ensure we are in dark mode (default in CSS, but good for clarity)
         body.classList.remove('light-mode');
         updateIcon(false);
     }
@@ -26,10 +25,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function updateIcon(isLight) {
         if (isLight) {
-            // Moon Icon (Dark Mode Button)
             themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
         } else {
-            // Sun Icon (Light Mode Button)
             themeIcon.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
         }
     }
@@ -254,12 +251,6 @@ window.addCertificate = function() {
     const fileInput = document.getElementById('cert-file');
     const link = document.getElementById('cert-link').value || '#';
 
-    // Helper for adding cert card (inline since it wasn't separate function in reading)
-    // Wait, createCertCard IS a function, just not shown fully in previous read? 
-    // Actually previous read showed createCertCard being called.
-    // Let's assume createCertCard exists or logic is inline.
-    // Step 275 shows createCertCard usage. So I must update THAT function too.
-    
     if (title && issuer) {
         if (fileInput.files && fileInput.files[0]) {
             const reader = new FileReader();
@@ -505,3 +496,95 @@ window.closeSuccessPopup = function() {
     const popup = document.getElementById('success-popup');
     if (popup) popup.classList.remove('active');
 }
+
+// ============== Background Animation (Home Page) ==============
+document.addEventListener("DOMContentLoaded", function () {
+    const canvas = document.getElementById("bg-canvas");
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    let width, height;
+    let particles = [];
+    
+    // Configuration
+    const particleCount = 60; // Not too crowded
+    const connectionDistance = 150;
+    const moveSpeed = 0.5;
+
+    // Resize handling
+    function resize() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    // Particle Class
+    class Particle {
+        constructor() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height;
+            this.vx = (Math.random() - 0.5) * moveSpeed;
+            this.vy = (Math.random() - 0.5) * moveSpeed;
+            this.size = Math.random() * 2 + 1;
+        }
+
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+
+            // Bounce off edges
+            if (this.x < 0 || this.x > width) this.vx *= -1;
+            if (this.y < 0 || this.y > height) this.vy *= -1;
+        }
+
+        draw() {
+            const isLight = document.body.classList.contains("light-mode");
+            ctx.fillStyle = isLight ? "rgba(0, 102, 255, 0.5)" : "rgba(255, 170, 0, 0.5)"; // Blue for light, Orange for dark
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+
+    // Initialize Particles
+    for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+    }
+
+    // Animation Loop
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+        
+        const isLight = document.body.classList.contains("light-mode");
+        const lineColor = isLight ? "0, 102, 255" : "255, 170, 0"; 
+
+        for (let i = 0; i < particles.length; i++) {
+            particles[i].update();
+            particles[i].draw();
+
+            // Connect particles
+            for (let j = i; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < connectionDistance) {
+                    ctx.beginPath();
+                    // Opacity based on distance inverted
+                    const opacity = 1 - (distance / connectionDistance);
+                    ctx.strokeStyle = `rgba(${lineColor}, ${opacity * 0.2})`; // Low opacity lines
+                    ctx.lineWidth = 1;
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.stroke();
+                }
+            }
+        }
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+});
