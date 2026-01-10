@@ -1,5 +1,6 @@
 ﻿:root {
     --primary-color: #ffaa00;
+    --heading-color: #ffffff;
     --primary-glow: rgba(255, 170, 0, 0.4);
     --secondary-color: #1e1e24; /* Darker card bg */
     --accent-color: #ffffff;
@@ -308,15 +309,12 @@ body.light-mode .theme-toggle::after {
     background-position: 5px center, 35px center;
     background-repeat: no-repeat, no-repeat;
     background-size: 16px 16px, 16px 16px;
-}
     z-index: 1002; /* Increased z-index */
     position: relative; /* Ensure z-index works */
 }
 
-.theme-toggle:hover {
-    color: var(--primary-color);
-    transform: rotate(15deg);
-}
+
+/* Theme toggle hover effect removed as per request */
 
 .theme-toggle svg {
     width: 24px;
@@ -389,9 +387,6 @@ body.light-mode .theme-toggle::after {
 }
 
 /* General p styling in hero-text might interfere, ensure this wins */
-.hero-text p:not(.hero-intro):not(.cta-label) {
-   /* reset any unwanted borders if defaults were applied generic */
-}
 
 .cta-label {
     font-size: 0.9rem;
@@ -768,6 +763,7 @@ section h2::after {
     background: linear-gradient(45deg, transparent, var(--primary-color), transparent);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: exclude;
     opacity: 0;
     transition: opacity 0.4s ease;
@@ -2575,76 +2571,74 @@ body.light-mode .progress-bar {
     background: linear-gradient(90deg, #0066ff, #66b3ff);
 }
 
- 
- @ i m p o r t   u r l ( ' h t t p s : / / f o n t s . g o o g l e a p i s . c o m / c s s 2 ? f a m i l y = G r e a t + V i b e s & d i s p l a y = s w a p ' ) ;  
-  
- . l o g o - n a m e   {  
-         f o n t - f a m i l y :   ' G r e a t   V i b e s ' ,   c u r s i v e   ! i m p o r t a n t ;   / *   A m a z e   S t y l e   * /  
-         f o n t - s i z e :   1 . 8 r e m   ! i m p o r t a n t ;   / *   H i g h   c r e a t i v e   f o n t   n e e d s   s i z e   * /  
-         c o l o r :   v a r ( - - h e a d i n g - c o l o r ) ;  
-         t e x t - t r a n s f o r m :   n o n e   ! i m p o r t a n t ;  
-         w h i t e - s p a c e :   n o w r a p ;  
-         l e t t e r - s p a c i n g :   1 p x ;  
- }  
-  
- . l o g o - n a m e   s p a n   {  
-           c o l o r :   v a r ( - - p r i m a r y - c o l o r ) ;  
- }  
-  
- / *   Y e l l o w   P r o g r e s s   B a r   O v e r r i d e   * /  
- . p r o g r e s s - b a r   {  
-         b a c k g r o u n d :   l i n e a r - g r a d i e n t ( 9 0 d e g ,   # F F D 7 0 0 ,   # F F A 5 0 0 )   ! i m p o r t a n t ;  
- }  
-  
- . p r o g r e s s - t e x t   {  
-         c o l o r :   # F F D 7 0 0   ! i m p o r t a n t ;  
- }  
-  
- / *   F i x   T h e m e   T o g g l e   P o s i t i o n   -   M a k e   i t   s t a t i c   i n   n a v   l i n k s   * /  
- . n a v - l i n k s   . t h e m e - t o g g l e   {  
-         d i s p l a y :   i n l i n e - f l e x   ! i m p o r t a n t ;   / *   F o r c e   s h o w   i n s i d e   n a v   o n   D e s k t o p   * /  
-         m a r g i n :   0   1 5 p x ;   / *   S p a c i n g   * /  
-         v e r t i c a l - a l i g n :   m i d d l e ;  
- }  
-  
- / *   H i d e   t h e   m o b i l e   s t a n d a l o n e   t o g g l e   s i n c e   w e   w a n t   c o n s i s t e n t   p l a c e m e n t ?    
-       A c t u a l l y ,   a l l o w i n g   i t   i n s i d e   n a v - l i n k s   w o r k s   f o r   d e s k t o p .    
-       O n   m o b i l e ,   i f   n a v - l i n k s   i s   c o l l a p s e d ,   i t   h i d e s .    
-       U s e r   w a n t s   i t   " s t a t i c " .  
-       L e t ' s   k e e p   t h e   o n e   i n s i d e   n a v - l i n k s   v i s i b l e .  
- * /  
-  
- @ m e d i a   ( m a x - w i d t h :   9 0 0 p x )   {  
-         . n a v - l i n k s   . t h e m e - t o g g l e   {  
-                 d i s p l a y :   b l o c k   ! i m p o r t a n t ;   / *   E n s u r e   i t   s h o w s   i n   t h e   m o b i l e   m e n u   l i s t   * /  
-                 m a r g i n :   1 0 p x   a u t o ;  
-         }  
-          
-         . m o b i l e - t h e m e - i c o n   {  
-                 d i s p l a y :   n o n e   ! i m p o r t a n t ;   / *   H i d e   t h e   f l o a t i n g   o n e   * /  
-         }  
- }  
-  
- / *   C e r t i f i c a t e s   P a g e   O v e r r i d e s   -   R e m o v e   b a c k g r o u n d s   * /  
- # c e r t i f i c a t e s   . h i g h l i g h t - q u o t e   {  
-         b a c k g r o u n d :   n o n e   ! i m p o r t a n t ;  
-         b o r d e r :   n o n e   ! i m p o r t a n t ;  
-         b o x - s h a d o w :   n o n e   ! i m p o r t a n t ;  
- }  
-  
- # c e r t i f i c a t e s   . i n t r o - i m g   i m g   {  
-         b o x - s h a d o w :   n o n e   ! i m p o r t a n t ;  
-         b a c k g r o u n d :   n o n e   ! i m p o r t a n t ;  
- }  
-  
- / *   A W S   B a d g e s   C o n t a i n e r   s p e c i f i c   c h a n g e s   i f   n e e d e d ,   b u t   m o s t l y   l i k e l y   t h e   i t e m s   * /  
- . a w s - b a d g e - i t e m   {  
-         / *   I f   u s e r   w a n t s   N O   b a c k g r o u n d   o n   b a d g e s ,   u n c o m m e n t   b e l o w .    
-               " P i c t u r e   a n d   A W S   B a d g e s "   i m p l i e s   m a y b e   t h e   c o n t a i n e r   o r   i t e m s .  
-               L e t ' s   a s s u m e   t h e   i t e m s   t h e m s e l v e s   s h o u l d   l o s e   t h e   c a r d   b g ?  
-               O r   m a y b e   j u s t   t h e   s e c t i o n   c o n t a i n e r ?  
-               " R e m o v e   t h e   b a c k   g r o u n d s   o f   t h e   q o u t e   a n d   t h e   p i c t u r e   a n d   A W S   B a d g e s "  
-               L i k e l y   m e a n s   t r a n s p a r e n t   i t e m s .  
-         * /  
- }  
- 
+
+
+@import url('https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap');
+
+.logo-name {
+    font-family: 'Mrs Saint Delafield', cursive !important;
+    font-size: 1.2rem !important;
+    color: var(--heading-color);
+    text-transform: none !important;
+    display: flex;
+    flex-direction: column;
+    line-height: 0.9;
+    letter-spacing: 1px;
+}
+
+.logo-name span:first-child {
+    color: var(--heading-color);
+    display: block;
+}
+
+.logo-name span:last-child {
+     color: var(--primary-color);
+     display: block;
+}
+
+/* Yellow Progress Bar Override (Dark Theme default) */
+#about .progress-bar, .skill-card .progress-bar {
+    background: linear-gradient(90deg, #FFD700, #FFA500) !important;
+}
+
+#about .progress-text, .skill-card .progress-text {
+    color: #FFD700 !important;
+}
+
+/* Blue Progress Bar Override (Light Theme) */
+body.light-mode #about .progress-bar, body.light-mode .skill-card .progress-bar {
+    background: linear-gradient(90deg, #0066ff, #66b3ff) !important;
+}
+
+body.light-mode #about .progress-text, body.light-mode .skill-card .progress-text {
+    color: #0066ff !important;
+}
+
+/* Fix Theme Toggle Position - Static in nav links */
+.nav-links .theme-toggle {
+    display: inline-flex !important;
+    margin: 0 15px;
+    vertical-align: middle;
+}
+
+@media (max-width: 900px) {
+    .nav-links .theme-toggle {
+        display: block !important;
+        margin: 10px auto;
+    }
+    .mobile-theme-icon {
+        display: none !important;
+    }
+}
+
+/* Certificates Page Overrides */
+#certificates .highlight-quote {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+#certificates .intro-img img {
+    box-shadow: none !important;
+    background: none !important;
+}
