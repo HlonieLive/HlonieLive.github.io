@@ -148,6 +148,41 @@ document.addEventListener("DOMContentLoaded", function () {
     if (addBadgeBtn) {
         addBadgeBtn.addEventListener('click', () => openModal('add-badge-modal'));
     }
+    
+    // ============== AWS Badges Show More ============== 
+    const showMoreBtn = document.getElementById('show-more-badges');
+
+    if (showMoreBtn) {
+        showMoreBtn.addEventListener('click', () => {
+            // Use case-insensitive check because of CSS text-transform: uppercase
+            const currentText = showMoreBtn.innerText.toUpperCase();
+            const isExpanding = currentText.includes('SHOW MORE');
+            
+            const allBadges = document.querySelectorAll('.aws-badge-item');
+            
+            if (isExpanding) {
+                // Expanding
+                allBadges.forEach((badge, index) => {
+                    if (index >= 3) badge.classList.remove('hidden');
+                });
+                showMoreBtn.innerText = 'Show Less';
+                
+                // Scroll to newly revealed content
+                if (allBadges[3]) {
+                    allBadges[3].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            } else {
+                // Collapsing
+                allBadges.forEach((badge, index) => {
+                    if (index >= 3) badge.classList.add('hidden');
+                });
+                showMoreBtn.innerText = 'Show More Badges';
+                
+                // Scroll back up to the section title
+                document.querySelector('#aws-badges .section-title').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    }
 });
 
 // ============== Global Functions for Dynamic Functionality ==============

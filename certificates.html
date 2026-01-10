@@ -135,7 +135,7 @@
                     <p>EC2, Lambda & Computing Power</p>
                 </div>
                 <!-- Badge 4: Networking -->
-                <div class="aws-badge-item"
+                <div class="aws-badge-item hidden"
                         data-title="Getting Started with Networking"
                         data-desc="This certification validates my networking skills within the AWS Cloud. I demonstrated proficiency in creating isolated cloud networks using Amazon Virtual Private Cloud (VPC), managing IP addressing with subnets, creating route tables, and securing network traffic using Security Groups and Network Access Control Lists (NACLs).">
                     <img src="images/aws_logo.png" alt="Getting Started with Networking" onclick="openBadgeModal(this.parentElement)">
@@ -143,7 +143,7 @@
                     <p>VPC, Route 53 & Connectivity</p>
                 </div>
                 <!-- Badge 5: Databases -->
-                <div class="aws-badge-item"
+                <div class="aws-badge-item hidden"
                         data-title="Getting Started with Databases"
                         data-desc="I explored the landscape of managed database services on AWS. This includes Amazon RDS for traditional relational database management and Amazon DynamoDB for modern, high-scale NoSQL applications. The training covered database design, automated backups, read replicas, and strategies for migrating on-premise databases to the cloud.">
                     <img src="images/aws_logo.png" alt="Getting Started with Databases" onclick="openBadgeModal(this.parentElement)">
@@ -151,7 +151,7 @@
                     <p>RDS, DynamoDB & Modern Data</p>
                 </div>
                 <!-- Badge 6: Cloud Operations -->
-                <div class="aws-badge-item"
+                <div class="aws-badge-item hidden"
                         data-title="Getting Started with Cloud Operations"
                         data-desc="This badge represents mastery of operational excellence in the cloud. It covers monitoring resources and applications using Amazon CloudWatch, auditing API calls with AWS CloudTrail, and managing configuration compliance. I learned how to automate routine maintenance tasks to ensure a stable and secure production environment.">
                     <img src="images/aws_logo.png" alt="Getting Started with Cloud Operations" onclick="openBadgeModal(this.parentElement)">
@@ -159,7 +159,7 @@
                     <p>Monitoring, Auditing & Ops</p>
                 </div>
                 <!-- Badge 7: Security -->
-                <div class="aws-badge-item"
+                <div class="aws-badge-item hidden"
                         data-title="Getting Started with Security"
                         data-desc="Security is job zero. This achievement highlights my knowledge of the AWS Shared Responsibility Model and Identity and Access Management (IAM). I learned to create users, groups, and roles with least-privilege permissions, and implemented data protection strategies using encryption at rest and in transit with AWS KMS.">
                     <img src="images/aws_logo.png" alt="Getting Started with Security" onclick="openBadgeModal(this.parentElement)">
@@ -167,7 +167,7 @@
                     <p>IAM, Encryption & Compliance</p>
                 </div>
                 <!-- Badge 8: Serverless -->
-                <div class="aws-badge-item"
+                <div class="aws-badge-item hidden"
                         data-title="Getting Started with Serverless"
                         data-desc="Embracing modern application development, this badge focuses on Serverless architectures. I learned to build and deploy applications using AWS Lambda and Amazon API Gateway without managing the underlying infrastructure. This approach maximizes meaningful coding time and ensures applications scale automatically with demand.">
                     <img src="images/aws_logo.png" alt="Getting Started with Serverless" onclick="openBadgeModal(this.parentElement)">
@@ -175,7 +175,7 @@
                     <p>Event-driven Architectures</p>
                 </div>
                 <!-- Badge 9: ML -->
-                <div class="aws-badge-item"
+                <div class="aws-badge-item hidden"
                         data-title="Machine Learning Foundation"
                         data-desc="An entry into the world of Artificial Intelligence. This course covered the basic concepts of Machine Learning and the AWS ML stack, including Amazon SageMaker for building and training models. I also experimented with pre-trained AI services like Amazon Rekognition for image analysis and Amazon Polly for text-to-speech.">
                     <img src="images/aws_logo.png" alt="Machine Learning Foundation" onclick="openBadgeModal(this.parentElement)">
@@ -183,13 +183,18 @@
                     <p>Core ML Concepts & Tools</p>
                 </div>
                 <!-- Badge 10: Generative AI -->
-                <div class="aws-badge-item"
+                <div class="aws-badge-item hidden"
                         data-title="Introduction to Generative AI"
                         data-desc="Staying at the cutting edge of technology, I completed training on Generative AI. This covered Large Language Models (LLMs), Foundation Models, and how to leverage tools like Amazon Bedrock to build generative AI applications that can create text, images, and code, transforming how we solve complex problems.">
                     <img src="images/aws_logo.png" alt="Introduction to Generative AI" onclick="openBadgeModal(this.parentElement)">
                     <h4><a href="https://www.credly.com/earner/earned/badge/d3a9f638-0ab6-4165-ad76-c7d9513e0c55" target="_blank">Introduction to Generative AI</a></h4>
                     <p>LLMs & Generative Models</p>
                 </div>
+            </div>
+
+            <!-- Show More Button -->
+            <div class="show-more-container">
+                <button id="show-more-badges" class="btn-show-more">Show More Badges</button>
             </div>
         </div>
     </section>

@@ -2642,3 +2642,160 @@ body.light-mode #about .progress-text, body.light-mode .skill-card .progress-tex
     box-shadow: none !important;
     background: none !important;
 }
+
+/* AWS Badges Cleaner Appearance */
+#aws-badges {
+    background: none !important;
+}
+
+.aws-badge-item {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* AWS Badges Hide/Show functionality */
+.aws-badge-item.hidden {
+    display: none;
+}
+
+.show-more-container {
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.btn-show-more {
+    background: var(--btn-bg-gradient);
+    color: var(--btn-text-color);
+    padding: 0.8rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: none;
+    display: inline-block;
+    box-shadow: 0 4px 15px var(--btn-shadow-color);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.btn-show-more::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(45deg) translateY(-100%);
+    transition: transform 0.6s;
+}
+
+.btn-show-more:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px var(--btn-hover-shadow);
+    color: var(--btn-text-color);
+}
+
+.btn-show-more:hover::after {
+    transform: rotate(45deg) translateY(100%);
+}
+
+/* Highlights Section Styling */
+#about-highlights {
+    padding: 6rem 0;
+    overflow: hidden;
+    position: relative;
+    background: var(--section-bg-2);
+}
+
+.highlights-title-container {
+    padding: 0 2rem;
+    max-width: 1400px;
+    margin: 0 auto 3rem;
+}
+
+.highlights-track {
+    display: flex;
+    gap: 30px;
+    padding: 2rem 0;
+    /* Infinite Scroll Animation */
+    animation: scroll-highlights 40s linear infinite;
+    width: max-content;
+}
+
+.highlights-track:hover {
+    animation-play-state: paused;
+}
+
+.highlight-card {
+    width: 350px;
+    height: 450px;
+    flex-shrink: 0;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.highlight-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: var(--primary-color);
+    z-index: 10;
+}
+
+.highlight-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.highlight-card:hover img {
+    transform: scale(1.1);
+}
+
+.highlight-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.highlight-card:hover .highlight-overlay {
+    opacity: 1;
+}
+
+.highlight-overlay h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.highlight-overlay p {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+@keyframes scroll-highlights {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-350px * 5 - 30px * 5)); }
+}
+
+/* Light Mode Adjustments */
+body.light-mode .highlight-card {
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0, 102, 255, 0.1);
+}
