@@ -2632,6 +2632,16 @@ body.light-mode #about .progress-text, body.light-mode .skill-card .progress-tex
 }
 
 /* Certificates Page Overrides */
+#certificates {
+    background: none !important;
+}
+
+#certificates .intro-split {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
 #certificates .highlight-quote {
     background: none !important;
     border: none !important;
@@ -2717,15 +2727,27 @@ body.light-mode #about .progress-text, body.light-mode .skill-card .progress-tex
     padding: 0 2rem;
     max-width: 1400px;
     margin: 0 auto 3rem;
+    text-align: center;
+}
+
+.highlights-title-container p {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    font-size: 0.85rem !important;
+    opacity: 0.7;
+    color: var(--text-muted);
 }
 
 .highlights-track {
     display: flex;
     gap: 30px;
     padding: 2rem 0;
-    /* Infinite Scroll Animation */
-    animation: scroll-highlights 40s linear infinite;
+    /* Infinite Scroll Animation disabled following user request for no identical images */
+    /* animation: scroll-highlights 40s linear infinite; */
     width: max-content;
+    transition: transform 0.5s ease;
 }
 
 .highlights-track:hover {
@@ -2791,7 +2813,63 @@ body.light-mode #about .progress-text, body.light-mode .skill-card .progress-tex
 
 @keyframes scroll-highlights {
     0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-350px * 5 - 30px * 5)); }
+    100% { transform: translateX(calc(-350px * 15 - 30px * 15)); }
+}
+
+/* Highlights Container & Manual Scroll */
+.highlights-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 4rem;
+}
+
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--glass-bg);
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 100;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.scroll-btn:hover {
+    background: var(--primary-color);
+    color: #000;
+    box-shadow: 0 0 20px var(--primary-glow);
+}
+
+.scroll-btn.prev {
+    left: 20px;
+}
+
+.scroll-btn.next {
+    right: 20px;
+}
+
+@media (max-width: 768px) {
+    .highlights-container {
+        padding: 0 1rem;
+    }
+    .scroll-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    .scroll-btn.prev { left: 5px; }
+    .scroll-btn.next { right: 5px; }
 }
 
 /* Light Mode Adjustments */

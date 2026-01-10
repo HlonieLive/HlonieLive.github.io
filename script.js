@@ -183,6 +183,98 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+
+    // ============== Certificates Show More ============== 
+    const showMoreCertsBtn = document.getElementById('show-more-certs');
+    if (showMoreCertsBtn) {
+        showMoreCertsBtn.addEventListener('click', () => {
+            const currentText = showMoreCertsBtn.innerText.toUpperCase();
+            const isExpanding = currentText.includes('SHOW MORE');
+            const allCerts = document.querySelectorAll('#certificates-grid .certificate-card');
+            
+            if (isExpanding) {
+                allCerts.forEach((cert, index) => {
+                    if (index >= 3) cert.classList.remove('hidden');
+                });
+                showMoreCertsBtn.innerText = 'Show Less Certificates';
+                if (allCerts[3]) {
+                    allCerts[3].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            } else {
+                allCerts.forEach((cert, index) => {
+                    if (index >= 3) cert.classList.add('hidden');
+                });
+                showMoreCertsBtn.innerText = 'Show More Certificates';
+                document.querySelector('#certificates .section-title').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    }
+
+    // ============== Highlights Continuous Drift & Manual Scroll ==============
+    const highlightTrack = document.querySelector('.highlights-track');
+    const prevHighlight = document.getElementById('prev-highlight');
+    const nextHighlight = document.getElementById('next-highlight');
+    
+    if (highlightTrack && prevHighlight && nextHighlight) {
+        let currentPos = 0;
+        let driftSpeed = 0.3; 
+        let driftDir = -1; // Start moving left
+        const scrollAmount = 380; 
+        let isManualAction = false;
+
+        function animateDrift() {
+            if (!isManualAction) {
+                currentPos += driftSpeed * driftDir;
+                
+                const trackWidth = highlightTrack.scrollWidth;
+                const containerWidth = highlightTrack.parentElement.clientWidth;
+                const maxScroll = -(trackWidth - containerWidth + 40); 
+
+                // Automatic bounce at edges
+                if (currentPos <= maxScroll) {
+                    driftDir = 1; 
+                } else if (currentPos >= 0) {
+                    driftDir = -1;
+                }
+                highlightTrack.style.transform = `translateX(${currentPos}px)`;
+            }
+            requestAnimationFrame(animateDrift);
+        }
+
+        requestAnimationFrame(animateDrift);
+        
+        prevHighlight.addEventListener('click', () => {
+            isManualAction = true;
+            currentPos += scrollAmount;
+            if (currentPos > 0) currentPos = 0;
+            
+            highlightTrack.style.transition = 'transform 0.5s ease-out';
+            highlightTrack.style.transform = `translateX(${currentPos}px)`;
+            
+            setTimeout(() => { 
+                highlightTrack.style.transition = 'none'; 
+                isManualAction = false;
+            }, 600);
+        });
+        
+        nextHighlight.addEventListener('click', () => {
+            isManualAction = true;
+            const trackWidth = highlightTrack.scrollWidth;
+            const containerWidth = highlightTrack.parentElement.clientWidth;
+            const maxScroll = -(trackWidth - containerWidth + 40);
+            
+            currentPos -= scrollAmount;
+            if (currentPos < maxScroll) currentPos = maxScroll;
+            
+            highlightTrack.style.transition = 'transform 0.5s ease-out';
+            highlightTrack.style.transform = `translateX(${currentPos}px)`;
+            
+            setTimeout(() => { 
+                highlightTrack.style.transition = 'none'; 
+                isManualAction = false;
+            }, 600);
+        });
+    }
 });
 
 // ============== Global Functions for Dynamic Functionality ==============
@@ -622,4 +714,26 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     animate();
+
+    // ============== Highlights Manual Scroll ==============
+    const highlightTrack = document.querySelector('.highlights-track');
+    const prevHighlight = document.getElementById('prev-highlight');
+    const nextHighlight = document.getElementById('next-highlight');
+    
+    if (highlightTrack && prevHighlight && nextHighlight) {
+        let currentPos = 0;
+        const scrollAmount = 380; 
+        
+        prevHighlight.addEventListener('click', () => {
+            highlightTrack.style.animation = 'none';
+            currentPos += scrollAmount;
+            highlightTrack.style.transform = `translateX(${currentPos}px)`;
+        });
+        
+        nextHighlight.addEventListener('click', () => {
+            highlightTrack.style.animation = 'none';
+            currentPos -= scrollAmount;
+            highlightTrack.style.transform = `translateX(${currentPos}px)`;
+        });
+    }
 });
