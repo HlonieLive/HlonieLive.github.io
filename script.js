@@ -210,105 +210,172 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-// ============== Highlights "Stationary Projector Stage" ==============
+// ============== Highlights Mobile-Friendly Carousel ==============
 const highlightTrack = document.querySelector('.highlights-track');
 if (highlightTrack) {
     const originalCards = Array.from(highlightTrack.querySelectorAll('.highlight-card'));
     if (originalCards.length === 0) return;
 
-    const highlightData = originalCards.map(card => ({
-        src: card.querySelector('img').src,
-        title: card.querySelector('h3').innerText,
-        desc: card.querySelector('p').innerText
-    }));
+    // On mobile: use simple horizontal scroll
+    if (window.innerWidth <= 768) {
+        highlightTrack.innerHTML = '';
+        originalCards.forEach(card => {
+            const clonedCard = card.cloneNode(true);
+            clonedCard.classList.remove('slot-1', 'slot-2', 'slot-3', 'slot-4', 'slot-5');
+            clonedCard.style.opacity = '1';
+            clonedCard.style.height = 'auto';
+            highlightTrack.appendChild(clonedCard);
+        });
+        
+        // Enable both arrows for manual scroll
+        const prevBtn = document.getElementById('prev-highlight');
+        const nextBtn = document.getElementById('next-highlight');
+        
+        if (prevBtn) {
+            prevBtn.style.pointerEvents = 'auto';
+            prevBtn.style.opacity = '1';
+            prevBtn.addEventListener('click', () => {
+                highlightTrack.scrollBy({ left: -300, behavior: 'smooth' });
+            });
+        }
+        
+        if (nextBtn) {
+            nextBtn.style.pointerEvents = 'auto';
+            nextBtn.style.opacity = '1';
+            nextBtn.addEventListener('click', () => {
+                highlightTrack.scrollBy({ left: 300, behavior: 'smooth' });
+            });
+        }
+    } 
+    // Desktop: keep stationary projector
+    else {
+        const highlightData = originalCards.map(card => ({
+            src: card.querySelector('img').src,
+            title: card.querySelector('h3').innerText,
+            desc: card.querySelector('p').innerText
+        }));
 
-    // Create exactly 5 slots
-    highlightTrack.innerHTML = '';
-    const slots = [];
-    for (let i = 1; i <= 5; i++) {
-        const slot = document.createElement('div');
-        slot.className = `highlight-card slot-${i}`;
-        slot.innerHTML = `
-            <img src="" alt="" style="opacity:0;">
-            <div class="highlight-overlay">
-                <h3></h3>
-                <p></p>
+        highlightTrack.innerHTML = '';
+        const slots = [];
+        for (let i = 1; i <= 5; i++) {
+            const slot = document.createElement('div');
+            slot.className = `highlight-card slot-${i}`;
+            slot.innerHTML = `
+                <img src="" alt="" style="opacity:0;">
+                <div class="highlight-overlay">
+                    <h3></h3>
+                    <p></p>
+                </div>
+            `;
+            highlightTrack.appendChild(slot);
+            slots.push(slot);
+        }
+
+        let currentIndex = 0;
+        function updateProjector() {
+            slots.forEach((slot, slotIndex) => {
+                const dataIndex = (currentIndex + (slotIndex - 2) + highlightData.length) % highlightData.length;
+                const data = highlightData[dataIndex];
+                const img = slot.querySelector('img');
+                const overlay = slot.querySelector('.highlight-overlay');
+                const h3 = overlay.querySelector('h3');
+                const p = overlay.querySelector('p');
+
+                img.src = data.src;
+                img.alt = data.title;
+                h3.innerText = data.title;
+                p.innerText = data.desc;
+                img.style.opacity = '1';
+                overlay.style.opacity = slotIndex === 2 ? '1' : '0';
+            });
+        }
+
+        function slideNext() {
+            currentIndex = (currentIndex + 1) % highlightData.length;
+            updateProjector();
+            resetTimer();
+        }
+
+        function slidePrev() {
+            currentIndex = (currentIndex - 1 + highlightData.length) % highlightData.length;
+            updateProjector();
+            resetTimer();
+        }
+
+        const prevBtn = document.getElementById('prev-highlight');
+        const nextBtn = document.getElementById('next-highlight');
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                slidePrev(); // ← shows PREVIOUS highlight
+                resetTimer();
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                slideNext(); // → shows NEXT highlight
+                resetTimer();
+            });
+        }
+
+        let autoTimer = setInterval(slideNext, 5000);
+        function resetTimer() {
+            clearInterval(autoTimer);
+            autoTimer = setInterval(slideNext, 5000);
+        }
+        updateProjector();
+    }
+}
+
+// ============== Certificate Modal Functionality ==============
+// Intercept ALL certificate clicks (including dynamically added ones)
+document.addEventListener('click', function(e) {
+    const certLink = e.target.closest('#certificates-grid .certificate-card a');
+    if (certLink) {
+        e.preventDefault();
+        const certImg = certLink.href; // Get image URL from href
+        openCertModal(certImg);
+    }
+});
+
+function openCertModal(imgSrc) {
+    // Create modal if it doesn't exist
+    if (!document.getElementById('cert-modal')) {
+        const modalHTML = `
+            <div id="cert-modal" class="cert-modal-overlay">
+                <div class="cert-modal-content">
+                    <button class="cert-modal-close" onclick="closeCertModal()">×</button>
+                    <img src="${imgSrc}" alt="Certificate">
+                </div>
             </div>
         `;
-        highlightTrack.appendChild(slot);
-        slots.push(slot);
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+    } else {
+        // Update existing modal image
+        document.querySelector('#cert-modal img').src = imgSrc;
     }
-
-    let currentIndex = 0;
-
-    function updateProjector() {
-        slots.forEach((slot, slotIndex) => {
-            const dataIndex = (currentIndex + (slotIndex - 2) + highlightData.length) % highlightData.length;
-            const data = highlightData[dataIndex];
-            const img = slot.querySelector('img');
-            const overlay = slot.querySelector('.highlight-overlay');
-            const h3 = overlay.querySelector('h3');
-            const p = overlay.querySelector('p');
-
-            img.src = data.src;
-            img.alt = data.title;
-            h3.innerText = data.title;
-            p.innerText = data.desc;
-            img.style.opacity = '1';
-            overlay.style.opacity = slotIndex === 2 ? '1' : '0';
-        });
-    }
-
-    function slideNext() {
-        currentIndex = (currentIndex + 1) % highlightData.length;
-        updateProjector();
-        resetTimer();
-    }
-
-    function slidePrev() {
-        currentIndex = (currentIndex - 1 + highlightData.length) % highlightData.length;
-        updateProjector();
-        resetTimer();
-    }
-
-    const prevBtn = document.getElementById('prev-highlight');
-    const nextBtn = document.getElementById('next-highlight');
-
-    // Enable both arrows with proper functionality
-    if (prevBtn) {
-        // Re-enable left arrow (was disabled in CSS)
-        prevBtn.style.pointerEvents = 'auto';
-        prevBtn.style.opacity = '1';
-        prevBtn.style.cursor = 'pointer';
-        
-        prevBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            slidePrev(); // ← shows PREVIOUS highlight
-            resetTimer();
-        });
-    }
-
-    if (nextBtn) {
-        // Re-enable right arrow (was disabled in CSS)
-        nextBtn.style.pointerEvents = 'auto';
-        nextBtn.style.opacity = '1';
-        nextBtn.style.cursor = 'pointer';
-        
-        nextBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            slideNext(); // → shows NEXT highlight
-            resetTimer();
-        });
-    }
-
-    let autoTimer = setInterval(slideNext, 5000);
-    function resetTimer() {
-        clearInterval(autoTimer);
-        autoTimer = setInterval(slideNext, 5000);
-    }
-
-    updateProjector();
+    
+    document.getElementById('cert-modal').classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent background scroll
 }
+
+function closeCertModal() {
+    const modal = document.getElementById('cert-modal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scroll
+    }
+}
+
+// Close modal on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeCertModal();
+    }
+});
 
 // ============== Global Functions for Dynamic Functionality ==============
 
@@ -356,7 +423,7 @@ window.addProject = function() {
     const fileInput = document.getElementById('project-file');
     const desc = document.getElementById('project-desc').value;
     const link = document.getElementById('project-link').value || '#';
-    let imgUrl = 'https://via.placeholder.com/600x320?text=Project+Image        ';
+    let imgUrl = 'https://via.placeholder.com/600x320?text=Project+Image          ';
 
     if (title && desc) {
         if (fileInput.files && fileInput.files[0]) {
@@ -448,7 +515,7 @@ function createCertCard(title, issuer, img, link) {
         ${imgHTML}
         <h3>${title}</h3>
         <p>Issued by ${issuer}</p>
-        <a href="${link}" target="_blank">View Certificate</a>
+        <a href="${link}" class="view-cert">View Certificate</a>
     `;
     
     certGrid.appendChild(newCard);
