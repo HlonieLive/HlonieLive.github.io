@@ -210,72 +210,118 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // ============== Highlights Continuous Drift & Manual Scroll ==============
-    const highlightTrack = document.querySelector('.highlights-track');
-    const prevHighlight = document.getElementById('prev-highlight');
-    const nextHighlight = document.getElementById('next-highlight');
-    
-    if (highlightTrack && prevHighlight && nextHighlight) {
-        let currentPos = 0;
-        let driftSpeed = 0.3; 
-        let driftDir = -1; // Start moving left
-        const scrollAmount = 380; 
-        let isManualAction = false;
+// ============== Highlights "Stationary Projector Stage" ==============
+const highlightTrack = document.querySelector('.highlights-track');
+if (highlightTrack) {
+    const originalCards = Array.from(highlightTrack.querySelectorAll('.highlight-card'));
+    if (originalCards.length === 0) return;
 
-        function animateDrift() {
-            if (!isManualAction) {
-                currentPos += driftSpeed * driftDir;
-                
-                const trackWidth = highlightTrack.scrollWidth;
-                const containerWidth = highlightTrack.parentElement.clientWidth;
-                const maxScroll = -(trackWidth - containerWidth + 40); 
+    const highlightData = originalCards.map(card => ({
+        src: card.querySelector('img').src,
+        title: card.querySelector('h3').innerText,
+        desc: card.querySelector('p').innerText
+    }));
 
-                // Automatic bounce at edges
-                if (currentPos <= maxScroll) {
-                    driftDir = 1; 
-                } else if (currentPos >= 0) {
-                    driftDir = -1;
-                }
-                highlightTrack.style.transform = `translateX(${currentPos}px)`;
+    // Initialize exactly 5 STATIONARY SLOTS
+    highlightTrack.innerHTML = '';
+    const slots = [];
+    for (let i = 1; i <= 5; i++) {
+        const slot = document.createElement('div');
+        slot.className = `highlight-card slot-${i}`;
+        slot.innerHTML = `
+            <img src="" alt="" style="opacity:0;">
+            <div class="highlight-overlay">
+                <h3></h3>
+                <p></p>
+            </div>
+        `;
+        highlightTrack.appendChild(slot);
+        slots.push(slot);
+    }
+
+    let currentIndex = 0;
+
+    function updateProjector(isInitial = false) {
+        slots.forEach((slot, slotIndex) => {
+            // Map slot positions: [-2, -1, 0, +1, +2] around center
+            const offset = slotIndex - 2;
+            const dataIndex = (currentIndex + offset + highlightData.length) % highlightData.length;
+            const data = highlightData[dataIndex];
+
+            const img = slot.querySelector('img');
+            const overlay = slot.querySelector('.highlight-overlay');
+            const h3 = overlay.querySelector('h3');
+            const p = overlay.querySelector('p');
+
+            if (isInitial) {
+                img.src = data.src;
+                img.alt = data.title;
+                h3.innerText = data.title;
+                p.innerText = data.desc;
+                img.style.opacity = '1';
+                if (slotIndex === 2) overlay.style.opacity = '1';
+            } else {
+                img.style.opacity = '0';
+                overlay.style.opacity = '0';
+                setTimeout(() => {
+                    img.src = data.src;
+                    img.alt = data.title;
+                    h3.innerText = data.title;
+                    p.innerText = data.desc;
+                    img.style.opacity = '1';
+                    if (slotIndex === 2) overlay.style.opacity = '1';
+                }, 250);
             }
-            requestAnimationFrame(animateDrift);
-        }
-
-        requestAnimationFrame(animateDrift);
-        
-        prevHighlight.addEventListener('click', () => {
-            isManualAction = true;
-            currentPos += scrollAmount;
-            if (currentPos > 0) currentPos = 0;
-            
-            highlightTrack.style.transition = 'transform 0.5s ease-out';
-            highlightTrack.style.transform = `translateX(${currentPos}px)`;
-            
-            setTimeout(() => { 
-                highlightTrack.style.transition = 'none'; 
-                isManualAction = false;
-            }, 600);
-        });
-        
-        nextHighlight.addEventListener('click', () => {
-            isManualAction = true;
-            const trackWidth = highlightTrack.scrollWidth;
-            const containerWidth = highlightTrack.parentElement.clientWidth;
-            const maxScroll = -(trackWidth - containerWidth + 40);
-            
-            currentPos -= scrollAmount;
-            if (currentPos < maxScroll) currentPos = maxScroll;
-            
-            highlightTrack.style.transition = 'transform 0.5s ease-out';
-            highlightTrack.style.transform = `translateX(${currentPos}px)`;
-            
-            setTimeout(() => { 
-                highlightTrack.style.transition = 'none'; 
-                isManualAction = false;
-            }, 600);
         });
     }
-});
+
+    function nextSlide() {
+        // Move forward: next highlight becomes center
+        currentIndex = (currentIndex + 1) % highlightData.length;
+        updateProjector();
+        resetTimer();
+    }
+
+    function prevSlide() {
+        // Move backward: previous highlight becomes center
+        currentIndex = (currentIndex - 1 + highlightData.length) % highlightData.length;
+        updateProjector();
+        resetTimer();
+    }
+
+    // Enable both arrows
+    const prevBtn = document.getElementById('prev-highlight');
+    const nextBtn = document.getElementById('next-highlight');
+
+    if (prevBtn) {
+        prevBtn.style.pointerEvents = 'auto';
+        prevBtn.style.opacity = '1';
+        prevBtn.style.cursor = 'pointer';
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            prevSlide(); // ← shows PREVIOUS
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.style.pointerEvents = 'auto';
+        nextBtn.style.opacity = '1';
+        nextBtn.style.cursor = 'pointer';
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            nextSlide(); // → shows NEXT
+        });
+    }
+
+    // Auto advance
+    let autoTimer = setInterval(nextSlide, 3500);
+    function resetTimer() {
+        clearInterval(autoTimer);
+        autoTimer = setInterval(nextSlide, 5000);
+    }
+
+    updateProjector(true);
+}
 
 // ============== Global Functions for Dynamic Functionality ==============
 
@@ -323,7 +369,7 @@ window.addProject = function() {
     const fileInput = document.getElementById('project-file');
     const desc = document.getElementById('project-desc').value;
     const link = document.getElementById('project-link').value || '#';
-    let imgUrl = 'https://via.placeholder.com/600x320?text=Project+Image';
+    let imgUrl = 'https://via.placeholder.com/600x320?text=Project+Image    ';
 
     if (title && desc) {
         if (fileInput.files && fileInput.files[0]) {
@@ -624,6 +670,8 @@ window.closeSuccessPopup = function() {
     if (popup) popup.classList.remove('active');
 }
 
+});
+
 // ============== Background Animation (Home Page) ==============
 document.addEventListener("DOMContentLoaded", function () {
     const canvas = document.getElementById("bg-canvas");
@@ -714,26 +762,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     animate();
-
-    // ============== Highlights Manual Scroll ==============
-    const highlightTrack = document.querySelector('.highlights-track');
-    const prevHighlight = document.getElementById('prev-highlight');
-    const nextHighlight = document.getElementById('next-highlight');
-    
-    if (highlightTrack && prevHighlight && nextHighlight) {
-        let currentPos = 0;
-        const scrollAmount = 380; 
-        
-        prevHighlight.addEventListener('click', () => {
-            highlightTrack.style.animation = 'none';
-            currentPos += scrollAmount;
-            highlightTrack.style.transform = `translateX(${currentPos}px)`;
-        });
-        
-        nextHighlight.addEventListener('click', () => {
-            highlightTrack.style.animation = 'none';
-            currentPos -= scrollAmount;
-            highlightTrack.style.transform = `translateX(${currentPos}px)`;
-        });
-    }
 });
