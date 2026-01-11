@@ -333,11 +333,21 @@ if (highlightTrack) {
 // ============== Certificate Modal Functionality ==============
 // Intercept ALL certificate clicks (including dynamically added ones)
 document.addEventListener('click', function(e) {
-    const certLink = e.target.closest('#certificates-grid .certificate-card a');
-    if (certLink) {
+    const certLink = e.target.closest('#certificates-grid .certificate-card a.view-cert') || 
+                     e.target.closest('#certificates-grid .certificate-card a:not(.view-cert)');
+    
+    if (certLink && certLink.innerText.toUpperCase().includes('VIEW CERTIFICATE')) {
         e.preventDefault();
-        const certImg = certLink.href; // Get image URL from href
-        openCertModal(certImg);
+        
+        // Find the image in the same card
+        const card = certLink.closest('.certificate-card');
+        const img = card.querySelector('img');
+        
+        if (img && img.src) {
+            openCertModal(img.src);
+        } else if (certLink.getAttribute('href') && certLink.getAttribute('href') !== '#') {
+            openCertModal(certLink.getAttribute('href'));
+        }
     }
 });
 
@@ -347,7 +357,7 @@ function openCertModal(imgSrc) {
         const modalHTML = `
             <div id="cert-modal" class="cert-modal-overlay">
                 <div class="cert-modal-content">
-                    <button class="cert-modal-close" onclick="closeCertModal()">×</button>
+                    <button class="cert-modal-close" onclick="window.closeCertModal()">×</button>
                     <img src="${imgSrc}" alt="Certificate">
                 </div>
             </div>
@@ -362,7 +372,7 @@ function openCertModal(imgSrc) {
     document.body.style.overflow = 'hidden'; // Prevent background scroll
 }
 
-function closeCertModal() {
+window.closeCertModal = function() {
     const modal = document.getElementById('cert-modal');
     if (modal) {
         modal.classList.remove('active');

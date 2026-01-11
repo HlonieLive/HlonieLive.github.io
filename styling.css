@@ -2549,24 +2549,23 @@ backdrop-filter: blur(10px);
 transition: all 0.3s ease;
 }
 .scroll-btn.next {
-pointer-events: none;
-cursor: default;
-opacity: 0.5;
+    pointer-events: auto;
+    cursor: pointer;
+    right: 20px;
 }
 .scroll-btn.prev {
-pointer-events: auto;
-cursor: pointer;
-left: 20px;
+    pointer-events: auto;
+    cursor: pointer;
+    left: 20px;
 }
-.scroll-btn.prev:hover {
-background: var(--primary-color);
-color: #000;
-box-shadow: 0 0 30px var(--primary-glow);
+.scroll-btn.prev:hover, .scroll-btn.next:hover {
+    background: var(--primary-color);
+    color: #000;
+    box-shadow: 0 0 30px var(--primary-glow);
 }
-.scroll-btn.prev:active {
-transform: translateY(-50%) scale(0.9);
+.scroll-btn.prev:active, .scroll-btn.next:active {
+    transform: translateY(-50%) scale(0.9);
 }
-.scroll-btn.next { right: 20px; }
 @media (max-width: 768px) {
 .highlights-container {
 padding: 0 1rem;
