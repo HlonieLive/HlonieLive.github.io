@@ -239,7 +239,10 @@ if (highlightTrack) {
         });
 
         function updateMobileSlide() {
-            highlightTrack.style.transform = `translateX(-${mobileIndex * 100}%)`;
+            // Because each card is 100/totalMobile % in width, 
+            // the transform must be moved relative to that total width.
+            const movePercentage = (mobileIndex * 100) / totalMobile;
+            highlightTrack.style.transform = `translateX(-${movePercentage}%)`;
         }
 
         const prevBtn = document.getElementById('prev-highlight');

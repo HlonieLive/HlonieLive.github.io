@@ -146,14 +146,30 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 }
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+}
+.logo-link:hover {
+    transform: scale(1.02);
+}
 .port {
-font-size: 1.8rem;
-font-weight: 700;
-letter-spacing: -0.5px;
-text-transform: uppercase;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    display: flex;
+}
+.port.logo-name {
+    flex-direction: column;
+    line-height: 1.1;
+    font-size: 1.2rem;
 }
 .port span.active-dot {
-font-size: 1.8rem;
+    font-size: 1.8rem;
 }
 nav ul {
 list-style: none;
@@ -1645,15 +1661,21 @@ list-style-type: none;
 padding-left: 0;
 }
 .wide-card-desc li {
-margin-bottom: 0.5rem;
-position: relative;
-padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+    position: relative;
+    padding-left: 1.8rem;
+    line-height: 1.6;
 }
 .wide-card-desc li::before {
-content: 'â–¹';
-position: absolute;
-left: 0;
-color: var(--primary-color);
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6rem;
+    width: 6px;
+    height: 6px;
+    background: var(--primary-color);
+    transform: rotate(45deg);
+    box-shadow: 0 0 10px var(--primary-glow);
 }
 @media (max-width: 768px) {
 .wide-card {
@@ -2107,7 +2129,8 @@ body.light-mode .wide-card-desc {
 color: #444444;
 }
 body.light-mode .wide-card-desc li::before {
-color: var(--primary-color);
+    background: var(--primary-color);
+    box-shadow: 0 0 8px rgba(0, 102, 255, 0.3);
 }
 body.light-mode .wide-card-date {
 color: #666;
@@ -2472,10 +2495,11 @@ overflow: hidden;
 background: transparent;
 }
 .highlights-container {
-position: relative;
-max-width: 1400px;
-margin: 0 auto;
-padding: 0 4rem;
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 4rem;
+    overflow: hidden; /* Mask the sliding images */
 }
 .highlights-track {
     display: grid;
@@ -2587,11 +2611,11 @@ padding: 0 1rem;
 .highlights-track {
     display: flex !important;
     flex-direction: row !important;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-wrap: nowrap !important;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
     height: 450px !important;
     gap: 0 !important;
     grid-template-columns: none !important;
-    width: 100% !important;
 }
 .highlight-card {
     flex: 0 0 100%;
