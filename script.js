@@ -232,13 +232,14 @@ if (highlightTrack) {
         originalCards.forEach(card => {
             card.style.display = 'block';
             card.style.flex = `0 0 ${100 / totalMobile}%`;
-            card.style.width = '100vw';
+            card.style.width = `${100 / totalMobile}%`;
             card.style.opacity = '1';
-            card.querySelector('.highlight-overlay').style.opacity = '1';
+            const overlay = card.querySelector('.highlight-overlay');
+            if (overlay) overlay.style.opacity = '1';
         });
 
         function updateMobileSlide() {
-            highlightTrack.style.transform = `translateX(-${(mobileIndex * 100) / totalMobile}%)`;
+            highlightTrack.style.transform = `translateX(-${mobileIndex * 100}%)`;
         }
 
         const prevBtn = document.getElementById('prev-highlight');
@@ -448,6 +449,7 @@ window.openModal = function(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
         modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
     }
 }
 
@@ -455,6 +457,7 @@ window.closeModal = function(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
         modal.classList.remove('active');
+        document.body.style.overflow = '';
     }
 }
 
