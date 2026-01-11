@@ -210,7 +210,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-// ============== Highlights "Stationary Projector Stage" ==============
+// ============== Highlights Mobile-Friendly Carousel ==============
 const highlightTrack = document.querySelector('.highlights-track');
 if (highlightTrack) {
     const originalCards = Array.from(highlightTrack.querySelectorAll('.highlight-card'));
@@ -222,70 +222,50 @@ if (highlightTrack) {
         desc: card.querySelector('p').innerText
     }));
 
-    // Initialize exactly 5 STATIONARY SLOTS
+    // Clear track and create single slot
     highlightTrack.innerHTML = '';
-    const slots = [];
-    for (let i = 1; i <= 5; i++) {
-        const slot = document.createElement('div');
-        slot.className = `highlight-card slot-${i}`;
-        slot.innerHTML = `
-            <img src="" alt="" style="opacity:0;">
-            <div class="highlight-overlay">
-                <h3></h3>
-                <p></p>
-            </div>
-        `;
-        highlightTrack.appendChild(slot);
-        slots.push(slot);
-    }
+    const slot = document.createElement('div');
+    slot.className = 'highlight-card slot-mobile';
+    slot.innerHTML = `
+        <img src="" alt="" style="opacity:0;">
+        <div class="highlight-overlay">
+            <h3></h3>
+            <p></p>
+        </div>
+    `;
+    highlightTrack.appendChild(slot);
 
     let currentIndex = 0;
 
-    function updateProjector(isInitial = false) {
-        slots.forEach((slot, slotIndex) => {
-            // Map slot positions: [-2, -1, 0, +1, +2] around center
-            const offset = slotIndex - 2;
-            const dataIndex = (currentIndex + offset + highlightData.length) % highlightData.length;
-            const data = highlightData[dataIndex];
+    function updateSlide() {
+        const data = highlightData[currentIndex];
+        const img = slot.querySelector('img');
+        const overlay = slot.querySelector('.highlight-overlay');
+        const h3 = overlay.querySelector('h3');
+        const p = overlay.querySelector('p');
 
-            const img = slot.querySelector('img');
-            const overlay = slot.querySelector('.highlight-overlay');
-            const h3 = overlay.querySelector('h3');
-            const p = overlay.querySelector('p');
+        img.style.opacity = '0';
+        overlay.style.opacity = '0';
 
-            if (isInitial) {
-                img.src = data.src;
-                img.alt = data.title;
-                h3.innerText = data.title;
-                p.innerText = data.desc;
-                img.style.opacity = '1';
-                if (slotIndex === 2) overlay.style.opacity = '1';
-            } else {
-                img.style.opacity = '0';
-                overlay.style.opacity = '0';
-                setTimeout(() => {
-                    img.src = data.src;
-                    img.alt = data.title;
-                    h3.innerText = data.title;
-                    p.innerText = data.desc;
-                    img.style.opacity = '1';
-                    if (slotIndex === 2) overlay.style.opacity = '1';
-                }, 250);
-            }
-        });
+        setTimeout(() => {
+            img.src = data.src;
+            img.alt = data.title;
+            h3.innerText = data.title;
+            p.innerText = data.desc;
+            img.style.opacity = '1';
+            overlay.style.opacity = '1';
+        }, 250);
     }
 
     function nextSlide() {
-        // Move forward: next highlight becomes center
         currentIndex = (currentIndex + 1) % highlightData.length;
-        updateProjector();
+        updateSlide();
         resetTimer();
     }
 
     function prevSlide() {
-        // Move backward: previous highlight becomes center
         currentIndex = (currentIndex - 1 + highlightData.length) % highlightData.length;
-        updateProjector();
+        updateSlide();
         resetTimer();
     }
 
@@ -294,33 +274,27 @@ if (highlightTrack) {
     const nextBtn = document.getElementById('next-highlight');
 
     if (prevBtn) {
-        prevBtn.style.pointerEvents = 'auto';
-        prevBtn.style.opacity = '1';
-        prevBtn.style.cursor = 'pointer';
         prevBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            prevSlide(); // ← shows PREVIOUS
+            prevSlide();
         });
     }
 
     if (nextBtn) {
-        nextBtn.style.pointerEvents = 'auto';
-        nextBtn.style.opacity = '1';
-        nextBtn.style.cursor = 'pointer';
         nextBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            nextSlide(); // → shows NEXT
+            nextSlide();
         });
     }
 
     // Auto advance
-    let autoTimer = setInterval(nextSlide, 3500);
+    let autoTimer = setInterval(nextSlide, 5000);
     function resetTimer() {
         clearInterval(autoTimer);
         autoTimer = setInterval(nextSlide, 5000);
     }
 
-    updateProjector(true);
+    updateSlide();
 }
 
 // ============== Global Functions for Dynamic Functionality ==============
