@@ -216,54 +216,66 @@ if (highlightTrack) {
     const originalCards = Array.from(highlightTrack.querySelectorAll('.highlight-card'));
     if (originalCards.length === 0) return;
 
-    // On mobile: use simple index-based visibility
+    // On mobile: use simple smooth sliding track
     if (window.innerWidth <= 768) {
         let mobileIndex = 0;
         const totalMobile = originalCards.length;
+        
+        // Setup track for sliding
+        highlightTrack.style.display = 'flex';
+        highlightTrack.style.flexDirection = 'row';
+        highlightTrack.style.transition = 'transform 0.5s ease-in-out';
+        highlightTrack.style.width = `${totalMobile * 100}%`;
+        highlightTrack.style.height = '400px';
+        highlightTrack.classList.add('mobile-mode');
 
-        function updateMobileDisplay() {
-            originalCards.forEach((card, i) => {
-                card.style.display = i === mobileIndex ? 'block' : 'none';
-                card.style.opacity = '1';
-                card.style.height = '400px'; // Consistent height
-                card.classList.add('mobile-active');
-            });
+        originalCards.forEach(card => {
+            card.style.display = 'block';
+            card.style.flex = `0 0 ${100 / totalMobile}%`;
+            card.style.width = '100vw';
+            card.style.opacity = '1';
+            card.querySelector('.highlight-overlay').style.opacity = '1';
+        });
+
+        function updateMobileSlide() {
+            highlightTrack.style.transform = `translateX(-${(mobileIndex * 100) / totalMobile}%)`;
         }
 
         const prevBtn = document.getElementById('prev-highlight');
         const nextBtn = document.getElementById('next-highlight');
         
         if (prevBtn) {
-            prevBtn.addEventListener('click', () => {
+            prevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
                 mobileIndex = (mobileIndex - 1 + totalMobile) % totalMobile;
-                updateMobileDisplay();
+                updateMobileSlide();
                 resetMobileTimer();
             });
         }
         
         if (nextBtn) {
-            nextBtn.addEventListener('click', () => {
+            nextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
                 mobileIndex = (mobileIndex + 1) % totalMobile;
-                updateMobileDisplay();
+                updateMobileSlide();
                 resetMobileTimer();
             });
         }
 
-        // Auto-slide for mobile
         let mobileTimer = setInterval(() => {
             mobileIndex = (mobileIndex + 1) % totalMobile;
-            updateMobileDisplay();
+            updateMobileSlide();
         }, 5000);
 
         function resetMobileTimer() {
             clearInterval(mobileTimer);
             mobileTimer = setInterval(() => {
                 mobileIndex = (mobileIndex + 1) % totalMobile;
-                updateMobileDisplay();
+                updateMobileSlide();
             }, 5000);
         }
 
-        updateMobileDisplay();
+        updateMobileSlide();
     } 
     // Desktop: keep stationary projector
     else {

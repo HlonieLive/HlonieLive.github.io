@@ -2585,12 +2585,18 @@ transition: all 0.3s ease;
 .highlights-container {
 padding: 0 1rem;
 }
+.highlights-track {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    grid-template-columns: none !important;
+    height: 400px !important;
+    gap: 0 !important;
+}
 .highlight-card {
-    display: block;
-    width: 100%;
+    flex: 0 0 100%;
+    width: 100vw;
     height: 400px;
-    position: relative;
-    border-radius: 20px;
+    border-radius: 0;
 }
 .highlight-card .highlight-overlay {
     opacity: 1 !important;
