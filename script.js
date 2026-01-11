@@ -216,36 +216,54 @@ if (highlightTrack) {
     const originalCards = Array.from(highlightTrack.querySelectorAll('.highlight-card'));
     if (originalCards.length === 0) return;
 
-    // On mobile: use simple horizontal scroll
+    // On mobile: use simple index-based visibility
     if (window.innerWidth <= 768) {
-        highlightTrack.innerHTML = '';
-        originalCards.forEach(card => {
-            const clonedCard = card.cloneNode(true);
-            clonedCard.classList.remove('slot-1', 'slot-2', 'slot-3', 'slot-4', 'slot-5');
-            clonedCard.style.opacity = '1';
-            clonedCard.style.height = 'auto';
-            highlightTrack.appendChild(clonedCard);
-        });
-        
-        // Enable both arrows for manual scroll
+        let mobileIndex = 0;
+        const totalMobile = originalCards.length;
+
+        function updateMobileDisplay() {
+            originalCards.forEach((card, i) => {
+                card.style.display = i === mobileIndex ? 'block' : 'none';
+                card.style.opacity = '1';
+                card.style.height = '400px'; // Consistent height
+                card.classList.add('mobile-active');
+            });
+        }
+
         const prevBtn = document.getElementById('prev-highlight');
         const nextBtn = document.getElementById('next-highlight');
         
         if (prevBtn) {
-            prevBtn.style.pointerEvents = 'auto';
-            prevBtn.style.opacity = '1';
             prevBtn.addEventListener('click', () => {
-                highlightTrack.scrollBy({ left: -300, behavior: 'smooth' });
+                mobileIndex = (mobileIndex - 1 + totalMobile) % totalMobile;
+                updateMobileDisplay();
+                resetMobileTimer();
             });
         }
         
         if (nextBtn) {
-            nextBtn.style.pointerEvents = 'auto';
-            nextBtn.style.opacity = '1';
             nextBtn.addEventListener('click', () => {
-                highlightTrack.scrollBy({ left: 300, behavior: 'smooth' });
+                mobileIndex = (mobileIndex + 1) % totalMobile;
+                updateMobileDisplay();
+                resetMobileTimer();
             });
         }
+
+        // Auto-slide for mobile
+        let mobileTimer = setInterval(() => {
+            mobileIndex = (mobileIndex + 1) % totalMobile;
+            updateMobileDisplay();
+        }, 5000);
+
+        function resetMobileTimer() {
+            clearInterval(mobileTimer);
+            mobileTimer = setInterval(() => {
+                mobileIndex = (mobileIndex + 1) % totalMobile;
+                updateMobileDisplay();
+            }, 5000);
+        }
+
+        updateMobileDisplay();
     } 
     // Desktop: keep stationary projector
     else {

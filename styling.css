@@ -2570,12 +2570,20 @@ transition: all 0.3s ease;
 .highlights-container {
 padding: 0 1rem;
 }
-.highlights-track {
-grid-template-columns: 1fr;
-height: auto;
+.highlight-card {
+    display: block;
+    width: 100%;
+    height: 400px;
+    position: relative;
+    border-radius: 20px;
 }
-.highlight-card:not(.slot-3) {
-display: none;
+.highlight-card .highlight-overlay {
+    opacity: 1 !important;
+}
+.scroll-btn {
+    display: flex !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
 }
 .scroll-btn {
 width: 45px;
