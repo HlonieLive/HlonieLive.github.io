@@ -588,7 +588,7 @@ function createQualificationCard(degree, inst, year, desc) {
     qualGrid.appendChild(newCard);
 }
 
-function openBadgeModal(element) {
+window.openBadgeModal = function(element) {
     const title = element.getAttribute('data-title');
     const desc = element.getAttribute('data-desc');
     

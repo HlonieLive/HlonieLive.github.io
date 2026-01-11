@@ -1429,6 +1429,21 @@ border-bottom-color: var(--primary-color);
 transform: translate(3px, -3px);
 opacity: 1;
 }
+.read-more-badge {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 5px;
+    z-index: 2;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid transparent;
+}
+.read-more-badge:hover {
+    color: #fff;
+    border-bottom-color: #fff;
+    transform: translateY(-2px);
+}
 #add-badge-btn {
 position: relative;
 z-index: 999;
