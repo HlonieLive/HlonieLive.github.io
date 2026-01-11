@@ -522,6 +522,10 @@ transform: translateY(0);
 background: var(--section-bg-1);
 position: relative;
 }
+
+#about-page .intro-text > div {
+    text-align: justify;
+}
 #about::before {
 content: '';
 position: absolute;
@@ -565,6 +569,13 @@ font-weight: 600;
 background: var(--section-bg-2);
 background-image: radial-gradient(circle at center, rgba(255,170,0,0.03) 0%, transparent 70%);
 position: relative;
+}
+/* Remove background from Projects page sections */
+#projects.no-bg {
+    background: transparent !important;
+}
+#projects.no-bg::before {
+    display: none !important;
 }
 #projects::before {
 content: '';
@@ -2215,14 +2226,35 @@ display: inline-flex !important;
 margin: 0 15px;
 vertical-align: middle;
 }
+/* Theme toggle on medium screens */
 @media (max-width: 900px) {
-.nav-links .theme-toggle {
-display: block !important;
-margin: 10px auto;
+  .nav-links .theme-toggle {
+    display: block !important;
+    margin: 10px auto;
+  }
 }
-.mobile-theme-icon {
-display: none !important;
-}
+@media (max-width: 768px) {
+  .highlights-container {
+    padding: 0 1rem;
+  }
+  .highlights-track {
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+  }
+  .highlight-card:not(.slot-3) {
+    display: none !important;
+  }
+  .scroll-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+  }
+  .scroll-btn.prev { 
+    left: 10px; 
+  }
+  .scroll-btn.next { 
+    right: 10px; 
+  }
 }
 
 #certificates {
